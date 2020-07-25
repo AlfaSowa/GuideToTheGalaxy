@@ -6,12 +6,13 @@ import { Places } from "../components/places/Places";
 
 export class UseRoutes extends React.Component<UseRoutesProps> {
     render() {
+        const { isAuth } = this.props;
         return (
             <Router>
                 <div>
                     <Switch>
                         <Route exact path="/">
-                            {this.props.isAuth ? <Redirect to="/" /> : <Places />}
+                            {isAuth ? <Redirect to="/" /> : <Places />}
                         </Route>
                         <Route path="/auth">
                             <Auth />
