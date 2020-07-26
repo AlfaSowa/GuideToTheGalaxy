@@ -17,7 +17,7 @@ export class Place extends React.Component<PlaceProps> {
             <a className="card place" href={place._id} onClick={this.handleClick}>
                 <div className="place__img">{place.img ? <img src={place.img} /> : null}</div>
                 <div className="place__title">{place.name}</div>
-                <div className="place__content"></div>
+                <div className="place__content">qqweqweqwe</div>
             </a>
         );
     }
