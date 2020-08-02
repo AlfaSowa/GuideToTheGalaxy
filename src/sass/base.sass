@@ -5,10 +5,13 @@
 
 body
     font: 16px/1 'Roboto', sans-serif
+    color: $font-main-color
 
-.container
-    max-width: 1200px
-    margin: 0 auto
+.app
+    &__inner
+        display: flex
+        height: calc(100vh - 0px)
 
 .main
-    padding: 40px 15px
+    will-change: padding-left
+    padding-left: $sidebar-width

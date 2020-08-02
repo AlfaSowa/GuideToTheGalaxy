@@ -1,32 +1,29 @@
-import React from "react";
-// import placesData from "./placesData.json";
+import React, { useState, useEffect } from "react";
 
 import { PlaceType } from "../../general/types";
 import { Place } from "./Place";
 import { Loading } from "../lib/Loading";
+import { Link, useRouteMatch, Switch, Route } from "react-router-dom";
+import { PlaceDetails } from "./PlaceDetails";
 
-export class Places extends React.Component<PlacesProps, IPlaces> {
-    state = {
-        isLoading: false,
-        places: [],
-        place: { name: "" },
-    };
+export const Places = (props: PlacesProps) => {
+    const [isLoading, setIsLoading] = useState(false);
+    const [places, setPlaces] = useState([]);
+    const [place, setPlace] = useState({ name: "" });
 
-    fetchPlaces = async () => {
+    const fetchPlaces = async () => {
         await fetch("/api/places/")
             .then((res) => res.json())
             .then((data) => {
-                this.setState({
-                    isLoading: true,
-                    places: data,
-                });
+                setIsLoading(true);
+                setPlaces(data);
             });
     };
 
-    createPlace = async () => {
+    const createPlace = async () => {
         const response = await fetch("/api/places/add", {
             method: "POST",
-            body: JSON.stringify(this.state.place),
+            body: JSON.stringify(place),
             headers: {
                 "Content-Type": "application/json",
             },
@@ -35,43 +32,42 @@ export class Places extends React.Component<PlacesProps, IPlaces> {
         console.log(data);
     };
 
-    handleChange = (value: string) => {
-        this.setState({
-            place: { name: value },
-        });
+    const handleChange = (value: string) => {
+        setPlace({ name: value });
     };
+    let { path, url } = useRouteMatch();
 
-    componentDidMount = (): void => {
-        this.fetchPlaces();
-    };
+    useEffect(() => {
+        if (!isLoading) {
+            fetchPlaces();
+        }
+    }, [isLoading]);
 
-    render() {
-        const { isLoading, places, place } = this.state;
-        console.log(places);
-        return isLoading ? (
-            <React.Fragment>
-                <div className="places grid">
-                    {places.map((item, index) => (
-                        <div key={index} className="grid__item">
+    return isLoading ? (
+        <React.Fragment>
+            <div className="places grid">
+                {places.map((item: PlaceType, index) => (
+                    <div key={index} className="grid__item">
+                        <Link className="card place" to={`${url}/${item._id}`}>
                             <Place place={item} />
-                        </div>
-                    ))}
-                </div>
-                <div>
-                    <input onChange={(e) => this.handleChange(e.target.value)} type="text" id="place" value={place.name} />
-                    <button onClick={this.createPlace}>добавить</button>
-                </div>
-            </React.Fragment>
-        ) : (
-            <Loading value={"places"} />
-        );
-    }
-}
+                        </Link>
+                    </div>
+                ))}
+            </div>
+
+            <div>
+                <input
+                    onChange={(e) => handleChange(e.target.value)}
+                    type="text"
+                    id="place"
+                    value={place.name ? place.name : ""}
+                />
+                <button onClick={createPlace}>добавить</button>
+            </div>
+        </React.Fragment>
+    ) : (
+        <Loading value={"places"} />
+    );
+};
 
 type PlacesProps = {};
-
-interface IPlaces {
-    isLoading: boolean;
-    places: PlaceType[];
-    place: { name: string };
-}
