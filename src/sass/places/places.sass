@@ -1,8 +1,8 @@
-.places
-
 .place
-    border-radius: 10px
     overflow: hidden
+    position: relative
+    display: block
+
     &__img
         height: 150px
         img
@@ -18,3 +18,12 @@
 
     &__content
         height: 200px
+
+    &__delete
+        position: absolute
+        top: 0
+        right: 0
+        background: red
+        width: 30px
+        height: 30px
+        z-index: 1000

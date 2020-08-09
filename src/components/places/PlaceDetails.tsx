@@ -8,6 +8,7 @@ type PlaceType = {
 
 export const PlaceDetails = () => {
     const [place, setPlace] = useState<PlaceType>();
+
     const { placeId } = useParams();
     console.log(placeId);
 

@@ -10,6 +10,7 @@ export const App = (props: AppProps) => {
         <div className="app__inner">
             <Router>
                 <Sidebar />
+
                 <main className="main">
                     <div className="main__inner">
                         <Switch>

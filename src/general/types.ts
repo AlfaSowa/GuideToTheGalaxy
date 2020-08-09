@@ -1,5 +1,5 @@
 export type PlaceType = {
-    _id: string;
+    _id?: string;
     name: string;
     img?: string;
 };
