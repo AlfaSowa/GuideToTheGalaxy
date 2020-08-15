@@ -4,8 +4,11 @@
     padding: 0
 
 body
-    font: 16px/1 'Roboto', sans-serif
+    font: $font-main-family
     color: $font-main-color
+    background: $body-color
+    &.fixed
+        overflow: hidden
 
 .app
     &__inner

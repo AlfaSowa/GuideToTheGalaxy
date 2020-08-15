@@ -61,7 +61,9 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin([{ from: path.resolve(__dirname, "src/favicon.ico"), to: path.resolve(__dirname, "dist") }]),
-        new HtmlWebPackPlugin({ template: "./src/index.html" }),
+        new HtmlWebPackPlugin({
+            template: "./src/index.html",
+        }),
         new MiniCssExtractPlugin(),
     ],
 };

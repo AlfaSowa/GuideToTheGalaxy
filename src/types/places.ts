@@ -8,6 +8,7 @@ export type PlaceType = {
     };
     description?: string;
     country?: string;
+    city?: string;
     tags?: string[];
     coord?: number;
     data?: {

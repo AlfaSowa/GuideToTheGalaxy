@@ -1,29 +1,15 @@
-.place
-    overflow: hidden
-    position: relative
-    display: block
+.places
+    &__add
+        min-height: 300px
+        &-inner
+            width: 100%
+            height: 100%
+            background: $main-color
+            border-radius: 16px
+            display: flex
+            align-items: center
+            justify-content: center
+            cursor: pointer
+            &:hover
+                background: lighten($main-color, 20)
 
-    &__img
-        height: 150px
-        img
-            object-position: 50% 50%
-            object-fit: cover
-    &__title
-        font-size: 1.1rem
-        color: $main-color
-        height: 30px
-        display: flex
-        align-items: center
-        justify-content: center
-
-    &__content
-        height: 200px
-
-    &__delete
-        position: absolute
-        top: 0
-        right: 0
-        background: red
-        width: 30px
-        height: 30px
-        z-index: 1000

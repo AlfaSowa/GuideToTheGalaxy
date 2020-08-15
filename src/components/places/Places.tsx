@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 
-import { PlaceType } from "../../general/types";
 import { Place } from "./Place";
 import { Loading } from "../lib/Loading";
 import { useRouteMatch, useLocation } from "react-router-dom";
 import { useHttp } from "../../hooks/http.hook";
+import { PlacesForm } from "./PlacesForm";
+import { PlaceType } from "../../types/places";
 
 const PLACES_URL = "/api/places";
 
 export const Places = (props: PlacesProps) => {
     const [isLoading, setIsLoading] = useState(false);
     const [places, setPlaces] = useState<PlaceType[]>([]);
-    const [form, setForm] = useState({});
+    const [isShowForm, setIsShowForm] = useState(false);
 
     const { url } = useRouteMatch();
     const parametrs = useLocation().search;
@@ -31,9 +32,14 @@ export const Places = (props: PlacesProps) => {
         const data = await request(`${PLACES_URL}/delete`, "DELETE", { id: id });
     };
 
-    const createPlace = async () => {
+    const createPlace = async (form: any, tags: string[]) => {
+        const dataPlace = { ...form, tags };
+
+        console.log("dataPlace", dataPlace);
+
         try {
-            const data = await request(`${PLACES_URL}/add`, "POST", { ...form });
+            const data = await request(`${PLACES_URL}/add`, "POST", dataPlace);
+            console.log("data.place", data.place);
             setPlaces((prev) => [...prev, data.place]);
         } catch (error) {}
     };
@@ -44,31 +50,29 @@ export const Places = (props: PlacesProps) => {
         setPlaces(data);
     };
 
-    const handleChange = (event: any) => {
-        setForm({ ...form, [event.target.name]: event.target.value });
+    const showForm = () => {
+        setIsShowForm(!isShowForm);
+        document.body.classList.toggle("fixed");
     };
 
     return isLoading ? (
         <React.Fragment>
-            {places.length > 0 && (
-                <div className="places grid">
-                    {places.map((item: PlaceType, index) => (
+            <div className="places grid">
+                {places.length > 0 &&
+                    places.map((item: PlaceType, index) => (
                         <div key={index} className="grid__item">
                             <Place place={item} url={url} deletePlaceFromBd={deletePlace} />
                         </div>
                     ))}
-                </div>
-            )}
 
-            <div className="form">
-                <label>
-                    <span>title</span>
-                    <input type="text" name="title" onChange={handleChange} />
-                </label>
-                <button onClick={createPlace} type="submit">
-                    добавить
-                </button>
+                <div className="grid__item places__add">
+                    <div className="places__add-inner" onClick={showForm}>
+                        добавить карточку
+                    </div>
+                </div>
             </div>
+
+            {isShowForm && <PlacesForm createPlace={createPlace} showForm={showForm} />}
         </React.Fragment>
     ) : (
         <Loading value={"places"} />
