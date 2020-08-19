@@ -4,21 +4,8 @@
     padding: 0
 
 body
-    font: $font-main-family
-    color: $font-main-color
-    background: $body-color
+    font: var(--font-main-family)
+    color: var(--font-main-color)
+    background: var(--body-color)
     &.fixed
         overflow: hidden
-
-.app
-    &__inner
-        display: flex
-        height: calc(100vh - 0px)
-
-.main
-    will-change: padding-left
-    padding-left: $sidebar-width
-    flex: 1
-
-    &__inner
-        padding: 20px

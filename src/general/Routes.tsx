@@ -1,8 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect, useParams } from "react-router-dom";
-
-import { Auth } from "../components/auth/Auth";
-import { Places } from "../components/places/Places";
+import { Places } from "../components/places/places-list/places.component";
 
 export class UseRoutes extends React.Component<UseRoutesProps> {
     render() {

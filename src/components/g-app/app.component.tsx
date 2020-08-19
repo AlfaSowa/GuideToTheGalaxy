@@ -1,20 +1,31 @@
+import styles from "./app.module.sass";
+import "../../sass/global.sass";
+
 import React, { ReactNode } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { Sidebar } from "../sidebar/Sidebar";
-import { Places } from "../places/Places";
-import { PlaceDetails } from "../places/PlaceDetails";
-import { PageType } from "../../types/app";
+import { Places } from "../places/places-list/places.component";
 
 const loggedIn = true;
 
-export const App = (props: AppProps) => {
+type PageType = {
+    router: string;
+    title: string;
+    content: JSX.Element;
+};
+
+interface Props {
+    pages: PageType[];
+}
+
+export const App = (props: Props) => {
     return (
-        <div className="app__inner">
+        <div className={styles.app__inner}>
             <Router>
                 <Sidebar />
 
-                <main className="main">
-                    <div className="main__inner">
+                <main className={styles.main}>
+                    <div className={styles.main__inner}>
                         <Switch>
                             {props.pages.map((page, index) => (
                                 <Route exact path={`/${page.router}`} key={index}>
@@ -29,10 +40,6 @@ export const App = (props: AppProps) => {
     );
 };
 
-type AppProps = {
-    pages: PageType[];
-};
-
 App.defaultProps = {
     pages: [
         {
@@ -45,10 +52,10 @@ App.defaultProps = {
             title: "Места",
             content: <Places />,
         },
-        {
-            router: "places/:placeId",
-            title: "Описание места",
-            content: <PlaceDetails />,
-        },
+        // {
+        //     router: "places/:placeId",
+        //     title: "Описание места",
+        //     content: <PlaceDetails />,
+        // },
     ],
 };

@@ -4,7 +4,7 @@
     "description": "galaxy",
     "main": "index.js",
     "scripts": {
-        "build": "webpack --mode development",
+        "build": "react-scripts build",
         "start": "react-scripts start"
     },
     "browserslist": "> 0.25%, not dead",

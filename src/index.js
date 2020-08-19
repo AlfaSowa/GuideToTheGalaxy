@@ -1,8 +1,5 @@
-//style
-import "./sass/style.sass";
-//react
 import React from "react";
 import ReactDOM from "react-dom";
-import { App } from "./components/app/App";
+import { App } from "./components/g-app/app.component";
 
 ReactDOM.render(<App />, document.getElementById("app"));

@@ -10,18 +10,18 @@ module.exports = {
     entry: ["@babel/polyfill", "./src/index.js"],
     output: { path: path.resolve(__dirname, "./dist") },
     // optimization: {
-    //     minimize: true,
-    //     minimizer: [
-    //         new TerserJSPlugin({
-    //             terserOptions: {
-    //                 output: {
-    //                     comments: false,
-    //                 },
+    // minimize: true,
+    // minimizer: [
+    //     new TerserJSPlugin({
+    //         terserOptions: {
+    //             output: {
+    //                 comments: false,
     //             },
-    //             extractComments: false,
-    //         }),
-    //         new OptimizeCSSAssetsPlugin(),
-    //     ],
+    //         },
+    //         extractComments: false,
+    //     }),
+    //     new OptimizeCSSAssetsPlugin(),
+    // ],
     // },
     devServer: { port: 8181 },
     resolve: { extensions: [".tsx", ".ts", ".js"] },
@@ -64,6 +64,8 @@ module.exports = {
         new HtmlWebPackPlugin({
             template: "./src/index.html",
         }),
-        new MiniCssExtractPlugin(),
+        new MiniCssExtractPlugin({
+            filename: "[name].css",
+        }),
     ],
 };

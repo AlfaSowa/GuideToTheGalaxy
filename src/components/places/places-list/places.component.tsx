@@ -1,17 +1,17 @@
+import styles from "./places.module.sass";
+
 import React, { useState, useEffect } from "react";
-
-import { Place } from "./Place";
-import { Loading } from "../lib/Loading";
+import { Place, PlaceType } from "../places-card/places-card.component";
 import { useRouteMatch, useLocation } from "react-router-dom";
-import { useHttp } from "../../hooks/http.hook";
-import { PlacesForm } from "./PlacesForm";
-import { PlaceType } from "../../types/places";
+import { useHttp } from "../../../hooks/http.hook";
+import { PlacesForm } from "../places-form/places-form.component";
+import { PLACES_URL } from "../../../general/config";
 
-const PLACES_URL = "/api/places";
+interface Props {}
 
-export const Places = (props: PlacesProps) => {
-    const [isLoading, setIsLoading] = useState(false);
+export const Places = (props: Props) => {
     const [places, setPlaces] = useState<PlaceType[]>([]);
+    const [isLoading, setIsLoading] = useState(false);
     const [isShowForm, setIsShowForm] = useState(false);
 
     const { url } = useRouteMatch();
@@ -55,9 +55,9 @@ export const Places = (props: PlacesProps) => {
         document.body.classList.toggle("fixed");
     };
 
-    return isLoading ? (
+    return (
         <React.Fragment>
-            <div className="places grid">
+            <div className={`${styles.places} grid`}>
                 {places.length > 0 &&
                     places.map((item: PlaceType, index) => (
                         <div key={index} className="grid__item">
@@ -65,8 +65,8 @@ export const Places = (props: PlacesProps) => {
                         </div>
                     ))}
 
-                <div className="grid__item places__add">
-                    <div className="places__add-inner" onClick={showForm}>
+                <div className={`grid__item ${styles.places__add}`}>
+                    <div className={styles.places__add_inner} onClick={showForm}>
                         добавить карточку
                     </div>
                 </div>
@@ -74,9 +74,5 @@ export const Places = (props: PlacesProps) => {
 
             {isShowForm && <PlacesForm createPlace={createPlace} showForm={showForm} />}
         </React.Fragment>
-    ) : (
-        <Loading value={"places"} />
     );
 };
-
-type PlacesProps = {};
