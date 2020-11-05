@@ -1,0 +1,32 @@
+{
+    "extends": [
+        "airbnb-typescript",
+        "airbnb/hooks",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "prettier"
+    ],
+    "plugins": ["prettier"],
+    "rules": {
+        "max-len": [2, 120],
+        "indent": ["error", 4],
+        "@typescript-eslint/indent": ["error", 4],
+        "react/jsx-indent": ["error", 4],
+        "react/require-default-props": "off",
+        "linebreak-style": ["error", "windows"],
+        "react/react-in-jsx-scope": "off",
+        "react-hooks/exhaustive-deps": "off",
+        "react/jsx-props-no-spreading": [
+            "error",
+            {
+                "html": "ignore",
+                "exceptions": ["Component"]
+            }
+        ],
+        "jsx-a11y/anchor-is-valid": 0
+    },
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    }
+}

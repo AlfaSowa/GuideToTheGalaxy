@@ -1,14 +1,14 @@
-import styles from "./places-form.module.sass";
+import React, { useState, useRef, ReactNode, useEffect } from 'react';
+import styles from './places-form.module.sass';
 
-import React, { useState, useRef, ReactNode, useEffect } from "react";
-import { Button } from "../../lib/button/button.component";
+// import { Button } from '../../lib/button/button.component';
 
 interface Props {
     createPlace: any;
     showForm: any;
 }
 
-export const PlacesForm = (props: Props) => {
+const PlacesForm = (props: Props) => {
     const [form, setForm] = useState({});
     const tagRef = useRef<HTMLInputElement>(null);
     const [tags, setTags] = useState<string[]>([]);
@@ -25,7 +25,7 @@ export const PlacesForm = (props: Props) => {
         if (tagRef.current?.value) {
             const tag = tagRef.current.value;
             setTags((prev) => [...prev, tag]);
-            tagRef.current.value = "";
+            tagRef.current.value = '';
         }
     };
 
@@ -38,7 +38,7 @@ export const PlacesForm = (props: Props) => {
             <div className={styles.modal__inner}>
                 <div className={styles.modal__header}>
                     <h2 className={styles.modal__title}>Добавить карточку</h2>
-                    <div className={styles.modal__close} onClick={props.showForm}></div>
+                    <div className={styles.modal__close} onClick={props.showForm} />
                 </div>
 
                 <div className={styles.modal__content}>
@@ -73,12 +73,14 @@ export const PlacesForm = (props: Props) => {
                             </div>
                         </div>
 
-                        <div className={styles.form__footer}>
+                        {/* <div className={styles.form__footer}>
                             <Button onClick={createPlace} type="submit" text="Добавить" />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
         </div>
     );
 };
+
+export default PlacesForm;

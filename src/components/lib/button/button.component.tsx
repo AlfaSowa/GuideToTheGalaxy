@@ -1,17 +1,18 @@
-import styles from "./button.module.sass";
-
-import React, { useState } from "react";
+import React, { ReactElement } from 'react';
+import styles from './button.module.sass';
 
 interface Props {
-    onClick: any;
-    type?: any;
-    text: string;
+    onClick: () => void;
+    text?: string;
 }
 
-export const Button = (props: Props) => {
+const Button = (props: Props): ReactElement => {
+    const { onClick, text } = props;
     return (
-        <button className={styles.btn} onClick={props.onClick} type={props.type || "text"}>
-            {props.text}
+        <button className={styles.btn} onClick={() => onClick} type="button">
+            {text}
         </button>
     );
 };
+
+export default Button;

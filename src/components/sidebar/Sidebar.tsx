@@ -1,8 +1,8 @@
-import React from "react";
-import { Navigation } from "./Navigation";
-import { Logo } from "./Logo";
+import React, { ReactElement } from 'react';
+import { Navigation } from './Navigation';
+import { Logo } from './Logo';
 
-export const Sidebar = (props: SidebarProps) => {
+export const Sidebar = (): ReactElement => {
     return (
         <div className="sidebar">
             <div className="sidebar__inner">
@@ -13,4 +13,4 @@ export const Sidebar = (props: SidebarProps) => {
     );
 };
 
-type SidebarProps = {};
+export default Sidebar;
