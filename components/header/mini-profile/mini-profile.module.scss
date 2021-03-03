@@ -1,0 +1,13 @@
+.profile {
+  margin-left: auto;
+  position: relative;
+
+  &__avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    background: var(--color-main);
+    cursor: pointer;
+    overflow: hidden;
+  }
+}

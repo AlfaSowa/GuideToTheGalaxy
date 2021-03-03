@@ -1,0 +1,48 @@
+.nav {
+  &__item {
+  }
+
+  &__link {
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+
+    &:hover {
+      background: #000;
+      color: #fff;
+    }
+  }
+}
+
+.nesting {
+  transition: all 0.2s linear;
+  overflow: hidden;
+  background: #383737;
+
+  &__item {
+    padding: 8px;
+    cursor: pointer;
+    position: relative;
+
+    // &:before,
+    // &:after {
+    //   content: '';
+    //   height: 20px;
+    //   width: 2px;
+    //   background: red;
+    //   position: absolute;
+    //   left: 20px;
+    // }
+    // &:before {
+    //   top: 0;
+    // }
+    // &:after {
+    //   bottom: 0;
+    // }
+
+    &:hover {
+      background: #000;
+    }
+  }
+}

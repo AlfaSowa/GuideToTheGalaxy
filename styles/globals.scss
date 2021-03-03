@@ -1,0 +1,23 @@
+@import 'carbon-components/scss/globals/scss/styles.scss';
+@import './theme.scss';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font: 16px/1 Roboto, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
