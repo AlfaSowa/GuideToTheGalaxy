@@ -1,9 +1,0 @@
-.layout {
-  display: flex;
-  &__content {
-    flex: 1;
-    background: #aa8b8b;
-    height: calc(100vh - 45px);
-    max-height: calc(100vh - 45px);
-  }
-}

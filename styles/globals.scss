@@ -1,6 +1,10 @@
 @import 'carbon-components/scss/globals/scss/styles.scss';
 @import './theme.scss';
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   padding: 0;
@@ -13,11 +17,12 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 img {
   width: 100%;
   height: 100%;
+}
+
+p {
+  font-size: 0.9rem;
+  line-height: 1;
 }

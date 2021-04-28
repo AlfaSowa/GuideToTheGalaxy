@@ -1,6 +1,5 @@
-import { useRouter } from 'next/router';
 import CustomHead from '../../components/lib/head/head.component';
-import PlacesList from '../../components/places/list.component';
+import PlacesPage from '../../components/places/page.component';
 import PublicLayout from '../../layouts/public.layout';
 
 export const getServerSideProps = async ({ query, res, req }): Promise<any> => {
@@ -10,12 +9,11 @@ export const getServerSideProps = async ({ query, res, req }): Promise<any> => {
 };
 
 export const Places = (): JSX.Element => {
-  const router = useRouter();
   return (
     <PublicLayout title="Places">
       <CustomHead title="места" />
 
-      <PlacesList />
+      <PlacesPage />
     </PublicLayout>
   );
 };

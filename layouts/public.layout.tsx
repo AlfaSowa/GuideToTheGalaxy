@@ -1,24 +1,39 @@
+import { createStyles, makeStyles } from '@material-ui/core';
 import { ReactNode } from 'react';
 import Header from '../components/header/header.component';
 import Container from '../components/lib/container/container.component';
 import Sidebar from '../components/sidebar/sidebar.component';
-import styles from './layout.module.scss';
 
 interface PublicLayoutProps {
   children: ReactNode;
   title: string;
 }
 
+const useStyles = makeStyles((theme) => ({
+  layout: {
+    display: 'flex',
+  },
+  content: {
+    flex: '1',
+    background: '#aa8b8b',
+    height: 'calc(100vh - 45px)',
+    maxHeight: 'calc(100vh - 45px)',
+    overflowY: 'auto',
+  },
+}));
+
 const PublicLayout = ({ children, title }: PublicLayoutProps): JSX.Element => {
+  const classes = useStyles();
+
   return (
     <>
       <Header />
 
       <main>
-        <Container className={styles.layout}>
-          <Sidebar title={title} />
+        <Container className={classes.layout}>
+          {/* <Sidebar title={title} /> */}
 
-          <div className={styles.layout__content}>{children}</div>
+          <div className={classes.content}>{children}</div>
         </Container>
       </main>
     </>

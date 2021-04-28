@@ -2,6 +2,10 @@
   flex: 0 0 300px;
   background: #d8d6d6;
 
+  @media (max-width: 1200px) {
+    flex: 0 0 50px;
+  }
+
   &__block {
     padding: 8px 0;
     &:not(:last-child) {
