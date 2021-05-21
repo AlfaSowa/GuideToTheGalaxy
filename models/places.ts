@@ -1,10 +1,8 @@
-import { createEvent, createStore } from 'effector';
+import { fork } from 'effector';
+import { app } from './model';
 
-export const places = createStore([]);
-export const changed = createEvent();
+export const getPlaces = app.createEvent();
 
-const updateStore = (state, data) => {
-  return [...data];
-};
-
-places.on(changed, updateStore);
+export const $places = app
+  .createStore<any[]>([])
+  .on(getPlaces, (_, data) => data);

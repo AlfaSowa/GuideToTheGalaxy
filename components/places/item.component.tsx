@@ -14,13 +14,12 @@ const useStyles = makeStyles((theme) => ({
 
 const PlacesItem = ({ item }): JSX.Element => {
   const classes = useStyles();
-  const router = useRouter();
 
   console.log(item);
 
   return (
     <div>
-      <div>{item.name}</div>
+      <div>{item?.name}</div>
     </div>
   );
 };

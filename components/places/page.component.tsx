@@ -4,10 +4,9 @@ import GridList from '../lib/grid/list.component';
 import GridItem from '../lib/grid/item.component';
 import { makeStyles } from '@material-ui/core';
 import { Axios } from '../../utils/axios';
-import { useEffect, useMemo, useState } from 'react';
-import { createEvent, createStore } from 'effector';
-import { places as placesData, changed } from '../../models/places';
-import { useStore } from 'effector-react';
+import { useEffect } from 'react';
+import { $places } from '../../models/places';
+import { useStore } from 'effector-react/ssr';
 
 const useStyles = makeStyles((theme) => ({
   mediaQuery: {},
@@ -15,35 +14,7 @@ const useStyles = makeStyles((theme) => ({
 
 const PlacesPage = (): JSX.Element => {
   const classes = useStyles();
-  const places = useStore<any[]>(placesData);
-
-  const fetchData = async () => {
-    console.log('places', places);
-    const response = await Axios.get('product/get/list', {
-      params: {
-        search: null,
-        storeId: null,
-        storeAlias: null,
-        catalogCategoryId: null,
-        catalogCategoryAlias: null,
-        pageSize: null,
-        page: null,
-        filters: null,
-        sortType: null,
-        sortOrderType: null,
-      },
-    });
-
-    if (response.status === 200) {
-      changed(response?.data?.data);
-    }
-  };
-
-  useEffect(() => {
-    if (places.length === 0) {
-      fetchData();
-    }
-  }, []);
+  const places = useStore<any[]>($places);
 
   return (
     <div>

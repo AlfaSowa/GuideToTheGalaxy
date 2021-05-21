@@ -47,7 +47,9 @@ const PlacesCard = ({ item }): JSX.Element => {
     <Link href={`/places/${item.id}`}>
       <a className={classes.inner}>
         <div className={classes.img}>
-          <img src={item?.images[0]?.url} alt="alt" />
+          {item?.images?.length > 0 && (
+            <img src={item?.images[0]?.url} alt="alt" />
+          )}
         </div>
 
         <div className={classes.content}>

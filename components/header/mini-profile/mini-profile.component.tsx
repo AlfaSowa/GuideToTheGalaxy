@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { $account } from '../../../models/account';
 import MiniProfileDropdown from './dropdown/dropdown.component';
 import styles from './mini-profile.module.scss';
 
-const MiniProfile = (): JSX.Element => {
+const MiniProfile123 = (): JSX.Element => {
   const [isShow, setIsShow] = useState(false);
 
   return (
@@ -22,4 +23,4 @@ const MiniProfile = (): JSX.Element => {
   );
 };
 
-export default MiniProfile;
+export default MiniProfile123;

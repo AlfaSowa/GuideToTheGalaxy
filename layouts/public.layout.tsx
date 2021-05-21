@@ -1,7 +1,7 @@
 import { createStyles, makeStyles } from '@material-ui/core';
 import { ReactNode } from 'react';
 import Header from '../components/header/header.component';
-import Container from '../components/lib/container/container.component';
+import Container from '../components/lib/container.component';
 import Sidebar from '../components/sidebar/sidebar.component';
 
 interface PublicLayoutProps {
@@ -30,7 +30,7 @@ const PublicLayout = ({ children, title }: PublicLayoutProps): JSX.Element => {
       <Header />
 
       <main>
-        <Container className={classes.layout}>
+        <Container>
           {/* <Sidebar title={title} /> */}
 
           <div className={classes.content}>{children}</div>

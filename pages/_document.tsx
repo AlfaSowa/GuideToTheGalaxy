@@ -1,7 +1,6 @@
 import React from 'react';
 import { ServerStyleSheets } from '@material-ui/core';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
-import CustomHead from '../components/lib/head/head.component';
 
 export default class MyDocument extends Document {
   render() {

@@ -1,32 +1,26 @@
-import { useStore } from 'effector-react';
-import Head from 'next/head';
-import CustomHead from '../components/lib/head/head.component';
+import { useStore } from 'effector-react/ssr';
+import { useRouter } from 'next/router';
+import CustomHead from '../components/lib/head.component';
 import PublicLayout from '../layouts/public.layout';
-import { places as placesData, changed } from '../models/places';
+import { $account } from '../models/account';
+import { app } from '../models/model';
+import { $places } from '../models/places';
+import { useScope } from '../models/useScope';
 
-// export const getServerSideProps = () => {
-//   if (true) {
-//     return {
-//       redirect: {
-//         destination: '/places',
-//         permanent: false,
-//       },
-//     };
-//   }
-
-//   return {
-//     props: {},
-//   };
-// };
+export const getServerSideProps = async ({ query, res, req }): Promise<any> => {
+  return {
+    props: {},
+  };
+};
 
 const Home = () => {
-  const places = useStore(placesData);
+  const router = useRouter();
 
   return (
     <PublicLayout title="Home">
       <CustomHead title="главная" />
 
-      <div>123</div>
+      <button onClick={() => router.push('/places')}>places</button>
     </PublicLayout>
   );
 };

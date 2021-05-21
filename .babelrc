@@ -8,6 +8,13 @@
         "displayName": true,
         "preprocess": false
       }
+    ],
+    [
+      "effector/babel-plugin",
+      {
+        "addLoc": true,
+        "reactSsr": true
+      }
     ]
   ]
 }
