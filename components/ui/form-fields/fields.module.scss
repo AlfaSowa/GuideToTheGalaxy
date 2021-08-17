@@ -1,0 +1,9 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+
+  &__label {
+    padding: 10px 5px;
+  }
+}
