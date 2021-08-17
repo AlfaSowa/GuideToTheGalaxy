@@ -3,6 +3,8 @@ import PlacesPage from '../../components/places/page.component';
 import PublicLayout from '../../layouts/public.layout';
 import { $places, getPlaces } from '../../models/places';
 import { getPlacesFetch } from '../../methods/places';
+import { $account } from '../../models/account';
+import { getAccount } from '../../methods/account';
 
 export const getServerSideProps = async ({ query, res, req }): Promise<any> => {
   return {

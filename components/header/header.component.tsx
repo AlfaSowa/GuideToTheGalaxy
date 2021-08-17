@@ -1,33 +1,16 @@
 import { makeStyles } from '@material-ui/core';
 import Link from 'next/link';
-import Container from '../lib/container.component';
+import Container from '../lib/container/container.component';
 import MiniProfile from '../mini-profile/mini-profile.component';
 import Logo from '../ui/logo.component';
 import { Navigation, navigation } from './header-data';
 import styles from './header.module.scss';
 
-const useStyles = makeStyles((theme) => ({
-  header: {
-    height: '42px',
-    background: 'var(--color-primary)',
-    display: 'flex',
-    alignItems: 'center',
-  },
-  logo: {
-    margin: '0 16px 0 0',
-  },
-  profile: {
-    margin: '0 0 0 auto',
-  },
-}));
-
 const Header = (): JSX.Element => {
-  const classes = useStyles();
-
   return (
-    <header className={classes.header}>
+    <header className={styles.header}>
       <Container>
-        <div className={classes.logo}>
+        <div className={styles.logo}>
           <Link href="/">
             <a>
               <Logo />
@@ -35,7 +18,7 @@ const Header = (): JSX.Element => {
           </Link>
         </div>
 
-        <div className={classes.profile}>
+        <div className={styles.profile}>
           <MiniProfile />
         </div>
       </Container>

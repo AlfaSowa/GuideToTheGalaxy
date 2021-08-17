@@ -1,32 +1,3 @@
 .sidebar {
-  flex: 0 0 300px;
-  background: #d8d6d6;
-
-  @media (max-width: 1200px) {
-    flex: 0 0 50px;
-  }
-
-  &__block {
-    padding: 8px 0;
-    &:not(:last-child) {
-      border-bottom: 1px solid #000;
-    }
-  }
-
-  &__header {
-    padding: 0 8px;
-  }
-
-  &__back {
-    border: none;
-    background: none;
-    font-size: 1rem;
-    outline: none;
-    padding: 0;
-    cursor: pointer;
-    margin: 0 0 8px 0;
-    &:hover {
-      color: var(--color-second);
-    }
-  }
+  flex: 0 0 250px;
 }

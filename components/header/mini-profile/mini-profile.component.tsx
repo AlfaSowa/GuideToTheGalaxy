@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { $account } from '../../../models/account';
 import MiniProfileDropdown from './dropdown/dropdown.component';
 import styles from './mini-profile.module.scss';
 

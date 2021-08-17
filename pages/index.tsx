@@ -1,26 +1,28 @@
-import { useStore } from 'effector-react/ssr';
 import { useRouter } from 'next/router';
 import CustomHead from '../components/lib/head.component';
+import Frontpage from '../GTGPages/frontpage/frontpage.component';
 import PublicLayout from '../layouts/public.layout';
+import { getAccount } from '../methods/account';
 import { $account } from '../models/account';
-import { app } from '../models/model';
-import { $places } from '../models/places';
-import { useScope } from '../models/useScope';
 
-export const getServerSideProps = async ({ query, res, req }): Promise<any> => {
-  return {
-    props: {},
-  };
-};
+// export const getServerSideProps = async ({ query, res, req }): Promise<any> => {
+//   return {
+//     props: {
+//       initialState: {
+//         [$account.sid]: $account.getState()
+//           ? $account.getState()
+//           : await getAccount(req.headers.cookie),
+//       },
+//     },
+//   };
+// };
 
-const Home = () => {
-  const router = useRouter();
-
+const Home = (): JSX.Element => {
   return (
     <PublicLayout title="Home">
       <CustomHead title="главная" />
 
-      <button onClick={() => router.push('/places')}>places</button>
+      <Frontpage />
     </PublicLayout>
   );
 };
