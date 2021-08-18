@@ -1,21 +1,23 @@
 import { theme } from '../styles/theme';
 import { ThemeProvider } from '@material-ui/core/styles';
 import '../styles/globals.scss';
-import { useScope } from '../models/useScope';
-import { app } from '../models/model';
-import { Provider } from 'effector-react/ssr';
-import { $places } from '../models/places';
+import { useEffect } from 'react';
+import { $account, getAccountFx } from '../models/account';
+import { useStore } from 'effector-react';
+import { AppProps } from 'next/app';
 
-function MyApp({ Component, pageProps }) {
-  const scope = useScope(app, pageProps.initialState);
+const WrappedApp = ({ Component, pageProps }: AppProps): JSX.Element => {
+  const account = useStore($account);
 
-  return (
-    <ThemeProvider theme={theme}>
-      <Provider value={scope}>
-        <Component {...pageProps} />
-      </Provider>
-    </ThemeProvider>
-  );
-}
+  useEffect(() => {
+    if (!account) {
+      (async () => {
+        await getAccountFx(document.cookie);
+      })();
+    }
+  }, [account]);
 
-export default MyApp;
+  return <Component {...pageProps} />;
+};
+
+export default WrappedApp;

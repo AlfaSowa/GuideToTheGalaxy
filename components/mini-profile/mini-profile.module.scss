@@ -1,0 +1,12 @@
+.root {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  background: red;
+  border-radius: 50%;
+  margin: 0 8px 0 0;
+}

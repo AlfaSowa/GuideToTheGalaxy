@@ -12,8 +12,8 @@
     [
       "effector/babel-plugin",
       {
-        "addLoc": true,
-        "reactSsr": true
+        "addLoc": true
+        // "reactSsr": true
       }
     ]
   ]

@@ -1,20 +1,32 @@
-import { useStore } from 'effector-react/ssr';
+import { useStore } from 'effector-react';
+import Link from 'next/link';
 import { $account } from '../../models/account';
-import NoAuth from './noAuth.component';
+import styles from './mini-profile.module.scss';
 
 const MiniProfile = (): JSX.Element => {
   const account = useStore($account);
 
+  console.log('account', account);
+
   return (
-    <div>
-      {account && (
-        <div>
-          <div>1111111</div>
-        </div>
+    <>
+      {!account && (
+        <Link href="/login">
+          <a>Вход</a>
+        </Link>
       )}
 
-      {!account && <NoAuth />}
-    </div>
+      {account && (
+        <div className={styles.root}>
+          <div className={styles.avatar}>
+            {account?.avatar && <div></div>}
+            {!account?.avatar && <div></div>}
+          </div>
+
+          <div>Имя</div>
+        </div>
+      )}
+    </>
   );
 };
 

@@ -18,7 +18,7 @@ const Header = (): JSX.Element => {
           </Link>
         </div>
 
-        <div className={styles.profile}>
+        <div className={styles.header__content}>
           <MiniProfile />
         </div>
       </Container>
