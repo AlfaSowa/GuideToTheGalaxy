@@ -4,11 +4,11 @@ import PublicLayout from '../layouts/public.layout';
 
 const Login = (): JSX.Element => {
   return (
-    <PublicLayout title="Login">
+    <>
       <CustomHead title="Вход" />
 
       <Loginpage />
-    </PublicLayout>
+    </>
   );
 };
 

@@ -6,25 +6,25 @@ import styles from './mini-profile.module.scss';
 const MiniProfile = (): JSX.Element => {
   const account = useStore($account);
 
-  console.log('account', account);
-
   return (
     <>
       {!account && (
         <Link href="/login">
-          <a>Вход</a>
+          <a className={styles.text}>Вход</a>
         </Link>
       )}
 
       {account && (
-        <div className={styles.root}>
-          <div className={styles.avatar}>
-            {account?.avatar && <div></div>}
-            {!account?.avatar && <div></div>}
-          </div>
+        <Link href="/profile">
+          <a className={styles.root}>
+            <div className={styles.avatar}>
+              {account?.avatar && <div></div>}
+              {!account?.avatar && <div></div>}
+            </div>
 
-          <div>Имя</div>
-        </div>
+            <div className={styles.text}>{account.firstName}</div>
+          </a>
+        </Link>
       )}
     </>
   );

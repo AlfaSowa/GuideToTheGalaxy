@@ -1,5 +1,5 @@
 import CustomHead from '../components/lib/head.component';
-import Registrationpage from '../GTGPages/registration/registration.component';
+import RegistrationPage from '../GTGPages/registration/registration.component';
 import PublicLayout from '../layouts/public.layout';
 
 const Registration = (): JSX.Element => {
@@ -7,7 +7,7 @@ const Registration = (): JSX.Element => {
     <PublicLayout title="Registration">
       <CustomHead title="Регистрация" />
 
-      <Registrationpage />
+      <RegistrationPage />
     </PublicLayout>
   );
 };

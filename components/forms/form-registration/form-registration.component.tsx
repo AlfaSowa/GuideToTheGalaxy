@@ -1,24 +1,72 @@
+import { Form, Formik } from 'formik';
 import Button from '../../ui/button/button.component';
 import TextField from '../../ui/form-fields/text-field';
+import {
+  FormActions,
+  FormContent,
+  FormItem,
+  FormTitle,
+} from '../forms.component';
 import style from './form-registration.module.scss';
 
 const FormRegistration = (): JSX.Element => {
+  const onSubmit = async ({ username, password }) => {
+    console.log(username, password);
+  };
+
   return (
-    <div className={style.form}>
-      <div className={style.form__title}>Регистрация</div>
+    <Formik
+      initialValues={{
+        username: '',
+        password: '',
+      }}
+      onSubmit={(values) => {
+        onSubmit(values);
+      }}
+      validateOnChange={false}
+      validateOnBlur={false}
+    >
+      {({
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        isSubmitting,
+        /* and other goodies */
+      }) => (
+        <Form noValidate>
+          <FormTitle>Регистрация</FormTitle>
 
-      <div className={style.form__item}>
-        <TextField type="text" name="Email" />
-      </div>
+          <FormContent>
+            <FormItem>
+              <TextField
+                label="Имя"
+                type="text"
+                name="username"
+                value={values.username}
+                onChange={handleChange}
+              />
+            </FormItem>
 
-      <div className={style.form__item}>
-        <TextField type="password" name="Пароль" />
-      </div>
+            <FormItem>
+              <TextField
+                label="Пароль"
+                type="password"
+                name="password"
+                value={values.password}
+                onChange={handleChange}
+              />
+            </FormItem>
+          </FormContent>
 
-      <div>
-        <Button text="Зарегистрироваться" />
-      </div>
-    </div>
+          <FormActions>
+            <Button text="Зарегистрироваться" />
+          </FormActions>
+        </Form>
+      )}
+    </Formik>
   );
 };
 

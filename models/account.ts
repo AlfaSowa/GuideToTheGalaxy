@@ -29,3 +29,5 @@ export const $account = createStore(null).on(
   getAccountFx.doneData,
   (_, data) => data,
 );
+
+$account.watch((accountData) => console.log('accountData:', accountData));
