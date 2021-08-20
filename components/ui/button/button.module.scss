@@ -1,8 +1,19 @@
-.button {
+.btn {
   display: flex;
   width: 100%;
   cursor: pointer;
   padding: 5px 5px;
   align-items: center;
   justify-content: center;
+  &__primary {
+    background: var(--color-primary);
+  }
+
+  &__second {
+    background: var(--color-second);
+  }
+
+  &__disabled {
+    cursor: default;
+  }
 }

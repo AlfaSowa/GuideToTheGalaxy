@@ -87,7 +87,7 @@ const FormLogin = (): JSX.Element => {
           </FormContent>
 
           <FormActions>
-            <Button text="Войти" />
+            <Button text="Войти" type="submit" />
           </FormActions>
         </Form>
       )}
