@@ -11,31 +11,13 @@ import {
   FormItem,
   FormTitle,
 } from '../forms.component';
-import style from './form-login.module.scss';
+import style from './form-edit-profile.module.scss';
 
-const FormLogin = (): JSX.Element => {
+const FormEditProfile = (): JSX.Element => {
   const [errors, setErrors] = useState(null);
 
   const onSubmit = async ({ username, password }) => {
-    try {
-      const { data, status } = await Axios.post('token/login', {
-        username,
-        password,
-        isPrivacyPolicyAccepted: true, // политика конфиденциальности
-        isUserTermsAccepted: true, // обработка личных данных
-      });
-
-      if (status === 200) {
-        document.cookie = `refreshToken=${data.refreshToken}; path=/;`;
-        document.cookie = `token=${data.token}; path=/;`;
-
-        await getAccountFx(document.cookie);
-
-        router.push('/');
-      }
-    } catch (error) {
-      setErrors(error);
-    }
+    console.log('1');
   };
 
   return (
@@ -46,8 +28,9 @@ const FormLogin = (): JSX.Element => {
           password: '',
         }}
         // validationSchema={schemaLogin}
-        onSubmit={(values) => {
+        onSubmit={(values, { resetForm }) => {
           onSubmit(values);
+          resetForm();
         }}
         validateOnChange={false}
         validateOnBlur={false}
@@ -97,4 +80,4 @@ const FormLogin = (): JSX.Element => {
   );
 };
 
-export default FormLogin;
+export default FormEditProfile;

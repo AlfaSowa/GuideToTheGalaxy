@@ -1,15 +1,11 @@
 .form {
-  &__title {
-    display: flex;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0 0 10px 0;
+  width: 100%;
+
+  @media (min-width: $breakpoints-mobile) {
+    width: 275px;
   }
 
-  &__item {
-    &:not(:last-child) {
-      margin: 0 0 10px 0;
-    }
+  @media (min-width: $breakpoints-table) {
+    width: 275px;
   }
 }

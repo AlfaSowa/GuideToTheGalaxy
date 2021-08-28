@@ -17,13 +17,16 @@ const TextField = ({
   onChange,
 }: TextFieldProps): JSX.Element => {
   return (
-    <fieldset className={style.root}>
-      <legend>{label}</legend>
-
-      <label className={style.root__label}>
-        <input name={name} type={type} value={value} onChange={onChange} />
-      </label>
-    </fieldset>
+    <label className={style.root}>
+      <input
+        className={style.root__input}
+        name={name}
+        type={type}
+        value={value}
+        onChange={onChange}
+        placeholder={label}
+      />
+    </label>
   );
 };
 
