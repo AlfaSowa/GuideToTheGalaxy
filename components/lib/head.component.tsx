@@ -4,11 +4,14 @@ interface CustomHeadProps {
   title?: string;
 }
 
-const CustomHead = ({ title = 'GuideToTheGalaxy' }: CustomHeadProps) => {
-  return (
-    <Head>
-      <title>{title}</title>
-    </Head>
-  );
+const CustomHead = ({ title }: CustomHeadProps) => (
+  <Head>
+    <title>{title}</title>
+  </Head>
+);
+
+CustomHead.defaultProps = {
+  title: 'GuideToTheGalaxy',
 };
+
 export default CustomHead;

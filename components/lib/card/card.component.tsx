@@ -1,7 +1,8 @@
+import { ReactNode } from 'react';
 import style from './card.module.scss';
 
 interface GridProps {
-  children: any;
+  children: ReactNode;
 }
 
 const Card = ({ children }: GridProps): JSX.Element => (

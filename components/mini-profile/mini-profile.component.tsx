@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useStore } from 'effector-react';
 import Link from 'next/link';
 import { $account } from '../../models/account';
@@ -19,11 +20,13 @@ const MiniProfile = (): JSX.Element => {
         <Link href="/profile">
           <a className={styles.root}>
             <div className={styles.avatar}>
-              {account?.avatar && <div></div>}
+              {account?.avatar && <div />}
               {!account?.avatar && <div>{/* <Avatar /> */}</div>}
             </div>
 
-            <div className={styles.text}>{account.firstName}</div>
+            <div className={clsx(styles.text, 'link-base')}>
+              {account.firstName}
+            </div>
           </a>
         </Link>
       )}

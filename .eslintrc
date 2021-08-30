@@ -1,15 +1,10 @@
 {
-  "extends": [
-    "airbnb",
-    "airbnb/hooks",
-    "airbnb-typescript",
-    // "plugin:@typescript-eslint/eslint-recommended",
-    // "plugin:@typescript-eslint/recommended",
-    // "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "prettier"
-  ],
+  "extends": ["airbnb", "airbnb/hooks", "airbnb-typescript"],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["prettier"],
+  "plugins": ["@typescript-eslint"],
+  "env": {
+    "browser": true
+  },
   "rules": {
     "max-len": [2, 200],
     "linebreak-style": ["error", "windows"],
