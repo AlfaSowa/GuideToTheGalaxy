@@ -5,7 +5,7 @@ interface TextFieldProps {
   name: string;
   type?: 'text' | 'password';
   value: any;
-  label: string;
+  placeholder: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -13,7 +13,7 @@ const TextField = ({
   name,
   type,
   value,
-  label,
+  placeholder,
   onChange,
 }: TextFieldProps): JSX.Element => {
   return (
@@ -24,7 +24,7 @@ const TextField = ({
         type={type}
         value={value}
         onChange={onChange}
-        placeholder={label}
+        placeholder={placeholder}
       />
     </label>
   );

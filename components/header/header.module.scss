@@ -1,6 +1,6 @@
 .header {
   height: 45px;
-  background: var(--color-primary);
+  background: var(--color-second);
   display: flex;
   align-items: center;
 
@@ -16,6 +16,6 @@
 .logo {
   flex: 0 0 250px;
   padding: 0 16px;
-  font-size: 1.2rem;
+  font-size: 2rem;
   color: var(--color-main);
 }

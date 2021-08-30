@@ -51,7 +51,7 @@ const FormEditProfile = (): JSX.Element => {
             <FormContent>
               <FormItem>
                 <TextField
-                  label="Имя"
+                  placeholder="Имя"
                   type="text"
                   name="username"
                   value={values.username}
@@ -61,7 +61,7 @@ const FormEditProfile = (): JSX.Element => {
 
               <FormItem>
                 <TextField
-                  label="Пароль"
+                  placeholder="Пароль"
                   type="password"
                   name="password"
                   value={values.password}

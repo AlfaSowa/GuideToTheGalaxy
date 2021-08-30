@@ -8,4 +8,7 @@
   cursor: pointer;
   align-items: center;
   justify-content: center;
+  &__input {
+    background: none;
+  }
 }

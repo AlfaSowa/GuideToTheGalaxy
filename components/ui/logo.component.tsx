@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   logo: {
-    fontSize: '1.2rem',
+    fontSize: '2rem',
     color: 'var(--color-main)',
   },
 }));
