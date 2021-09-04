@@ -8,6 +8,8 @@ import styles from './mini-profile.module.scss';
 const MiniProfile = (): JSX.Element => {
   const account = useStore($account);
 
+  console.log('account', account);
+
   return (
     <>
       {!account && (
