@@ -71,7 +71,7 @@ const FormEditProfile = (): JSX.Element => {
             </FormContent>
 
             <FormActions>
-              <Button text="Войти" type="submit" />
+              <Button type="submit">Войти</Button>
             </FormActions>
           </Form>
         )}

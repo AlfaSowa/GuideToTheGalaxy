@@ -9,10 +9,13 @@ const ProfilePage = (): JSX.Element => {
   return (
     <div className={style.profile}>
       <div className={style.profile__item}>
-        Имя: <span>{account?.firstName}</span>
+        <span>Имя:</span>
+        <span>{account?.firstName}</span>
       </div>
+
       <div className={style.profile__item}>
-        Email: <span>{account?.email}</span>
+        <span>Email:</span>
+        <span>{account?.email}</span>
       </div>
 
       <FormEditProfile />

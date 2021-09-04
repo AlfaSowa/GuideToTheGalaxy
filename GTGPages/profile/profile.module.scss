@@ -6,11 +6,9 @@
     color: #250080;
     font-size: 20px;
     font-weight: 600;
+    color: #641f04;
     &:not(:last-child) {
       margin: 0 0 10px 0;
-    }
-    span {
-      color: #641f04;
     }
   }
 }

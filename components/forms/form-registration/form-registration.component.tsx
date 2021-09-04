@@ -63,7 +63,7 @@ const FormRegistration = (): JSX.Element => {
             </FormContent>
 
             <FormActions>
-              <Button text="Зарегистрироваться" type="submit" />
+              <Button type="submit">Зарегистрироваться</Button>
             </FormActions>
           </Form>
         )}

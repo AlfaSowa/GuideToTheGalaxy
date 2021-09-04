@@ -1,5 +1,5 @@
 import { Form, Formik, validateYupSchema } from 'formik';
-import router from 'next/router';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { getAccountFx } from '../../../models/account';
 import { Axios } from '../../../utils/axios';
@@ -14,6 +14,7 @@ import {
 import style from './form-login.module.scss';
 
 const FormLogin = (): JSX.Element => {
+  const router = useRouter();
   const [errors, setErrors] = useState(null);
 
   const onSubmit = async ({ username, password }) => {
@@ -52,16 +53,7 @@ const FormLogin = (): JSX.Element => {
         validateOnChange={false}
         validateOnBlur={false}
       >
-        {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-          isSubmitting,
-          /* and other goodies */
-        }) => (
+        {({ values, handleChange }) => (
           <Form noValidate>
             <FormTitle>Вход</FormTitle>
 
@@ -88,7 +80,8 @@ const FormLogin = (): JSX.Element => {
             </FormContent>
 
             <FormActions>
-              <Button text="Войти" type="submit" />
+              <Button type="submit">Войти</Button>
+              <Button onClick={() => router.push('/')}>Отмена</Button>
             </FormActions>
           </Form>
         )}

@@ -1,49 +1,48 @@
+/* eslint-disable react/button-has-type */
 import clsx from 'clsx';
+import { ReactNode } from 'react';
 import style from './button.module.scss';
 
 interface ButtonProps {
-  type?: 'button' | 'submit' | 'reset';
-  text: string;
-  variant?: 'primary' | 'second';
+  type?: JSX.IntrinsicElements['button']['type'];
+  variant?: 'primary' | 'secondary';
   disabled?: boolean;
+  children: ReactNode;
+  fullWidth?: boolean;
+  onClick?: () => void;
 }
 
 const Button = ({
   type,
-  text,
+  children,
   variant,
   disabled,
-}: ButtonProps): JSX.Element => {
-  const setVariant = () => {
-    switch (variant) {
-      case 'primary':
-        return style.btn__primary;
-
-      case 'second':
-        return style.btn__second;
-
-      default:
-        return null;
-    }
-  };
-
-  return (
-    <button
-      disabled={disabled}
-      type={type}
-      className={clsx(style.btn, setVariant(), {
-        [style.btn__disabled]: disabled,
-      })}
-    >
-      {text}
-    </button>
-  );
-};
+  fullWidth,
+  onClick,
+}: ButtonProps): JSX.Element => (
+  <button
+    disabled={disabled}
+    type={type}
+    onClick={() => {
+      if (onClick) {
+        onClick();
+      }
+    }}
+    className={clsx(style.btn, style[`btn__${variant}`], {
+      [style.btn__disabled]: disabled,
+      [style.btn__fullwidth]: fullWidth,
+    })}
+  >
+    {children}
+  </button>
+);
 
 Button.defaultProps = {
   type: 'button',
   variant: 'primary',
   disabled: false,
+  fullWidth: false,
+  onClick: false,
 };
 
 export default Button;

@@ -3,12 +3,15 @@ import { $account, getAccountFx } from '../../models/account';
 import ProfilePage from '../../GTGPages/profile/profile.component';
 import CustomHead from '../../components/lib/head.component';
 import PublicLayout from '../../layouts/public.layout';
-import router from 'next/router';
+
+interface ProfileProps {
+  account: any;
+}
 
 export const getServerSideProps = async ({ req }) => {
-  const acc = await getAccountFx(req.headers.cookie);
+  const account = await getAccountFx(req.headers.cookie);
 
-  if (!acc) {
+  if (!account) {
     return {
       redirect: {
         destination: '/',
@@ -18,11 +21,13 @@ export const getServerSideProps = async ({ req }) => {
   }
 
   return {
-    props: acc,
+    props: account,
   };
 };
 
-const Profile = (): JSX.Element => {
+const Profile = ({ account }: ProfileProps): JSX.Element => {
+  console.log('account', account);
+
   return (
     <PublicLayout title="Profile">
       <CustomHead title="Профиль" />
