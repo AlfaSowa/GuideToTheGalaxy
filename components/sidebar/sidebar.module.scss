@@ -26,11 +26,13 @@
   &__link {
     height: 32px;
     display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 0 8px;
+    align-items: center;
     &:hover {
       background: var(--color-secondary);
+    }
+    &_expanded {
+      justify-content: center;
     }
   }
 
@@ -38,8 +40,9 @@
     width: 24px;
     height: 24px;
     background: red;
-    & + div {
-      margin: 0 0 0 8px;
-    }
+  }
+
+  &__text {
+    margin: 0 0 0 8px;
   }
 }

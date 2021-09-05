@@ -2,6 +2,8 @@ import clsx from 'clsx';
 import { useStore } from 'effector-react';
 import Link from 'next/link';
 import { $sidebarAction, toogleSidebarActionFx } from '../../models/actions';
+import CustomText from '../ui/text/text.component';
+import { sidebarNav } from './sidebar-data';
 import styles from './sidebar.module.scss';
 
 const Sidebar = (): JSX.Element => {
@@ -25,46 +27,24 @@ const Sidebar = (): JSX.Element => {
       <div className={styles.sidebar__content}>
         <nav className={styles.nav}>
           <ul className={styles.nav__list}>
-            <li className={styles.nav__item}>
-              <Link href="/">
-                <a className={styles.nav__link}>
-                  <div className={styles.nav__icon}>1</div>
-                  {sidebarAction && <div>asdasdasdsadasd</div>}
-                </a>
-              </Link>
-            </li>
-            <li className={styles.nav__item}>
-              <Link href="/">
-                <a className={styles.nav__link}>
-                  <div className={styles.nav__icon}>1</div>
-                  {sidebarAction && <div>asdasdasdsadasd</div>}
-                </a>
-              </Link>
-            </li>
-            <li className={styles.nav__item}>
-              <Link href="/">
-                <a className={styles.nav__link}>
-                  <div className={styles.nav__icon}>1</div>
-                  {sidebarAction && <div>asdasdasdsadasd</div>}
-                </a>
-              </Link>
-            </li>
-            <li className={styles.nav__item}>
-              <Link href="/">
-                <a className={styles.nav__link}>
-                  <div className={styles.nav__icon}>1</div>
-                  {sidebarAction && <div>asdasdasdsadasd</div>}
-                </a>
-              </Link>
-            </li>
-            <li className={styles.nav__item}>
-              <Link href="/">
-                <a className={styles.nav__link}>
-                  <div className={styles.nav__icon}>1</div>
-                  {sidebarAction && <div>asdasdasdsadasd</div>}
-                </a>
-              </Link>
-            </li>
+            {sidebarNav.map((nav) => (
+              <li className={styles.nav__item} key={nav.id}>
+                <Link href="/">
+                  <a
+                    className={clsx(styles.nav__link, {
+                      [styles.nav__link_expanded]: !sidebarAction,
+                    })}
+                  >
+                    <div className={styles.nav__icon}>1</div>
+                    {sidebarAction && (
+                      <CustomText className={styles.nav__text}>
+                        {nav.name}
+                      </CustomText>
+                    )}
+                  </a>
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
