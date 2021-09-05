@@ -17,6 +17,7 @@ const Sidebar = (): JSX.Element => {
     >
       <div className={styles.sidebar__header}>
         <button
+          className={styles.sidebar__btn}
           onClick={() => toogleSidebarActionFx(!sidebarAction)}
           type="button"
         >

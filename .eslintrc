@@ -9,6 +9,7 @@
     "max-len": [2, 200],
     "linebreak-style": ["error", "windows"],
     "react/react-in-jsx-scope": "off",
+    "arrow-body-style": "off",
     "react/jsx-props-no-spreading": [
       "error",
       {
