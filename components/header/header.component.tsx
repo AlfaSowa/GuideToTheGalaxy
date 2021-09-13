@@ -6,7 +6,7 @@ import styles from './header.module.scss';
 const Header = (): JSX.Element => (
   <header className={styles.header}>
     <Container alignCenter>
-      <Link href="/">
+      <Link href='/'>
         <a className={styles.logo}>GuideToTheGalaxy</a>
       </Link>
 

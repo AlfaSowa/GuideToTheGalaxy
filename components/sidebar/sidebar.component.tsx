@@ -19,7 +19,7 @@ const Sidebar = (): JSX.Element => {
         <button
           className={styles.sidebar__btn}
           onClick={() => toogleSidebarActionFx(!sidebarAction)}
-          type="button"
+          type='button'
         >
           {'<<<<'}
         </button>
@@ -29,12 +29,13 @@ const Sidebar = (): JSX.Element => {
         <nav className={styles.nav}>
           <ul className={styles.nav__list}>
             {sidebarNav.map((nav) => (
-              <li className={styles.nav__item} key={nav.id}>
-                <Link href="/">
+              <li
+                className={styles.nav__item}
+                key={nav.id}
+              >
+                <Link href='/'>
                   <a
-                    className={clsx(styles.nav__link, {
-                      [styles.nav__link_expanded]: !sidebarAction,
-                    })}
+                    className={clsx(styles.nav__link, { [styles.nav__link_expanded]: !sidebarAction })}
                   >
                     <div className={styles.nav__icon}>1</div>
                     {sidebarAction && (
