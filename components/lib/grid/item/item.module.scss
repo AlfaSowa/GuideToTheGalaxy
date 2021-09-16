@@ -2,10 +2,10 @@
   flex: 0 0 100%;
   padding: 10px;
   @media (min-width: $breakpoints-mobile) {
-    flex: 0 0 calc(100% / 2);
+    flex: 0 0 calc(100% / 3);
   }
 
   @media (min-width: $breakpoints-table) {
-    flex: 0 0 calc(100% / 3);
+    flex: 0 0 calc(100% / 6);
   }
 }

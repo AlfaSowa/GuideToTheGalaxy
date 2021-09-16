@@ -5,12 +5,17 @@ import Card from '../../components/ui/cards/base/card-base.component';
 import { $places } from '../../models/places';
 import style from './frontpage.module.scss';
 
-const Frontpage = (): JSX.Element => {
-  const places = useStore<any[]>($places);
+interface PlacesProps {
+  placesData: any;
+}
+
+const Frontpage = ({ placesData }: PlacesProps): JSX.Element => {
+  // const places = useStore<any[]>($places);
+
   return (
     <div className={style.main}>
       <GridList>
-        {places.map((item) => (
+        {placesData.map((item) => (
           <GridItem>
             <Card item={item} />
           </GridItem>
