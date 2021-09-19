@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/interactive-supports-focus */
 import clsx from 'clsx';
 import { useStore } from 'effector-react';
 import Link from 'next/link';
@@ -6,14 +8,12 @@ import {
   useState,
 } from 'react';
 import { $account } from '../../models/account';
+import MiniProfileDropdown from './dropdown/dropdown.component';
 import styles from './mini-profile.module.scss';
-// import Avatar from '../../public/img/avatar.svg';
-import Popover from '../ui/popover/popover.component';
 
 const MiniProfile = (): JSX.Element => {
   const account = useStore($account);
   const [open, setOpen] = useState(false);
-  const containerRef = useRef(null);
 
   console.log('account', account);
 
@@ -28,42 +28,23 @@ const MiniProfile = (): JSX.Element => {
       {account && (
         <div
           className={styles.containe}
-          ref={containerRef}
         >
-          <Link href='/profile'>
-            <a className={styles.root}>
-              <div className={styles.avatar}>
-                {account?.avatar && <div />}
-                {!account?.avatar && (
-                  <div>
-                    {/* <Avatar /> */}
-                  </div>
-                )}
-              </div>
-
-              <span className={clsx(styles.text, 'link-base')}>{account.firstName}</span>
-            </a>
-          </Link>
-
-          <button
+          <div
+            className={styles.avatar}
             onClick={() => setOpen(!open)}
-            type='button'
+            role='button'
           >
-            12312
-          </button>
+            {account?.image?.url && (
+              <img
+                src={account.image.url}
+                alt=''
+              />
+            )}
+          </div>
+
+          {open && <MiniProfileDropdown />}
         </div>
       )}
-
-      <Popover
-        open={open}
-        onClose={() => setOpen(false)}
-        anchorEl={containerRef.current}
-      >
-        <div>12312312312</div>
-        <div>12312312312</div>
-        <div>12312312312</div>
-        <div>12312312312</div>
-      </Popover>
     </>
   );
 };

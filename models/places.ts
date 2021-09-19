@@ -1,9 +1,13 @@
-import { createEvent, createStore, fork } from 'effector';
+import {
+  createEvent,
+  createStore,
+  fork,
+} from 'effector';
 import places from '../components/fakeAPI/places';
 
-export const getPlaces = createEvent();
+export const updatePlacesFx = createEvent();
 
 export const $places = createStore<any[]>(places).on(
-  getPlaces,
+  updatePlacesFx,
   (_, data) => data,
 );

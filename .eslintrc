@@ -17,11 +17,11 @@
         "minProperties": 2,
         "consistent": true
       },
-      "ObjectPattern": {
-        "multiline": true,
-        "minProperties": 2,
-        "consistent": true
-      },
+      // "ObjectPattern": {
+      //   "multiline": true,
+      //   "minProperties": 2,
+      //   "consistent": true
+      // },
       "ImportDeclaration": {
         "multiline": true,
         "minProperties": 2,
@@ -48,7 +48,6 @@
     "implicit-arrow-linebreak": [2, "beside"],
     "arrow-body-style": [0, "as-needed"],
     "react/react-in-jsx-scope": "off",
-    "no-cyrillic-string/no-cyrillic-string": "error",
     "react/jsx-props-no-spreading": [
       "error",
       {
