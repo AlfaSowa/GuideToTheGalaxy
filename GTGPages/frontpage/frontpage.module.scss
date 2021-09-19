@@ -1,3 +1,6 @@
 .main {
-  margin: 15px;
+	margin: 5px;
+	@media (min-width: $breakpoints-mobile) {
+		margin: 15px;
+	}
 }

@@ -1,66 +1,67 @@
 .sidebar {
-  height: 100vh;
-  max-height: 100vh;
-  background: var(--color-secondary-hover);
-  display: flex;
-  flex-direction: column;
-  flex: 0 0 50px;
-  @media (min-width: $breakpoints-mobile) {
-    flex: 0 0 250px;
-  }
+	height: calc(100vh - 32px);
+	max-height: calc(100vh - 32px);
+	background: var(--color-secondary-hover);
+	flex-direction: column;
+	flex: 0 0 50px;
+	display: none;
+	@media (min-width: $breakpoints-mobile) {
+		display: flex;
+		flex: 0 0 250px;
+	}
 
-  &_active {
-    flex: 0 0 50px;
-  }
+	&_active {
+		flex: 0 0 50px;
+	}
 
-  &__header {
-    display: flex;
-    justify-content: flex-end;
-  }
+	&__header {
+		display: flex;
+		justify-content: flex-end;
+	}
 
-  &__content {
-    padding: 8px 0;
-    flex: 1;
-    overflow-y: auto;
-  }
+	&__content {
+		padding: 8px 0;
+		flex: 1;
+		overflow-y: auto;
+	}
 
-  &__btn {
-    display: none;
-    @media (min-width: $breakpoints-mobile) {
-      display: block;
-    }
-  }
+	&__btn {
+		display: none;
+		@media (min-width: $breakpoints-mobile) {
+			display: block;
+		}
+	}
 }
 
 .nav {
-  &__link {
-    height: 32px;
-    display: flex;
-    padding: 0 8px;
-    align-items: center;
-    justify-content: center;
-    @media (min-width: $breakpoints-mobile) {
-      justify-content: flex-start;
-    }
-    &:hover {
-      background: var(--color-secondary);
-    }
-    &_expanded {
-      justify-content: center;
-    }
-  }
+	&__link {
+		height: 32px;
+		display: flex;
+		padding: 0 8px;
+		align-items: center;
+		justify-content: center;
+		@media (min-width: $breakpoints-mobile) {
+			justify-content: flex-start;
+		}
+		&:hover {
+			background: var(--color-secondary);
+		}
+		&_expanded {
+			justify-content: center;
+		}
+	}
 
-  &__icon {
-    width: 24px;
-    height: 24px;
-    background: red;
-  }
+	&__icon {
+		width: 24px;
+		height: 24px;
+		background: red;
+	}
 
-  &__text {
-    margin: 0 0 0 8px;
-    display: none;
-    @media (min-width: $breakpoints-mobile) {
-      display: block;
-    }
-  }
+	&__text {
+		margin: 0 0 0 8px;
+		display: none;
+		@media (min-width: $breakpoints-mobile) {
+			display: block;
+		}
+	}
 }

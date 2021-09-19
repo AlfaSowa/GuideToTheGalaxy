@@ -1,7 +1,7 @@
 .content {
-  flex: 1;
-  height: 100vh;
-  max-height: 100vh;
-  overflow-y: auto;
-  background: var(--color-bg);
+	flex: 1;
+	height: calc(100vh - 32px);
+	max-height: calc(100vh - 32px);
+	overflow-y: auto;
+	background: var(--color-bg);
 }
