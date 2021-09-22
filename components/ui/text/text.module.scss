@@ -1,7 +1,7 @@
 .root {
-  color: var(--color-main);
-
+  color: var(--color-main-dark);
+  
   &__dark {
-    color: var(--color-main-dark);
+    color: var(--color-main);
   }
 }

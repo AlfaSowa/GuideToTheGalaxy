@@ -1,13 +1,18 @@
 import clsx from 'clsx';
 import { useStore } from 'effector-react';
 import Link from 'next/link';
-import { $sidebarAction, toogleSidebarActionFx } from '../../models/actions';
+import {
+  $sidebarAction,
+  toogleSidebarActionFx,
+} from '../../models/actions';
+import { $pages } from '../../models/pages';
 import CustomText from '../ui/text/text.component';
 import { sidebarNav } from './sidebar-data';
 import styles from './sidebar.module.scss';
 
 const Sidebar = (): JSX.Element => {
   const sidebarAction = useStore($sidebarAction);
+  const pages = useStore($pages);
 
   return (
     <div
@@ -28,19 +33,19 @@ const Sidebar = (): JSX.Element => {
       <div className={styles.sidebar__content}>
         <nav className={styles.nav}>
           <ul className={styles.nav__list}>
-            {sidebarNav.map((nav) => (
+            {pages.map((page) => (
               <li
+                key={page.id}
                 className={styles.nav__item}
-                key={nav.id}
               >
-                <Link href='/'>
+                <Link href={page.link}>
                   <a
                     className={clsx(styles.nav__link, { [styles.nav__link_expanded]: !sidebarAction })}
                   >
                     <div className={styles.nav__icon}>1</div>
                     {sidebarAction && (
                       <CustomText className={styles.nav__text}>
-                        {nav.name}
+                        {page.name}
                       </CustomText>
                     )}
                   </a>

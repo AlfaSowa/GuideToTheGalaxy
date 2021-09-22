@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import Header from '../components/header/header.component';
 import Container from '../components/lib/container/container.component';
 import Sidebar from '../components/sidebar/sidebar.component';
+import CustomText from '../components/ui/text/text.component';
 import styles from './layout.module.scss';
 
 interface PublicLayoutProps {
@@ -13,13 +14,17 @@ const PublicLayout = ({ children, title }: PublicLayoutProps): JSX.Element => (
   <>
     <Header />
 
-    <main>
-      <Container>
-        <Sidebar />
+    <Container>
+      <Sidebar />
 
-        <div className={styles.content}>{children}</div>
-      </Container>
-    </main>
+      <div className={styles.content}>
+        <CustomText component='h1'>{title}</CustomText>
+
+        <main>
+          {children}
+        </main>
+      </div>
+    </Container>
   </>
 );
 

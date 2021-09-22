@@ -1,10 +1,13 @@
 import clsx from 'clsx';
-import { createElement, ReactNode } from 'react';
+import {
+  createElement,
+  ReactNode,
+} from 'react';
 import styles from './text.module.scss';
 
 interface CustomTextProps {
   children: ReactNode;
-  component?: 'span' | 'p';
+  component?: 'span' | 'p' | 'h1';
   className?: string;
   variant?: 'text' | 'subtext';
   darkMode?: boolean;
