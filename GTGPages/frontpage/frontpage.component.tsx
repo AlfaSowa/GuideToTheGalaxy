@@ -1,11 +1,7 @@
 import style from './frontpage.module.scss';
 
-const Frontpage = (): JSX.Element => {
-  return (
-    <div>
-      <div>123</div>
-    </div>
-  );
+const FrontPage = (): JSX.Element => {
+	return <div></div>;
 };
 
-export default Frontpage;
+export default FrontPage;

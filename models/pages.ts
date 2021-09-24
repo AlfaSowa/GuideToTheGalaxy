@@ -1,33 +1,27 @@
 /* eslint-disable import/prefer-default-export */
+import { createEffect } from 'effector';
 import { createStore } from 'effector-next';
+import { Chapter } from '../interfaces/chapters';
+import { Axios } from '../utils/axios';
 
-type PagesType = {
-  id:number;
-  name: string;
-  link: string;
-};
+export const getPagesDataFx = createEffect(
+	async (): Promise<Chapter[]> => {
+		try {
+			const { data, status } = await Axios.get('chapters');
 
-const pagesInitialData = [
-  {
-    id: 0,
-    name: 'Главная',
-    link: '/',
-  },
-  {
-    id: 1,
-    name: 'Мир',
-    link: '/world',
-  },
-  {
-    id: 1,
-    name: 'Приключения',
-    link: '/adventures',
-  },
-  {
-    id: 1,
-    name: 'Игра',
-    link: '/game',
-  },
-];
+			if (status === 200) {
+				return data;
+			}
+		} catch (error) {
+			console.log(error);
+		}
+		return [];
+	}
+);
 
-export const $pages = createStore<PagesType[]>(pagesInitialData);
+export const $pages = createStore<Chapter[]>([]).on(
+	getPagesDataFx.doneData,
+	(_, pagesData) => pagesData
+);
+
+$pages.watch((data) => console.log(data));

@@ -1,11 +1,8 @@
-import router from 'next/router';
-import Image from '../../image/image.component';
 import style from './card-base.module.scss';
 
 type TypeCard = {
-	id: string;
-	name: string;
-	images: any;
+	description: string;
+	title: string;
 };
 
 interface CardProps {
@@ -13,11 +10,8 @@ interface CardProps {
 }
 
 const Card = ({ item }: CardProps): JSX.Element => {
-	const { id, name, images } = item;
+	const { description, title } = item;
 
-	const onClickCard = () => {
-		router.push(`/places/${id}`);
-	};
 	return (
 		<div className={style.card}>
 			<div className={style.content}>
@@ -26,8 +20,9 @@ const Card = ({ item }: CardProps): JSX.Element => {
 				</div>
 
 				<div className={style.text}>
-					<span>
-						text text textext text textext text textext text textext
+					<span className={style.text__title}>{title}</span>
+					<span className={style.text__description}>
+						{description}
 					</span>
 				</div>
 			</div>
