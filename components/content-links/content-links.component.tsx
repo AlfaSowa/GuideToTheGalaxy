@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Link } from '@material-ui/core';
+import Link from 'next/link';
 import { useStore } from 'effector-react';
 import { useRouter } from 'next/router';
 import {
@@ -11,6 +11,8 @@ import {
   Part,
 } from '../../interfaces/chapters';
 import { $pages } from '../../models/pages';
+import styles from './content-links.module.scss';
+import CustomText from '../ui/text/text.component'
 
 type ListDataType = {
   alias: string
@@ -64,13 +66,24 @@ const ContentLinks = (): JSX.Element => {
   return (
     <div>
       {list && page && (
-        <div>
+        <div className={styles.list}>
           {list.data.map((item) => (
-            <Link
-              href={getUrl(item)}
-            >
-              <a>{item.name}</a>
-            </Link>
+            <div className={styles.list__item}>
+              <Link href={getUrl(item)} key={item.alias}>
+                <a className={styles.card}>
+                  <div className={styles.card__inner}>
+                    <div className={styles.card__img}>
+                      <img src="https://via.placeholder.com/300.png/09f/fff" alt="1" />
+                    </div>
+
+                    <div className={styles.card__content}>
+                      <CustomText component="h5">{item.name}</CustomText>
+                      <CustomText variant="subtext">{item.name}</CustomText>
+                    </div>
+                  </div>
+                </a>
+              </Link>
+            </div>
           ))}
         </div>
       )}

@@ -7,7 +7,7 @@ import styles from './text.module.scss';
 
 interface CustomTextProps {
   children: ReactNode;
-  component?: 'span' | 'p' | 'h1';
+  component?: 'span' | 'p' | 'h1' | 'h5';
   className?: string;
   variant?: 'text' | 'subtext';
   darkMode?: boolean;
