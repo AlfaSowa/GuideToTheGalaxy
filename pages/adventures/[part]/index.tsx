@@ -1,15 +1,15 @@
 import CustomHead from '../../../components/lib/head.component';
-import ThemeList from '../../../components/themes/themes.component';
+import ContentLinks from '../../../components/content-links/content-links.component';
 import PublicLayout from '../../../layouts/public.layout';
 
 const Part = (): JSX.Element => {
-	return (
-		<PublicLayout title='Part'>
-			<CustomHead title='Part' />
+  return (
+    <PublicLayout title='Part'>
+      <CustomHead title='Part' />
 
-			<ThemeList />
-		</PublicLayout>
-	);
+      <ContentLinks />
+    </PublicLayout>
+  );
 };
 
 export default Part;

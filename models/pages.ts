@@ -5,23 +5,23 @@ import { Chapter } from '../interfaces/chapters';
 import { Axios } from '../utils/axios';
 
 export const getPagesDataFx = createEffect(
-	async (): Promise<Chapter[]> => {
-		try {
-			const { data, status } = await Axios.get('chapters');
+  async (): Promise<Chapter[]> => {
+    try {
+      const { data, status } = await Axios.get('chapters');
 
-			if (status === 200) {
-				return data;
-			}
-		} catch (error) {
-			console.log(error);
-		}
-		return [];
-	}
+      if (status === 200) {
+        return data;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    return [];
+  },
 );
 
 export const $pages = createStore<Chapter[]>([]).on(
-	getPagesDataFx.doneData,
-	(_, pagesData) => pagesData
+  getPagesDataFx.doneData,
+  (_, pagesData) => pagesData,
 );
 
 $pages.watch((data) => console.log(data));

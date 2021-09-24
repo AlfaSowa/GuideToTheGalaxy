@@ -1,15 +1,15 @@
+import ContentLinks from '../../components/content-links/content-links.component';
 import CustomHead from '../../components/lib/head.component';
-import PartsList from '../../components/parts/parts.component';
 import PublicLayout from '../../layouts/public.layout';
 
 const World = (): JSX.Element => {
-	return (
-		<PublicLayout title='World'>
-			<CustomHead title='World' />
+  return (
+    <PublicLayout title='World'>
+      <CustomHead title='World' />
 
-			<PartsList />
-		</PublicLayout>
-	);
+      <ContentLinks />
+    </PublicLayout>
+  );
 };
 
 export default World;
