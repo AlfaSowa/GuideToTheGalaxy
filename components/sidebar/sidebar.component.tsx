@@ -3,7 +3,7 @@ import { useStore } from 'effector-react';
 import Link from 'next/link';
 import { $sidebarAction, toogleSidebarActionFx } from '../../models/actions';
 import { $pages } from '../../models/pages';
-import CustomText from '../ui/text/text.component';
+import Typography from '../ui/typography/typography.component';
 import { sidebarNav } from './sidebar-data';
 import styles from './sidebar.module.scss';
 
@@ -42,11 +42,11 @@ const Sidebar = (): JSX.Element => {
 											1
 										</div>
 										{sidebarAction && (
-											<CustomText
+											<Typography
 												className={styles.nav__text}
 											>
 												{page.name}
-											</CustomText>
+											</Typography>
 										)}
 									</a>
 								</Link>

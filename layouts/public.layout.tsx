@@ -2,30 +2,28 @@ import { ReactNode } from 'react';
 import Header from '../components/header/header.component';
 import Container from '../components/lib/container/container.component';
 import Sidebar from '../components/sidebar/sidebar.component';
-import CustomText from '../components/ui/text/text.component';
+import Typography from '../components/ui/typography/typography.component';
 import styles from './layout.module.scss';
 
 interface PublicLayoutProps {
-  children: ReactNode;
-  title: string;
+	children: ReactNode;
+	title: string;
 }
 
 const PublicLayout = ({ children, title }: PublicLayoutProps): JSX.Element => (
-  <>
-    <Header />
+	<>
+		<Header />
 
-    <Container>
-      <Sidebar />
+		<Container>
+			<Sidebar />
 
-      <div className={styles.content}>
-        <CustomText component='h1'>{title}</CustomText>
+			<div className={styles.content}>
+				<Typography component='h1'>{title}</Typography>
 
-        <main>
-          {children}
-        </main>
-      </div>
-    </Container>
-  </>
+				<main>{children}</main>
+			</div>
+		</Container>
+	</>
 );
 
 export default PublicLayout;
