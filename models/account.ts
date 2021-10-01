@@ -2,32 +2,35 @@ import { createEffect, createStore } from 'effector';
 import { Axios } from '../utils/axios';
 
 export const getAccountFx = createEffect(
-  async (cookie: string): Promise<any> => {
-    const reg = /(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/;
-    const token = cookie ? cookie.replace(reg, '$1') : '';
+	async ({ token }: any): Promise<any> => {
+		console.log(token);
 
-    if (token) {
-      try {
-        const { status, data } = await Axios.get('account/get/context', {
-          headers: {
-            Authorization: `Bearer  ${token}`,
-          },
-        });
+		if (token) {
+			document.cookie = `token=${token}; path=/`;
+			const config = {
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			};
 
-        if (status === 200) {
-          return { ...data, token };
-        }
-      } catch (err) {
-        console.log('Error from getAccountFx ===', err);
-      }
-    }
-    return null;
-  },
+			try {
+				const { data, status } = await Axios.get('auth/token', config);
+
+				if (status === 200) {
+					return data;
+				}
+			} catch (error) {
+				console.log(error);
+			}
+		}
+
+		return null;
+	}
 );
 
 export const $account = createStore(null).on(
-  getAccountFx.doneData,
-  (_, data) => data,
+	getAccountFx.doneData,
+	(_, data) => data
 );
 
 $account.watch((accountData) => console.log('accountData:', accountData));

@@ -1,5 +1,5 @@
 import { useStore } from 'effector-react';
-import CustomHead from '../components/lib/head.component';
+import CustomHead from '../components/lib/head/head.component';
 import Frontpage from '../GTGPages/frontpage/frontpage.component';
 import PublicLayout from '../layouts/public.layout';
 

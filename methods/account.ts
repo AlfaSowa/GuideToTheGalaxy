@@ -1,27 +1,32 @@
+import { getAccountFx } from '../models/account';
 import { Axios } from '../utils/axios';
 
-export const getAccount = async (cookie) => {
-  const reg = /(?:(?:^|.*;\s*)token\s*\=\s*([^;]*).*$)|^.*$/;
-  const token = cookie ? cookie.replace(reg, '$1') : '';
+export const getToken = async ({ username, password }) => {
+	try {
+		const { data, status } = await Axios.post('auth/login', {
+			username,
+			password,
+		});
 
-  if (token) {
-    const config = {
-      headers: {
-        Authorization: `Bearer  ${token}`,
-      },
-    };
+		if (status === 201) {
+			getAccountFx(data);
+		}
+	} catch (error) {
+		console.log(error);
+	}
+};
 
-    try {
-      console.log(1111);
-      const response = await Axios.get('account/get/context', config);
+export const CreateUser = async ({ username, password }) => {
+	try {
+		const { data, status } = await Axios.post('auth/registration', {
+			username,
+			password,
+		});
 
-      if (response.status === 200) {
-        return response.data;
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  return null;
+		if (status === 201) {
+			getToken({ username, password });
+		}
+	} catch (error) {
+		console.log(error);
+	}
 };

@@ -1,93 +1,78 @@
 import { Form, Formik, validateYupSchema } from 'formik';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { getToken } from '../../../methods/account';
 import { getAccountFx } from '../../../models/account';
 import { Axios } from '../../../utils/axios';
 import Button from '../../ui/button/button.component';
 import TextField from '../../ui/form-fields/text-field';
 import {
-  FormContent,
-  FormActions,
-  FormItem,
-  FormTitle,
-} from '../forms.component';
+	FormContent,
+	FormActions,
+	FormItem,
+	FormTitle,
+} from '../../ui/form/form.component';
 import style from './form-login.module.scss';
 
 const FormLogin = (): JSX.Element => {
-  const router = useRouter();
-  const [errors, setErrors] = useState(null);
+	const router = useRouter();
 
-  const onSubmit = async ({ username, password }) => {
-    try {
-      const { data, status } = await Axios.post('token/login', {
-        username,
-        password,
-        isPrivacyPolicyAccepted: true, // политика конфиденциальности
-        isUserTermsAccepted: true, // обработка личных данных
-      });
+	const onSubmit = async ({ username, password }) => {
+		const data = await getToken({ username, password });
+		console.log(data);
+	};
 
-      if (status === 200) {
-        document.cookie = `refreshToken=${data.refreshToken}; path=/;`;
-        document.cookie = `token=${data.token}; path=/;`;
+	return (
+		<div className={style.form}>
+			<Formik
+				initialValues={{
+					username: '',
+					password: '',
+				}}
+				// validationSchema={schemaLogin}
+				onSubmit={(values) => {
+					onSubmit(values);
+				}}
+				validateOnChange={false}
+				validateOnBlur={false}
+			>
+				{({ values, handleChange }) => (
+					<Form noValidate>
+						<FormTitle>Вход</FormTitle>
 
-        await getAccountFx(document.cookie);
+						<FormContent>
+							<FormItem>
+								<TextField
+									placeholder='Имя:'
+									type='text'
+									name='username'
+									value={values.username}
+									onChange={handleChange}
+								/>
+							</FormItem>
 
-        router.push('/');
-      }
-    } catch (error) {
-      setErrors(error);
-    }
-  };
+							<FormItem>
+								<TextField
+									placeholder='Пароль:'
+									type='password'
+									name='password'
+									value={values.password}
+									onChange={handleChange}
+								/>
+							</FormItem>
+						</FormContent>
 
-  return (
-    <div className={style.form}>
-      <Formik
-        initialValues={{
-          username: '',
-          password: '',
-        }}
-        // validationSchema={schemaLogin}
-        onSubmit={(values) => {
-          onSubmit(values);
-        }}
-        validateOnChange={false}
-        validateOnBlur={false}
-      >
-        {({ values, handleChange }) => (
-          <Form noValidate>
-            <FormTitle>Вход</FormTitle>
-
-            <FormContent>
-              <FormItem>
-                <TextField
-                  placeholder="Имя:"
-                  type="text"
-                  name="username"
-                  value={values.username}
-                  onChange={handleChange}
-                />
-              </FormItem>
-
-              <FormItem>
-                <TextField
-                  placeholder="Пароль:"
-                  type="password"
-                  name="password"
-                  value={values.password}
-                  onChange={handleChange}
-                />
-              </FormItem>
-            </FormContent>
-
-            <FormActions>
-              <Button type="submit">Войти</Button>
-              <Button onClick={() => router.push('/')}>Отмена</Button>
-            </FormActions>
-          </Form>
-        )}
-      </Formik>
-    </div>
-  );
+						<FormActions>
+							<Button type='submit'>Войти</Button>
+							<Button onClick={() => router.push('/')}>
+								Отмена
+							</Button>
+						</FormActions>
+					</Form>
+				)}
+			</Formik>
+		</div>
+	);
 };
 
 export default FormLogin;
