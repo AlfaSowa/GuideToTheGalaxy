@@ -1,47 +1,85 @@
-import { useRef, useState } from 'react';
-import { SidebarNav, sidebarNav } from '../sidebar-data';
+import { useStore } from 'effector-react';
+import {
+  useRef,
+  useState,
+} from 'react';
+import AcUnitIcon from '@mui/icons-material/AcUnit';
+import clsx from 'clsx';
+import Link from 'next/link';
+import PublicIcon from '@mui/icons-material/Public';
+import ExploreIcon from '@mui/icons-material/Explore';
+import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
+import { $pages } from '../../../models/pages';
+import {
+  SidebarNav,
+  sidebarNav,
+} from '../sidebar-data';
 import styles from './menu.module.scss';
+import { $sidebarAction } from '../../../models/actions';
+import Typography from '../../ui/typography/typography.component';
 
-const SidebarMenu = (): JSX.Element => {
-  return (
-    <ul className={styles.nav}>
-      {sidebarNav.map((i: SidebarNav) => (
-        <NavItem item={i} />
-      ))}
-    </ul>
-  );
-};
+const SidebarNavigationItem = ({ page }) => {
+  const sidebarAction = useStore($sidebarAction);
 
-const NavItem = ({ item }) => {
-  const [isShow, setIsShow] = useState(false);
-  const [isHeight, setHeight] = useState(0);
-  const refNesting = useRef(null);
-
-  const toggleNesting = () => {
-    setIsShow(!isShow);
-    if (refNesting?.current) {
-      setHeight(!isShow ? refNesting.current.offsetHeight : 0);
+  const getIcon = (alias) => {
+    switch (alias) {
+      case 'world':
+        return <PublicIcon />;
+      case 'adventures':
+        return <ExploreIcon />;
+      case 'game':
+        return <VideogameAssetIcon />;
+      default:
+        return <AcUnitIcon />;
     }
   };
 
   return (
-    <li className={styles.nav__item}>
-      <div className={styles.nav__link} onClick={toggleNesting}>
-        <div>{item.name}</div>
-        {item.nesting && <div>1</div>}
-      </div>
-
-      {item.nesting && (
-        <div className={styles.nesting} style={{ height: isHeight }}>
-          <div ref={refNesting}>
-            {item.nesting.map((y) => (
-              <div className={styles.nesting__item}>{y.name}</div>
-            ))}
+    <li key={page._id} className={styles.nav__item}>
+      <Link href={`/${page.alias}`}>
+        <a
+          className={clsx(styles.nav__link, {
+            [styles.nav__link_expanded]: !sidebarAction,
+          })}
+        >
+          <div className={styles.nav__icon}>
+            {getIcon(page.alias)}
           </div>
+
+          {sidebarAction && (
+            <Typography className={styles.nav__text}>
+              {page.name}
+            </Typography>
+          )}
+
+        </a>
+      </Link>
+
+      <div className={clsx(styles.nav__drop, { [styles.nav__drop__exp]: !sidebarAction })}>
+        <div className={styles.nav__drop__inner}>
+          {page?.parts.map((part) => (
+            <div className={styles.nav__drop__item} key={part.alias}>
+              <AcUnitIcon />
+            </div>
+          ))}
         </div>
-      )}
+      </div>
     </li>
   );
 };
 
-export default SidebarMenu;
+const SidebarNavigation = (): JSX.Element => {
+  const pages = useStore($pages);
+
+  return (
+    <nav className={styles.nav}>
+      <ul className={styles.nav__list}>
+        {pages.map((page) => (
+          <SidebarNavigationItem page={page} />
+        ))}
+      </ul>
+    </nav>
+  );
+};
+
+export default SidebarNavigation;

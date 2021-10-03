@@ -37,7 +37,7 @@
     "modules-newline/import-declaration-newline": "error",
     "modules-newline/export-declaration-newline": "error",
 
-    "react/jsx-max-props-per-line": [3, { "maximum": 1 }],
+    "react/jsx-max-props-per-line": [2, { "maximum": 3 }],
     "react/jsx-indent-props": [2, { "indentMode": 2, "ignoreTernaryOperator": true}],
     "@typescript-eslint/indent": ["error", 2],
     "react/jsx-first-prop-new-line": [2, "multiline-multiprop"],
