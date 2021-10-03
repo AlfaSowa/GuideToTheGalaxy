@@ -6,10 +6,14 @@ import { $pages } from '../../models/pages';
 import Typography from '../ui/typography/typography.component';
 import { sidebarNav } from './sidebar-data';
 import styles from './sidebar.module.scss';
+import AcUnitIcon from '@mui/icons-material/AcUnit';
 
 const Sidebar = (): JSX.Element => {
 	const sidebarAction = useStore($sidebarAction);
 	const pages = useStore($pages);
+
+
+	console.log('pages', pages)
 
 	return (
 		<div
@@ -39,17 +43,27 @@ const Sidebar = (): JSX.Element => {
 										})}
 									>
 										<div className={styles.nav__icon}>
-											1
+											<AcUnitIcon />
 										</div>
+
 										{sidebarAction && (
-											<Typography
-												className={styles.nav__text}
-											>
+											<Typography className={styles.nav__text}>
 												{page.name}
 											</Typography>
 										)}
+
 									</a>
 								</Link>
+
+								<div className={styles.nav__drop}>
+									<div className={styles.nav__drop__inner}>
+										{page.parts.map(part => (
+											<div className={styles.nav__drop__item} key={part.alias}>
+												<AcUnitIcon />
+											</div>
+										))}
+									</div>
+								</div>
 							</li>
 						))}
 					</ul>

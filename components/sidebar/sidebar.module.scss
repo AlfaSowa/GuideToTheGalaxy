@@ -1,10 +1,11 @@
 .sidebar {
 	height: calc(100vh - 32px);
 	max-height: calc(100vh - 32px);
-	background: var(--color-secondary-hover);
+	background: var(--color-primary);
 	flex-direction: column;
 	flex: 0 0 50px;
 	display: none;
+	z-index: 10;
 	@media (min-width: $breakpoints-mobile) {
 		display: flex;
 		flex: 0 0 250px;
@@ -22,7 +23,6 @@
 	&__content {
 		padding: 8px 0;
 		flex: 1;
-		overflow-y: auto;
 	}
 
 	&__btn {
@@ -34,6 +34,15 @@
 }
 
 .nav {
+	&__item {
+		position: relative;
+		&:hover {
+			background: var(--color-primary-hover);
+			.nav__drop {
+				display: block;
+			}
+		}
+	}
 	&__link {
 		height: 32px;
 		display: flex;
@@ -43,18 +52,45 @@
 		@media (min-width: $breakpoints-mobile) {
 			justify-content: flex-start;
 		}
-		&:hover {
-			background: var(--color-secondary);
-		}
+
 		&_expanded {
 			justify-content: center;
+		}
+
+	}
+	
+	&__drop {
+		display: none;
+		position: absolute;
+		left: 100%;
+		top: 0;
+		transform: translateX(-50%);
+		background: var(--color-main);
+		z-index: 2;
+		overflow: hidden;
+		&__inner {
+			display: flex;
+			flex-direction: column;
+		}
+
+		&__item {
+			width: 64px;
+			flex: 1 0 64px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			color: var(--color-secondary-hover);
+			&:hover {
+				color: var(--color-primary);
+				box-shadow: 0px 0px 24px 0 var(--color-primary-active);
+			}
 		}
 	}
 
 	&__icon {
 		width: 24px;
 		height: 24px;
-		background: red;
 	}
 
 	&__text {

@@ -22,5 +22,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    button:not(:last-child){
+      margin: 0 8px 0 0;
+    }
   }
 }
