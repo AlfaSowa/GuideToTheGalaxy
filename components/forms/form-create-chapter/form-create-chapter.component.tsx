@@ -3,7 +3,7 @@ import {
   Formik,
 } from 'formik';
 import { useState } from 'react';
-import TextField from '../../ui/form-fields/text-field';
+import TextField from '../../ui/form-fields/textfield';
 import {
   FormActions,
   FormContent,
@@ -54,6 +54,7 @@ const FormCreateChapter = (): JSX.Element => {
                   name='name'
                   value={values.name}
                   onChange={handleChange}
+                  errors={errors}
                 />
               </FormItem>
 
@@ -64,6 +65,7 @@ const FormCreateChapter = (): JSX.Element => {
                   name='alias'
                   value={values.alias}
                   onChange={handleChange}
+                  errors={errors}
                 />
               </FormItem>
 

@@ -3,7 +3,7 @@ import {
   Formik,
 } from 'formik';
 import { useState } from 'react';
-import TextField from '../../ui/form-fields/text-field';
+import TextField from '../../ui/form-fields/textfield';
 import {
   FormActions,
   FormContent,
@@ -65,6 +65,7 @@ const AddNewPart = ({ setIsShow, setParts }): JSX.Element => {
                   name='name'
                   value={values.name}
                   onChange={handleChange}
+                  errors={errors}
                 />
               </FormItem>
 
@@ -75,6 +76,7 @@ const AddNewPart = ({ setIsShow, setParts }): JSX.Element => {
                   name='alias'
                   value={values.alias}
                   onChange={handleChange}
+                  errors={errors}
                 />
               </FormItem>
             </FormContent>
@@ -88,6 +90,7 @@ const AddNewPart = ({ setIsShow, setParts }): JSX.Element => {
                     name={`themes[${idx}].name`}
                     value={values?.themes[idx]?.name}
                     onChange={handleChange}
+                    errors={errors}
                   />
                 </FormItem>
 
@@ -98,6 +101,7 @@ const AddNewPart = ({ setIsShow, setParts }): JSX.Element => {
                     name={`themes[${idx}].alias`}
                     value={values?.themes[idx]?.alias}
                     onChange={handleChange}
+                    errors={errors}
                   />
                 </FormItem>
               </div>

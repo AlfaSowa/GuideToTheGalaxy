@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import clsx from 'clsx';
 import { ChangeEvent } from 'react';
 import style from './fields.module.scss';
 
@@ -7,6 +9,7 @@ interface TextFieldProps {
   value: any;
   placeholder: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  errors: any
 }
 
 const TextField = ({
@@ -15,9 +18,10 @@ const TextField = ({
   value,
   placeholder,
   onChange,
+  errors,
 }: TextFieldProps): JSX.Element => {
   return (
-    <label className={style.root}>
+    <label className={clsx(style.root, { [style.error]: errors && errors[name] })}>
       <input
         className={style.root__input}
         name={name}

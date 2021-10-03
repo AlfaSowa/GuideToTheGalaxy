@@ -1,15 +1,12 @@
 import {
   Form,
   Formik,
-  validateYupSchema,
 } from 'formik';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import * as yup from 'yup';
 import { getToken } from '../../../methods/account';
-import { getAccountFx } from '../../../models/account';
-import { Axios } from '../../../utils/axios';
 import Button from '../../ui/button/button.component';
-import TextField from '../../ui/form-fields/text-field';
+import TextField from '../../ui/form-fields/textfield';
 import {
   FormContent,
   FormActions,
@@ -17,6 +14,11 @@ import {
   FormTitle,
 } from '../../ui/form/form.component';
 import style from './form-login.module.scss';
+
+const loginSchema = yup.object().shape({
+  username: yup.string().required('Обязательное поле'),
+  password: yup.string().required('Обязательное поле'),
+});
 
 const FormLogin = (): JSX.Element => {
   const router = useRouter();
@@ -36,17 +38,15 @@ const FormLogin = (): JSX.Element => {
           username: '',
           password: '',
         }}
-        // validationSchema={schemaLogin}
+        validationSchema={loginSchema}
         onSubmit={(values) => {
           onSubmit(values);
         }}
         validateOnChange={false}
         validateOnBlur={false}
       >
-        {({ values, handleChange }) => (
+        {({ values, handleChange, errors }) => (
           <Form noValidate>
-            <FormTitle>Вход</FormTitle>
-
             <FormContent>
               <FormItem>
                 <TextField
@@ -55,6 +55,7 @@ const FormLogin = (): JSX.Element => {
                   name='username'
                   value={values.username}
                   onChange={handleChange}
+                  errors={errors}
                 />
               </FormItem>
 
@@ -65,6 +66,7 @@ const FormLogin = (): JSX.Element => {
                   name='password'
                   value={values.password}
                   onChange={handleChange}
+                  errors={errors}
                 />
               </FormItem>
             </FormContent>
