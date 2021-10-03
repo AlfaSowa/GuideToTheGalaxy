@@ -2,16 +2,29 @@ html {
   --color-main: #ffffff;
   --color-main-dark: #303030;
 
-  --color-primary: #17699A;
-  --color-primary-hover: #3786b4;
+  //primary
+  --color-primary: #1ba4dc;
+  --color-primary-add: #d5f3ff;
+
+  --color-primary-hover: #83cce8;
+  --color-primary-hover-add: #e4f7fe;
+
   --color-primary-active: #CADAE4;
 
+  //secondary
   --color-secondary: #17699A;
   --color-secondary-hover: #92B2C5;
   --color-secondary-active: #CADAE4;
 
+  //disable
+  --color-disable: #ffffff;
+  --color-disable-add: #f1efef;
+
+  //other
   --color-bg: #d9e8ee;
   --color-bg-add: rgba(63, 68, 71, 0.5);
+
+  --color-font: #303030
 }
 
 h1 {
