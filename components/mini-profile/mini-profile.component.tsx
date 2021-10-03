@@ -3,23 +3,31 @@
 import clsx from 'clsx';
 import { useStore } from 'effector-react';
 import Link from 'next/link';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { $account } from '../../models/account';
+import FormLogin from '../forms/form-login/form-login.component';
+import FormRegistration from '../forms/form-registration/form-registration.component';
+import Modal from '../lib/modal/modal.component';
+import { CustomTabs, Tab, Tabs, TabsPanel } from '../lib/tabs/tabs.component';
 import MiniProfileDropdown from './dropdown/dropdown.component';
 import styles from './mini-profile.module.scss';
 
 const MiniProfile = (): JSX.Element => {
 	const account = useStore($account);
 	const [open, setOpen] = useState(false);
+	const [show, setShow] = useState(false);
+	const [value, setValue] = useState('Войти');
 
-	console.log(account);
+	const handleChange = (e) => {
+		setValue(e.target.dataset.value);
+	};
 
 	return (
 		<>
 			{!account && (
-				<Link href='/login'>
-					<a className={styles.text}>Вход</a>
-				</Link>
+				<button className={styles.text} onClick={() => setShow(true)}>
+					Вход
+				</button>
 			)}
 
 			{account && (
@@ -38,6 +46,30 @@ const MiniProfile = (): JSX.Element => {
 					{open && <MiniProfileDropdown />}
 				</div>
 			)}
+
+			<Modal open={show} onClose={setShow}>
+				<CustomTabs>
+					<Tabs onChange={handleChange}>
+						<Tab
+							text='Войти'
+							value='Войти'
+							focused={value === 'Войти'}
+						/>
+						<Tab
+							text='Зарегистрироваться'
+							value='Зарегистрироваться'
+							focused={value === 'Зарегистрироваться'}
+						/>
+					</Tabs>
+
+					<TabsPanel value={value} index='Войти'>
+						<FormLogin />
+					</TabsPanel>
+					<TabsPanel value={value} index='Зарегистрироваться'>
+						<FormRegistration />
+					</TabsPanel>
+				</CustomTabs>
+			</Modal>
 		</>
 	);
 };

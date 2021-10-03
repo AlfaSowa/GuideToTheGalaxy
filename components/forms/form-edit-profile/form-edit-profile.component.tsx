@@ -11,7 +11,7 @@ import {
 	FormItem,
 	FormTitle,
 } from '../../ui/form/form.component';
-import style from './form-edit-profile.module.scss';
+import styles from './form-edit-profile.module.scss';
 
 const FormEditProfile = (): JSX.Element => {
 	const [errors, setErrors] = useState(null);
@@ -21,7 +21,7 @@ const FormEditProfile = (): JSX.Element => {
 	};
 
 	return (
-		<div className={style.form}>
+		<div className={styles.form}>
 			<Formik
 				initialValues={{
 					username: '',
