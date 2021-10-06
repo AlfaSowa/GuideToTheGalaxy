@@ -26,7 +26,12 @@ const WrappedApp = ({ Component, pageProps }: AppProps): JSX.Element => {
     }
   }, []);
 
-  return <Component {...pageProps} />;
+  return (
+    <>
+      {pages?.length > 0 && <Component {...pageProps} />}
+      {pages?.length === 0 && <div>123</div>}
+    </>
+  );
 };
 
 export default WrappedApp;

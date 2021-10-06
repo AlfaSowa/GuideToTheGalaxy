@@ -2,20 +2,13 @@
 import { createEffect } from 'effector';
 import { createStore } from 'effector-next';
 import { Chapter } from '../interfaces/chapters';
+import { getChapters } from '../methods/chapters';
 import { Axios } from '../utils/axios';
 
 export const getPagesDataFx = createEffect(
   async (): Promise<Chapter[]> => {
-    try {
-      const { data, status } = await Axios.get('chapters');
-
-      if (status === 200) {
-        return data;
-      }
-    } catch (error) {
-      console.log(error);
-    }
-    return [];
+    const chapters = await getChapters();
+    return chapters;
   },
 );
 

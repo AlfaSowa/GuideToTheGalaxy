@@ -4,6 +4,7 @@ import {
   useEffect,
   useState,
 } from 'react';
+import Error from 'next/error';
 import ContentLinks from '../../../components/content-links/content-links.component';
 import CustomHead from '../../../components/lib/head/head.component';
 import PublicLayout from '../../../layouts/public.layout';
@@ -20,14 +21,19 @@ const Part = (): JSX.Element => {
       setPart(chapter.parts.find((item) => item.alias === router?.query?.part));
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router?.query?.part, pages]);
+  }, [router, pages]);
 
   return (
-    <PublicLayout title={part?.name}>
-      <CustomHead title='Part' />
+    <>
+      {part && (
+        <PublicLayout title={part?.name}>
+          <CustomHead title='Part' />
 
-      <ContentLinks />
-    </PublicLayout>
+          <ContentLinks />
+        </PublicLayout>
+      )}
+      {!part && <Error statusCode={404} />}
+    </>
   );
 };
 
