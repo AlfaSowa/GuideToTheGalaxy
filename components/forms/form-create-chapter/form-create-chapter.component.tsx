@@ -3,6 +3,7 @@ import {
   Formik,
 } from 'formik';
 import { useState } from 'react';
+import * as yup from 'yup';
 import TextField from '../../ui/form-fields/textfield';
 import {
   FormActions,
@@ -12,21 +13,42 @@ import {
 } from '../../ui/form/form.component';
 import Button from '../../ui/button/button.component';
 import AddNewPart from './add-new-part.component';
+import { Axios } from '../../../utils/axios';
+
+const createChapterSchema = yup.object().shape({
+  name: yup.string().required('Обязательное поле'),
+  alias: yup.string().required('Обязательное поле'),
+});
 
 const FormCreateChapter = (): JSX.Element => {
   const [isShow, setIsShow] = useState(false);
   const [parts, setParts] = useState([]);
 
   const onSubmit = async (values) => {
-    console.log('values', values);
-    console.log('parts', parts);
+    console.log('parts', {
+      ...values,
+      ...parts,
+    });
+
+    try {
+      const { data, status } = await Axios.post('chapters', {
+        ...values,
+        ...parts,
+      });
+
+      if (status === 200) {
+        return data;
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <>
       <Formik
         initialValues={{ image: null }}
-        // validationSchema={schemaLogin}
+        validationSchema={createChapterSchema}
         onSubmit={(values: any) => {
           onSubmit(values);
         }}

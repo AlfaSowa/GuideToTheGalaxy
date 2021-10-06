@@ -6,24 +6,26 @@ import Typography from '../components/ui/typography/typography.component';
 import styles from './layout.module.scss';
 
 interface PublicLayoutProps {
-	children: ReactNode;
-	title: string;
+  children: ReactNode;
+  title: string;
 }
 
-const PublicLayout = ({ children, title }: PublicLayoutProps): JSX.Element => (
-	<>
-		<Header />
+const PublicLayout = ({ children, title }: PublicLayoutProps): JSX.Element => {
+  return (
+    <>
+      <Header />
 
-		<Container>
-			<Sidebar />
+      <Container>
+        <Sidebar />
 
-			<div className={styles.content}>
-				<Typography component='h1'>{title}</Typography>
+        <div className={styles.content}>
+          <Typography component='h1'>{title}</Typography>
 
-				<main>{children}</main>
-			</div>
-		</Container>
-	</>
-);
+          <main>{children}</main>
+        </div>
+      </Container>
+    </>
+  );
+};
 
 export default PublicLayout;
