@@ -16,10 +16,6 @@ import SidebarNavigation from './menu/menu.component';
 
 const Sidebar = (): JSX.Element => {
   const sidebarAction = useStore($sidebarAction);
-  const pages = useStore($pages);
-
-  console.log('pages', pages);
-
   return (
     <div
       className={clsx(styles.sidebar, {

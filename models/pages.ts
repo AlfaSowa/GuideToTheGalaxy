@@ -16,5 +16,3 @@ export const $pages = createStore<Chapter[]>([]).on(
   getPagesDataFx.doneData,
   (_, pagesData) => pagesData,
 );
-
-$pages.watch((data) => console.log(data));

@@ -6,6 +6,7 @@ import {
   useEffect,
   useState,
 } from 'react';
+import Error from 'next/error';
 import {
   Chapter,
   Part,
@@ -19,6 +20,26 @@ const ContentLinks = (): JSX.Element => {
   const router = useRouter();
   const [linksArray, setLinksArray] = useState([]);
 
+  const getLinks = () => {
+    const chapter = pages?.find((page) => page.alias === router?.query?.chapter);
+
+    if (chapter) {
+      if (router?.query?.part) {
+        const part = chapter?.parts.find((item) => item.alias === router?.query?.part);
+
+        if (part) {
+          return part?.themes;
+        }
+
+        return [];
+      }
+
+      return chapter?.parts;
+    }
+
+    return [];
+  };
+
   const getUrl = (elem) => {
     if (router?.query?.part) {
       return `/${router?.query?.chapter}/${router?.query?.part}/${elem.alias}`;
@@ -28,49 +49,45 @@ const ContentLinks = (): JSX.Element => {
 
   useEffect(() => {
     if (pages.length > 0) {
-      if (router?.query?.chapter) {
-        const pageData = pages.find((page) => page.alias === router?.query?.chapter);
-        setLinksArray(pageData.parts);
-
-        if (router?.query?.part) {
-          const partData = pageData.parts.find((part) => part.alias === router?.query?.part);
-          setLinksArray(partData.themes);
-        }
-      }
+      setLinksArray(getLinks());
     }
-  }, [pages]);
+  }, [router, pages]);
 
-  return (
-    <div>
-      <div className={styles.list}>
-        {linksArray.map((item) => (
-          <div className={styles.list__item}>
-            <Link href={getUrl(item)} key={item.alias}>
-              <a className={styles.card}>
-                <div className={styles.card__inner}>
-                  <div className={styles.card__img}>
-                    <img
-                      src='https://via.placeholder.com/300.png/09f/fff'
-                      alt='1'
-                    />
-                  </div>
+  if (linksArray.length > 0) {
+    return (
+      <div>
+        <div className={styles.list}>
+          {linksArray.map((item) => (
+            <div className={styles.list__item}>
+              <Link href={getUrl(item)} key={item.alias}>
+                <a className={styles.card}>
+                  <div className={styles.card__inner}>
+                    <div className={styles.card__img}>
+                      <img
+                        src='https://via.placeholder.com/300.png/09f/fff'
+                        alt='1'
+                      />
+                    </div>
 
-                  <div className={styles.card__content}>
-                    <Typography component='h5'>
-                      {item.name}
-                    </Typography>
-                    <Typography variant='subtext'>
-                      {item.name}
-                    </Typography>
+                    <div className={styles.card__content}>
+                      <Typography component='h5'>
+                        {item.name}
+                      </Typography>
+                      <Typography variant='subtext'>
+                        {item.name}
+                      </Typography>
+                    </div>
                   </div>
-                </div>
-              </a>
-            </Link>
-          </div>
-        ))}
+                </a>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+
+  return <Error statusCode={404} />;
 };
 
 export default ContentLinks;
