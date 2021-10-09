@@ -1,10 +1,24 @@
-import CustomHead from '../../components/lib/head/head.component';
-import ProfilePage from '../../GTGPages/profile/profile.component';
-import PublicLayout from '../../layouts/public.layout';
+import PrivateLayout from '../../layouts/private/private.layout';
+
+export const getServerSideProps = ({ req }) => {
+  if (!req?.cookies?.token) {
+    return {
+      redirect: {
+        destination: '/',
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+};
 
 const Profile = (): JSX.Element => {
   return (
-    <ProfilePage />
+    <PrivateLayout>
+      <div>Profile</div>
+    </PrivateLayout>
   );
 };
 

@@ -2,7 +2,7 @@ import {
   Form,
   Formik,
 } from 'formik';
-import { CreateUser } from '../../../methods/account';
+import { createUser } from '../../../methods/account';
 import Button from '../../ui/button/button.component';
 import TextField from '../../ui/form-fields/textfield';
 import {
@@ -15,7 +15,7 @@ import style from './form-registration.module.scss';
 
 const FormRegistration = (): JSX.Element => {
   const onSubmit = async ({ username, password }) => {
-    CreateUser({
+    createUser({
       username,
       password,
     });

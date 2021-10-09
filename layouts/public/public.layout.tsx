@@ -5,13 +5,13 @@ import {
   useEffect,
   useState,
 } from 'react';
-import Error from 'next/error';
-import Header from '../components/header/header.component';
-import Container from '../components/lib/container/container.component';
-import Sidebar from '../components/sidebar/sidebar.component';
-import Typography from '../components/ui/typography/typography.component';
-import { $pages } from '../models/pages';
-import styles from './layout.module.scss';
+import Header from '../../components/header/header.component';
+import Container from '../../components/lib/container/container.component';
+import Sidebar from '../../components/sidebar/sidebar.component';
+import UserNavigation from '../../components/sidebar/user/navigation.component';
+import Typography from '../../components/ui/typography/typography.component';
+import { $pages } from '../../models/pages';
+import styles from './public.module.scss';
 
 interface PublicLayoutProps {
   children: ReactNode;
@@ -54,7 +54,9 @@ const PublicLayout = ({ children, title }: PublicLayoutProps): JSX.Element => {
       <Header />
 
       <Container>
-        <Sidebar />
+        <Sidebar>
+          <UserNavigation />
+        </Sidebar>
 
         <div className={styles.content}>
           {pages.length > 0 && (

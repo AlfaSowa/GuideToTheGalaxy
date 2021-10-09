@@ -15,6 +15,7 @@ const WrappedApp = ({ Component, pageProps }: AppProps): JSX.Element => {
     if (!pages.length) {
       getPagesDataFx();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -22,7 +23,7 @@ const WrappedApp = ({ Component, pageProps }: AppProps): JSX.Element => {
     const token = document.cookie ? document.cookie.replace(reg, '$1') : '';
 
     if (token) {
-      getAccountFx(token);
+      getAccountFx({ token });
     }
   }, []);
 

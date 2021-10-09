@@ -1,0 +1,24 @@
+.nav {
+	&__item {
+		position: relative;
+		&:hover {
+			background: var(--color-primary-hover);
+			color: white;
+			.nav__drop {
+				display: block;
+			}
+		}
+	}
+
+	&__link {
+		color: inherit;
+		height: 32px;
+		display: flex;
+		padding: 0 8px;
+		align-items: center;
+		justify-content: center;
+		@media (min-width: $breakpoints-mobile) {
+			justify-content: flex-start;
+		}
+	}
+}

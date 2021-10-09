@@ -1,21 +1,21 @@
 import clsx from 'clsx';
 import { useStore } from 'effector-react';
-import Link from 'next/link';
-import AcUnitIcon from '@mui/icons-material/AcUnit';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import MenuIcon from '@mui/icons-material/Menu';
+import { ReactNode } from 'react';
 import {
   $sidebarAction,
   toogleSidebarActionFx,
 } from '../../models/actions';
-import { $pages } from '../../models/pages';
-import Typography from '../ui/typography/typography.component';
-import { sidebarNav } from './sidebar-data';
 import styles from './sidebar.module.scss';
-import SidebarNavigation from './menu/menu.component';
 
-const Sidebar = (): JSX.Element => {
+interface SidebarProps {
+  children: ReactNode
+}
+
+const Sidebar = ({ children }:SidebarProps): JSX.Element => {
   const sidebarAction = useStore($sidebarAction);
+
   return (
     <div
       className={clsx(styles.sidebar, {
@@ -34,7 +34,7 @@ const Sidebar = (): JSX.Element => {
       </div>
 
       <div className={styles.sidebar__content}>
-        <SidebarNavigation />
+        {children}
       </div>
     </div>
   );

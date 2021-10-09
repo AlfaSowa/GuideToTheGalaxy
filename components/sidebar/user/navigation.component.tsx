@@ -1,8 +1,4 @@
 import { useStore } from 'effector-react';
-import {
-  useRef,
-  useState,
-} from 'react';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import clsx from 'clsx';
 import Link from 'next/link';
@@ -10,15 +6,11 @@ import PublicIcon from '@mui/icons-material/Public';
 import ExploreIcon from '@mui/icons-material/Explore';
 import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
 import { $pages } from '../../../models/pages';
-import {
-  SidebarNav,
-  sidebarNav,
-} from '../sidebar-data';
-import styles from './menu.module.scss';
+import styles from './user.module.scss';
 import { $sidebarAction } from '../../../models/actions';
 import Typography from '../../ui/typography/typography.component';
 
-const SidebarNavigationItem = ({ page }) => {
+const UserNavigationItem = ({ page }) => {
   const sidebarAction = useStore($sidebarAction);
 
   const getIcon = (alias) => {
@@ -68,18 +60,18 @@ const SidebarNavigationItem = ({ page }) => {
   );
 };
 
-const SidebarNavigation = (): JSX.Element => {
+const UserNavigation = (): JSX.Element => {
   const pages = useStore($pages);
 
   return (
     <nav className={styles.nav}>
       <ul className={styles.nav__list}>
         {pages.map((page) => (
-          <SidebarNavigationItem page={page} />
+          <UserNavigationItem page={page} />
         ))}
       </ul>
     </nav>
   );
 };
 
-export default SidebarNavigation;
+export default UserNavigation;

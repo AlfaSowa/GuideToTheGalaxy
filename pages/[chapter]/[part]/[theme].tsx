@@ -1,4 +1,4 @@
-import PublicLayout from '../../../layouts/public.layout';
+import PublicLayout from '../../../layouts/public/public.layout';
 
 const Theme = (): JSX.Element => {
   return (

@@ -1,5 +1,5 @@
 import ContentLinks from '../../../components/content-links/content-links.component';
-import PublicLayout from '../../../layouts/public.layout';
+import PublicLayout from '../../../layouts/public/public.layout';
 
 const Part = (): JSX.Element => {
   return (

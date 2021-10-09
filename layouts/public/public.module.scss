@@ -1,0 +1,8 @@
+.content {
+	flex: 1;
+	height: calc(100vh - 32px);
+	max-height: calc(100vh - 32px);
+	overflow-y: auto;
+	background: var(--color-bg);
+	padding: 8px;
+}
