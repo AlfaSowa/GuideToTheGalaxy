@@ -4,21 +4,37 @@
     justify-content: center;
     font-size: 18px;
     font-weight: 600;
-    padding: 12px 8px;
+    padding: 8px 0;
   }
 
   &__content {
-    padding: 12px 8px;
+    padding: 8px 0;
+  }
+
+  &__row {
+    margin: 0 0 16px 0;
+    &__title {
+      margin: 0 0 12px 0;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    &__inner {
+      margin: -4px;
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
 
   &__item {
-    &:not(:last-child) {
-      margin: 0 0 15px 0;
+    flex: 0 0 calc(100% / 5);
+    padding: 4px;
+    &__fullwidth {
+      flex: 1;
     }
   }
 
   &__actions {
-    padding: 12px 8px;
+    padding: 8px 0;
     display: flex;
     justify-content: center;
     align-items: center;
