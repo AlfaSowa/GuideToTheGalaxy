@@ -1,8 +1,8 @@
 # Файловая система
 
-## папка pages
+### Папка pages
 
-### именование папок
+#### Именование папок
 
 - pages
     - login.tsx
@@ -14,40 +14,66 @@
             - index.tsx
         - index.tsx
 
-### нейминг в файлах
+#### Нейминг в файлах
 
-/[chapter]/index.tsx
-
+/pages/[chapter]/index.tsx
 ```js
-    const Chapter = () => {
-      return (
-        <ChapterPage />
-      );
-    };
+const Chapter = (): JSX.Element => {
+  return (
+    <ChapterPage />
+  );
+};
 
-  export default Chapter;
+export default Chapter;
 ```
 
-/profile/index.tsx
-
+/pages/profile/index.tsx
 ```js
-    const Profile = () => {
-      return (
-        <ProfilePage />
-      );
-    };
+const Profile = (): JSX.Element => {
+  return (
+    <ProfilePage />
+  );
+};
 
-  export default Profile;
+export default Profile;
 ```
 
-/login.tsx
+### Пропсы
 
 ```js
-    const Login = () => {
-      return (
-        <LoginPage />
-      );
-    };
+interface LoginProps {
+  children: ReactNode;
+  title?: string
+}
 
-  export default Login;
+const Login = ({ children, string }: LoginProps): JSX.Element => {
+  return (
+    <LoginPage />
+  );
+};
+
+export default Login;
+```
+### Компоненты страниц
+
+```js
+//pages/profile.tsx
+const Profile = (): JSX.Element => {
+  return (
+    <ProfilePage />
+  );
+};
+
+export default Profile;
+```
+
+```js
+//GTGPages/profile/profile.component.tsx
+const ProfilePage = (): JSX.Element => {
+  return (
+    //...
+  );
+};
+
+export default ProfilePage;
 ```
