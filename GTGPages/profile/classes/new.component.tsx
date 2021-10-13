@@ -22,6 +22,8 @@ import {
   WeaponEnum,
 } from '../../../interfaces/classes';
 import { $utils } from '../../../models/utils';
+import Checkbox from '../../../components/ui/form-fields/checkbox.component';
+import CroupCheckboxes from '../../../components/ui/form-fields/groupCheckboxes.component';
 
 const ProfileClassesNew = (): JSX.Element => {
   const utils = useStore($utils);
@@ -233,6 +235,46 @@ const ProfileClassesNew = (): JSX.Element => {
                     onChange={handleChange}
                     errors={errors}
                   />
+                </FormItem>
+              </FormRow>
+
+              <FormRow title='Другое'>
+                <FormItem fullWidth>
+                  <Checkbox
+                    placeholder='Описание'
+                    name='qwe'
+                    value={values.qwe}
+                    onChange={handleChange}
+                    errors={errors}
+                  />
+                </FormItem>
+              </FormRow>
+
+              <FormRow title='Другое'>
+                <FormItem fullWidth>
+                  <CroupCheckboxes>
+                    <Checkbox
+                      placeholder='Описание'
+                      name='qweqwe'
+                      value={values.qweqwe}
+                      onChange={handleChange}
+                      errors={errors}
+                    />
+                    <Checkbox
+                      placeholder='Описание'
+                      name='qweqwe'
+                      value={values.qweqwe}
+                      onChange={handleChange}
+                      errors={errors}
+                    />
+                    <Checkbox
+                      placeholder='Описание'
+                      name='qweqwe'
+                      value={values.qweqwe}
+                      onChange={handleChange}
+                      errors={errors}
+                    />
+                  </CroupCheckboxes>
                 </FormItem>
               </FormRow>
             </FormContent>
