@@ -17,7 +17,7 @@
 #### Нейминг в файлах
 
 /pages/[chapter]/index.tsx
-```js
+```ts
 const Chapter = (): JSX.Element => {
   return (
     <ChapterPage />
@@ -28,7 +28,7 @@ export default Chapter;
 ```
 
 /pages/profile/index.tsx
-```js
+```ts
 const Profile = (): JSX.Element => {
   return (
     <ProfilePage />
@@ -40,7 +40,7 @@ export default Profile;
 
 ### Пропсы
 
-```js
+```ts
 interface LoginProps {
   children: ReactNode;
   title?: string
@@ -56,7 +56,7 @@ export default Login;
 ```
 ### Компоненты страниц
 
-```js
+```ts
 //pages/profile.tsx
 const Profile = (): JSX.Element => {
   return (
@@ -67,7 +67,7 @@ const Profile = (): JSX.Element => {
 export default Profile;
 ```
 
-```js
+```ts
 //GTGPages/profile/profile.component.tsx
 const ProfilePage = (): JSX.Element => {
   return (
