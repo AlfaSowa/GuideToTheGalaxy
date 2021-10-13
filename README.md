@@ -8,10 +8,11 @@
     - login.tsx
     - profile
         - classes
+            - index.tsx
+            - new.tsx
         - index.tsx
     - [chapter]
-        - [part]
-            - index.tsx
+        - part.tsx
         - index.tsx
 
 #### Нейминг в файлах
@@ -38,6 +39,42 @@ const Profile = (): JSX.Element => {
 export default Profile;
 ```
 
+#### Компоненты страниц
+
+```ts
+//pages/user.tsx
+const User = (): JSX.Element => {
+  return (
+    <UserPage />
+  );
+};
+
+export default User;
+```
+
+```ts
+//GTGPages/user/page.component.tsx
+const UserPage = (): JSX.Element => {
+  return (
+    //...
+  );
+};
+
+export default UserPage;
+
+```
+
+```ts
+//GTGPages/user/new.component.tsx
+const UserNew = (): JSX.Element => {
+  return (
+    //...
+  );
+};
+
+export default UserNew;
+```
+
 ### Пропсы
 
 ```ts
@@ -46,34 +83,15 @@ interface LoginProps {
   title?: string
 }
 
-const Login = ({ children, string }: LoginProps): JSX.Element => {
+const Login = ({ children, title }: LoginProps): JSX.Element => {
   return (
     <LoginPage />
   );
 };
 
+Login.defaultProps = {
+  title: null
+}
+
 export default Login;
-```
-### Компоненты страниц
-
-```ts
-//pages/profile.tsx
-const Profile = (): JSX.Element => {
-  return (
-    <ProfilePage />
-  );
-};
-
-export default Profile;
-```
-
-```ts
-//GTGPages/profile/profile.component.tsx
-const ProfilePage = (): JSX.Element => {
-  return (
-    //...
-  );
-};
-
-export default ProfilePage;
 ```
