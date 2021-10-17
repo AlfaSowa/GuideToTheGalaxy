@@ -140,8 +140,8 @@ const ProfileClassesNew = (): JSX.Element => {
                 <FormItem>
                   <Select
                     placeholder='Владение спасбросками'
-                    name='save'
-                    value={CharacteristicEnum[values.save]}
+                    name='saveDrop'
+                    value={CharacteristicEnum[values.saveDrop]}
                     onChange={setFieldValue}
                     errors={errors}
                   >

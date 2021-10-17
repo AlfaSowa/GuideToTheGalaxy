@@ -52,16 +52,17 @@ export enum SkillsEnum {
 
 export interface CharacterClass {
   name: string
+  alias: string
   mainCharacteristic: CharacteristicType[]
   hits: number
   hitsOnFirstLvl: number
   hitsOnNextLvl: number
   hitsModifier: CharacteristicType
-  save: CharacteristicType[]
+  saveDrop: CharacteristicType[]
   armor: ArmorType[]
   weapon: WeaponType[]
   skills: SkillsType[]
-  instruments: any[]
-  equipment: any[]
+  instruments?: any[]
+  equipment?: any[]
   description: string
 }
