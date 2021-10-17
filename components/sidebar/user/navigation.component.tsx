@@ -49,7 +49,7 @@ const UserNavigationItem = ({ page }) => {
 
       <div className={clsx(styles.nav__drop, { [styles.nav__drop__exp]: !sidebarAction })}>
         <div className={styles.nav__drop__inner}>
-          {page?.parts.map((part) => (
+          {page?.chapters.map((part) => (
             <div className={styles.nav__drop__item} key={part.alias}>
               <AcUnitIcon />
             </div>

@@ -4,7 +4,7 @@ import { Axios } from '../utils/axios';
 
 export const getChapters = async (): Promise<Chapter[]> => {
   try {
-    const { data, status } = await Axios.get('chapters');
+    const { data, status } = await Axios.get('parts');
 
     if (status === 200) {
       return data;
