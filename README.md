@@ -18,7 +18,7 @@
 #### Нейминг в файлах
 
 /pages/[chapter]/index.tsx
-```typescript
+```javascript
 const Chapter = (): JSX.Element => {
   return (
     <ChapterPage />

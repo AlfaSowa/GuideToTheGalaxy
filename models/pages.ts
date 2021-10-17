@@ -12,7 +12,7 @@ export const getPagesDataFx = createEffect(
   },
 );
 
-export const $pages = createStore<Chapter[]>([]).on(
+export const $pages = createStore<any[]>([]).on(
   getPagesDataFx.doneData,
   (_, pagesData) => pagesData,
 );

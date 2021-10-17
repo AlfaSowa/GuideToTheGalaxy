@@ -1,21 +1,13 @@
 .header {
   background: var(--color-primary);
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
   display: flex;
   align-items: center;
-
-  &__content {
-    flex: 1;
-    padding: 0 16px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    height: 32px
-  }
+  height: 32px;
 }
 
 .logo {
   flex: 0 0 250px;
   padding: 0 16px;
-  font-size: 2rem;
   color: var(--color-main);
 }

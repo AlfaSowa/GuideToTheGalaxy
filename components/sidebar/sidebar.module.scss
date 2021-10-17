@@ -1,11 +1,12 @@
 .sidebar {
 	height: calc(100vh - 32px);
 	max-height: calc(100vh - 32px);
-	background: var(--color-primary);
+	background: var(--color-bg);
 	flex-direction: column;
 	flex: 0 0 50px;
 	display: none;
 	z-index: 10;
+
 	@media (min-width: $breakpoints-mobile) {
 		display: flex;
 		flex: 0 0 250px;
@@ -30,6 +31,7 @@
 
 	&__btn {
 		display: none;
+		color: var(--color-primary);
 		@media (min-width: $breakpoints-mobile) {
 			display: block;
 		}

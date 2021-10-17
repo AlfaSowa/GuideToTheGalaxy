@@ -2,8 +2,7 @@
 	&__item {
 		position: relative;
 		&:hover {
-			background: var(--color-primary-hover);
-			color: white;
+			color: var(--color-primary);
 			.nav__drop {
 				display: block;
 			}
