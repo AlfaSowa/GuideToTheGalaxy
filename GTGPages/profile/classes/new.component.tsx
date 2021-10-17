@@ -24,21 +24,31 @@ import {
 import { $utils } from '../../../models/utils';
 import Checkbox from '../../../components/ui/form-fields/checkbox.component';
 import CroupCheckboxes from '../../../components/ui/form-fields/groupCheckboxes.component';
+import { Axios } from '../../../utils/axios';
+import { updateClassesFx } from '../../../models/classes';
 
 const ProfileClassesNew = (): JSX.Element => {
   const utils = useStore($utils);
 
-  console.log('utils', utils);
+  const onSubmit = async (values) => {
+    try {
+      const { data, status } = await Axios.post('classes', values);
+
+      if (status === 200) {
+        console.log('data', data);
+        updateClassesFx(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     utils && (
       <Formik
         initialValues={{}}
         // validationSchema={createChapterSchema}
-        onSubmit={(values: any) => {
-          console.log('values', values);
-        // onSubmit(values);
-        }}
+        onSubmit={(values: any) => onSubmit(values)}
         validateOnChange={false}
         validateOnBlur={false}
       >
@@ -57,6 +67,17 @@ const ProfileClassesNew = (): JSX.Element => {
 
             <FormContent>
               <FormRow>
+                <FormItem>
+                  <TextField
+                    placeholder='Алиас'
+                    type='text'
+                    name='alias'
+                    value={values.alias}
+                    onChange={handleChange}
+                    errors={errors}
+                  />
+                </FormItem>
+
                 <FormItem>
                   <TextField
                     placeholder='Название'
@@ -235,46 +256,6 @@ const ProfileClassesNew = (): JSX.Element => {
                     onChange={handleChange}
                     errors={errors}
                   />
-                </FormItem>
-              </FormRow>
-
-              <FormRow title='Другое'>
-                <FormItem fullWidth>
-                  <Checkbox
-                    placeholder='Описание'
-                    name='qwe'
-                    value={values.qwe}
-                    onChange={handleChange}
-                    errors={errors}
-                  />
-                </FormItem>
-              </FormRow>
-
-              <FormRow title='Другое'>
-                <FormItem fullWidth>
-                  <CroupCheckboxes>
-                    <Checkbox
-                      placeholder='Описание'
-                      name='qweqwe'
-                      value={values.qweqwe}
-                      onChange={handleChange}
-                      errors={errors}
-                    />
-                    <Checkbox
-                      placeholder='Описание'
-                      name='qweqwe'
-                      value={values.qweqwe}
-                      onChange={handleChange}
-                      errors={errors}
-                    />
-                    <Checkbox
-                      placeholder='Описание'
-                      name='qweqwe'
-                      value={values.qweqwe}
-                      onChange={handleChange}
-                      errors={errors}
-                    />
-                  </CroupCheckboxes>
                 </FormItem>
               </FormRow>
             </FormContent>

@@ -23,8 +23,8 @@ const ContentLinks = ({ links }: ContentLinksProps): JSX.Element => {
   return (
     <div className={styles.list}>
       {links.map((item) => (
-        <div className={styles.list__item}>
-          <Link href={item.alias} key={item.alias}>
+        <div className={styles.list__item} key={item.alias}>
+          <Link href={item.alias}>
             <a className={styles.card}>
               <div className={styles.card__inner}>
                 <div className={styles.card__img}>

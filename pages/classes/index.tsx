@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useStore } from 'effector-react';
 import { useEffect } from 'react';
+import ClassesPage from '../../GTGPages/classes/classes.component';
 import PublicLayout from '../../layouts/public/public.layout';
 import {
   $classes,
@@ -16,13 +17,9 @@ const Classes = (): JSX.Element => {
     }
   }, []);
 
-  console.log('classes', classes);
-
   return (
     <PublicLayout title='Классы'>
-      {classes.map((item) => (
-        <div key={item._id}>{item.name}</div>
-      ))}
+      {classes.length > 0 && <ClassesPage />}
     </PublicLayout>
   );
 };
