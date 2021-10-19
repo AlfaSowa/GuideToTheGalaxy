@@ -38,7 +38,17 @@ const Profile = (): JSX.Element => {
 
 export default Profile;
 ```
+#### Нейминг в файлах страниц
 
+- GTGPages
+    - classes
+        - class
+            - new.component.tsx
+            - class.component.tsx
+            - class.module.scss
+        - classes.component.tsx
+        - classes.module.scss
+        
 #### Компоненты страниц
 
 ```javascript

@@ -25,16 +25,16 @@ const MiniProfile = (): JSX.Element => {
   const account = useStore($account);
   const [open, setOpen] = useState(false);
   const [show, setShow] = useState(false);
-  const [value, setValue] = useState('Войти');
+  const [value, setValue] = useState('login');
 
-  const handleChange = (e) => {
-    setValue(e.target.dataset.value);
+  const handleChange = (val) => {
+    setValue(val);
   };
 
   return (
     <>
       {!account && (
-        <button className={styles.text} onClick={() => setShow(true)}>
+        <button className={styles.btn} onClick={() => setShow(true)} type='button'>
           Вход
         </button>
       )}
@@ -49,7 +49,11 @@ const MiniProfile = (): JSX.Element => {
             {account?.image?.url && (
               <img src={account.image.url} alt='' />
             )}
-            <div className={styles.name}>{account.username}</div>
+            <div className={styles.name}>
+              <Link href='/profile'>
+                <a>{account.username}</a>
+              </Link>
+            </div>
           </div>
 
           {open && <MiniProfileDropdown />}
@@ -58,23 +62,15 @@ const MiniProfile = (): JSX.Element => {
 
       <Modal textHeader='Вход' open={show} onClose={setShow}>
         <CustomTabs>
-          <Tabs onChange={handleChange}>
-            <Tab
-              text='Войти'
-              value='Войти'
-              focused={value === 'Войти'}
-            />
-            <Tab
-              text='Зарегистрироваться'
-              value='Зарегистрироваться'
-              focused={value === 'Зарегистрироваться'}
-            />
+          <Tabs value={value} onChange={handleChange}>
+            <Tab value='login'>Войти</Tab>
+            <Tab value='registration'>Зарегистрироваться</Tab>
           </Tabs>
 
-          <TabsPanel value={value} index='Войти'>
+          <TabsPanel value={value} index='login'>
             <FormLogin />
           </TabsPanel>
-          <TabsPanel value={value} index='Зарегистрироваться'>
+          <TabsPanel value={value} index='registration'>
             <FormRegistration />
           </TabsPanel>
         </CustomTabs>

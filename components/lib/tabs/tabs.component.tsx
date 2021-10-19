@@ -1,6 +1,10 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import { style } from '@mui/system';
 import clsx from 'clsx';
 import Link from 'next/link';
 import {
+  ReactElement,
   ReactNode,
   useEffect,
   useState,
@@ -12,16 +16,16 @@ interface CustomTabsProps {
 }
 
 interface TabsProps {
-  children?: ReactNode;
+  children: ReactElement[];
   onChange: any;
+  value: any;
 }
 
 interface TabProps {
   value: any;
-  text: string;
-  focused: any;
-  link?: string;
-  linkIcon?: any;
+  children: ReactNode;
+  onChange?: any
+  valueFocused?: any
 }
 
 interface TabsPanelProps {
@@ -34,65 +38,31 @@ export const CustomTabs = ({ children }: CustomTabsProps): JSX.Element => {
   return <div>{children}</div>;
 };
 
-export const Tabs = ({ children, onChange }: TabsProps): JSX.Element => {
+export const Tabs = ({ children, onChange, value }: TabsProps): JSX.Element => {
   return (
-    <div className={styles.tabs} onClick={onChange}>
-      {children}
+    <div className={styles.tabs}>
+      {children.map((i) => ({
+        ...i,
+        props: {
+          ...i.props,
+          onChange,
+          valueFocused: value,
+        },
+      }))}
     </div>
   );
 };
 
-export const Tab = ({
-  value,
-  text,
-  focused,
-  link,
-  linkIcon,
-}: TabProps): JSX.Element => {
+export const Tab = ({ value, children, onChange, valueFocused }: TabProps): JSX.Element => {
   return (
-    <>
-      {!link && (
-        <div
-          data-value={value}
-          className={clsx(styles.tab, {
-            [styles.focused]: focused,
-          })}
-        >
-          {text}
-        </div>
-      )}
-
-      {link && (
-        <Link href={link}>
-          <a
-            // className={clsx(classes.root, {
-            // 	[classes.focused]: focused,
-            // })}
-            data-value={value}
-          >
-            {text}
-
-            {linkIcon && linkIcon}
-          </a>
-        </Link>
-      )}
-    </>
+    <div className={clsx({ [styles.focused]: valueFocused === value })} onClick={() => onChange(value)}>{children}</div>
   );
 };
 
 export const TabsPanel = ({
-  value,
-  index,
   children,
+  index,
+  value,
 }: TabsPanelProps): JSX.Element => {
-  const [isShow, setIsShow] = useState(false);
-
-  useEffect(() => {
-    if (value === index) {
-      setIsShow(true);
-    } else {
-      setIsShow(false);
-    }
-  }, [value]);
-  return isShow && <div>{children}</div>;
+  return value === index && <div>{children}</div>;
 };

@@ -12,15 +12,9 @@ const ProfileContentPage = (): JSX.Element => {
         <>
           <div>{page.name}</div>
 
-          {page.parts.map((part) => (
+          {page?.chapters.map((chapter) => (
             <div className={styles.list}>
-              <div>{part.name}</div>
-
-              {part.themes.map((theme) => (
-                <div className={styles.list}>
-                  <div>{theme.name}</div>
-                </div>
-              ))}
+              <div>{chapter.name}</div>
             </div>
           ))}
         </>

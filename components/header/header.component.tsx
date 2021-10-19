@@ -1,17 +1,22 @@
 import Link from 'next/link';
-import { memo } from 'react';
 import Container from '../lib/container/container.component';
 import MiniProfile from '../mini-profile/mini-profile.component';
 import styles from './header.module.scss';
 
-const Header = (): JSX.Element => (
-  <header className={styles.header}>
-    <Container alignCenter>
-      <Link href='/'>
-        <a className={styles.logo}>GuideToTheGalaxy</a>
-      </Link>
-    </Container>
-  </header>
-);
+const Header = (): JSX.Element => {
+  return (
+    <header className={styles.header}>
+      <Container alignCenter padding>
+        <Link href='/'>
+          <a className={styles.logo}>GuideToTheGalaxy</a>
+        </Link>
 
-export default memo(Header);
+        <div className={styles.header__content}>
+          <MiniProfile />
+        </div>
+      </Container>
+    </header>
+  );
+};
+
+export default Header;
