@@ -7,11 +7,12 @@ import { getClasses } from '../methods/classes';
 
 export const getClassesDataFx = createEffect(
   async (): Promise<any[]> => {
-    const chapters = await getClasses();
-    return chapters;
+    const classes = await getClasses();
+    return classes;
   },
 );
 export const updateClassesFx = createEvent<any>();
+export const setClassesFx = createEvent<any>();
 
 export const $classes = createStore<any[]>([])
   .on(

@@ -74,6 +74,7 @@ textarea {
 }
 
 h1 {
+	font-size: 2rem;
 	margin: 0 0 8px 0;
 	@media (min-width: $breakpoints-mobile) {
 		margin: 0 0 16px 0;
@@ -83,5 +84,5 @@ h1 {
 h5 {
 	margin: 0 0 4px 0;
 	font-weight: 400;
-	font-size: 1.125rem;
+	font-size: 1rem;
 }

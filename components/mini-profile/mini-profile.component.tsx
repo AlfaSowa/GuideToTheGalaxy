@@ -55,8 +55,6 @@ const MiniProfile = (): JSX.Element => {
               </Link>
             </div>
           </div>
-
-          {open && <MiniProfileDropdown />}
         </div>
       )}
 

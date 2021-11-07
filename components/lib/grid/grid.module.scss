@@ -1,0 +1,23 @@
+.grid {
+	&__inner {
+		margin: -4px 0 0 -4px;
+		display: flex;
+		flex-wrap: wrap;
+		@media (min-width: $breakpoints-mobile) {
+			margin: -8px 0 0 -8px;
+		}
+	}
+}
+
+.item {
+	flex: 0 0 100%;
+	padding: 4px 0 0 4px;
+	@media (min-width: $breakpoints-mobile) {
+		flex: 0 0 calc(100% / 4);
+		padding: 8px 0 0 8px;
+	}
+
+	@media (min-width: $breakpoints-table) {
+		flex: 0 0 calc(100% / 8);
+	}
+}

@@ -12,8 +12,12 @@ html {
   --color-primary-active: #CADAE4;
 
   //secondary
-  --color-secondary: #17699A;
-  --color-secondary-hover: #92B2C5;
+  --color-secondary: #9c81e0;
+  --color-secondary-add: #d5f3ff;
+  
+  --color-secondary-hover: #da7ebc;
+  --color-secondary-hover-add: #d5f3ff;
+
   --color-secondary-active: #CADAE4;
 
   //disable
@@ -28,8 +32,4 @@ html {
 
   --color-error: #ef4949;
   --color-error-add: #ff000012;
-}
-
-h1 {
-  font-size: 2rem;
 }

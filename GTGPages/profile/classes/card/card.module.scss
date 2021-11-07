@@ -1,0 +1,89 @@
+.card {
+  display: block;
+  padding: 100% 0 0 0;
+  position: relative;
+  background: linear-gradient(90deg, var(--color-secondary) 0%, var(--color-secondary-hover) 100%);
+  &:hover {
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+  }
+
+  &__border {
+    padding: 2px;
+    position: absolute;
+    inset: 0;
+  }
+  &__inner {
+    background: var(--color-bg-add);
+    height: 100%;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+
+    h5 {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 0.675rem;
+    
+    :global {
+      .MuiSvgIcon-root {
+        fill: var(--color-error);
+        width: 12px;
+        height: 12px;
+        margin: 0 4px 0 0;
+      }
+    }
+  }
+}
+
+.info {
+  &:not(:last-child){
+    margin: 0 0 8px 0;
+  }
+
+  &__title {
+    font-size: 0.75rem;
+  }
+  &__text {
+    margin: 0;
+    font-size: 0.625rem;
+  }
+}
+
+.options {
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+
+  &__btn {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    :global {
+      .MuiSvgIcon-root {
+        fill: var(--color-error);
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+  }
+}
