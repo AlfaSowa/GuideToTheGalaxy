@@ -10,7 +10,7 @@ import styles from './user.module.scss';
 import { $sidebarAction } from '../../../models/actions';
 import Typography from '../../ui/typography/typography.component';
 
-const UserNavigationItem = ({ page }) => {
+const UserNavigationItem = ({ page }: any) => {
   const sidebarAction = useStore($sidebarAction);
 
   const getIcon = (alias) => {

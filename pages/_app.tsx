@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import '../styles/globals.scss';
 import { AppProps } from 'next/app';
 import { useStore } from 'effector-react';

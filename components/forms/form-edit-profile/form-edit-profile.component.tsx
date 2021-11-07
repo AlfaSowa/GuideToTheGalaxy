@@ -18,8 +18,6 @@ import {
 import styles from './form-edit-profile.module.scss';
 
 const FormEditProfile = (): JSX.Element => {
-  const [errors, setErrors] = useState(null);
-
   const onSubmit = async ({ username, password }) => {
     console.log('1');
   };

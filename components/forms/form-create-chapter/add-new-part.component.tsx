@@ -12,7 +12,7 @@ import {
 } from '../../ui/form/form.component';
 import Button from '../../ui/button/button.component';
 
-const AddNewPart = ({ setIsShow, setParts }): JSX.Element => {
+const AddNewPart = ({ setIsShow, setParts }: any): JSX.Element => {
   const [themesInitial, setThemesInitial] = useState([]);
 
   const onSubmit = async (values) => {
@@ -27,8 +27,6 @@ const AddNewPart = ({ setIsShow, setParts }): JSX.Element => {
       alias: '',
     }]);
   };
-
-  console.log('themesInitial', themesInitial);
 
   return (
     <>

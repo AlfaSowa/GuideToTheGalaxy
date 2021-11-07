@@ -40,6 +40,8 @@
     "react/jsx-max-props-per-line": [2, { "maximum": 3 }],
     "react/jsx-indent-props": [2, { "indentMode": 2, "ignoreTernaryOperator": true}],
     "@typescript-eslint/indent": ["error", 2],
+    "no-underscore-dangle": "off",
+    "@typescript-eslint/no-unused-vars": ["warn"],
     "react/jsx-first-prop-new-line": [2, "multiline-multiprop"],
     "react/jsx-closing-bracket-location": [2, "line-aligned"],
     "react/jsx-curly-newline": "off",

@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { style } from '@mui/system';
 import clsx from 'clsx';
 import Link from 'next/link';
 import {
@@ -57,6 +56,11 @@ export const Tab = ({ value, children, onChange, valueFocused }: TabProps): JSX.
   return (
     <div className={clsx({ [styles.focused]: valueFocused === value })} onClick={() => onChange(value)}>{children}</div>
   );
+};
+
+Tab.defaultProps = {
+  onChange: null,
+  valueFocused: null,
 };
 
 export const TabsPanel = ({

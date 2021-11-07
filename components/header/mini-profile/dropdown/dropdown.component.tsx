@@ -1,5 +1,10 @@
 import Link from 'next/link';
-import { Item, dropdown, options, admin } from './dropdown-data';
+import {
+  Item,
+  dropdown,
+  options,
+  admin,
+} from './dropdown-data';
 import styles from './dropdown.module.scss';
 
 const MiniProfileDropdown = (): JSX.Element => {

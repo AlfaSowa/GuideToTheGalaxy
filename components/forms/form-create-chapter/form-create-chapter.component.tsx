@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import {
   Form,
   Formik,
@@ -24,7 +25,7 @@ const FormCreateChapter = (): JSX.Element => {
   const [isShow, setIsShow] = useState(false);
   const [parts, setParts] = useState([]);
 
-  const onSubmit = async (values) => {
+  const onSubmit = async (values): Promise<void> => {
     console.log('parts', {
       ...values,
       ...parts,

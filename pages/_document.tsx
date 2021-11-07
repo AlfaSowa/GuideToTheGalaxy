@@ -1,16 +1,21 @@
 import React from 'react';
-import Document, { Head, Html, Main, NextScript } from 'next/document';
+import Document, {
+  Head,
+  Html,
+  Main,
+  NextScript,
+} from 'next/document';
 
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="ru">
+      <Html lang='ru'>
         <Head>
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link rel='preconnect' href='https://fonts.googleapis.com' />
+          <link rel='preconnect' href='https://fonts.gstatic.com' />
           <link
-            href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap"
-            rel="stylesheet"
+            href='https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap'
+            rel='stylesheet'
           />
         </Head>
         <body>
@@ -25,10 +30,9 @@ export default class MyDocument extends Document {
 MyDocument.getInitialProps = async (ctx) => {
   const originalRenderPage = ctx.renderPage;
 
-  ctx.renderPage = () =>
-    originalRenderPage({
-      enhanceApp: (App) => App,
-    });
+  ctx.renderPage = () => originalRenderPage({
+    enhanceApp: (App) => App,
+  });
 
   const initialProps = await Document.getInitialProps(ctx);
 
