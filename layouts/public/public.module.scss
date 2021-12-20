@@ -1,8 +1,17 @@
 .content {
-	flex: 1;
-	height: calc(100vh - 32px);
-	max-height: calc(100vh - 32px);
-	overflow-y: auto;
+	min-height: 100vh;
 	background: var(--color-bg-add);
-	padding: 8px;
+	padding: 50px 0 0 0;
+	
+	@media(min-width: 768px) {
+		padding: 50px 0 0 40px;
+	
+		&.collapse {
+			padding: 50px 0 0 250px;
+		}
+	}
+
+	.inner {
+		padding: 16px;
+	}
 }

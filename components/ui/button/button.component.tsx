@@ -42,7 +42,7 @@ Button.defaultProps = {
   variant: 'primary',
   disabled: false,
   fullWidth: false,
-  onClick: false,
+  onClick: null,
 };
 
 export default Button;

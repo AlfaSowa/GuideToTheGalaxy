@@ -1,6 +1,5 @@
 .btn {
   height: 32px;
-  // border-radius: 4px;
   cursor: pointer;
   min-width: 64px;
   padding: 0 24px;
@@ -9,19 +8,21 @@
   font-weight: 500;
   font-family: 'Proxima Nova';
   color: var(--color-font);
-  transition: all 0.2s ease-in-out;
   &__primary {
     border: 1.5px solid var(--color-primary);
+    
     &:hover {
       border-color: var(--color-primary-hover);
-      background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+      background: var(--color-primary);
     }
   }
 
   &__secondary {
     background: var(--color-secondary);
+    border: 1.5px solid var(--color-secondary);
+
     &:hover {
-      color: var(--color-secondary-hover);
+      background: var(--color-secondary-hover);
     }
   }
 
@@ -35,6 +36,7 @@
       background: inherit;
     }
   }
+  
   &__fullwidth {
     width: 100%;
   }

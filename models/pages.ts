@@ -5,14 +5,20 @@ import { Chapter } from '../interfaces/chapters';
 import { getChapters } from '../methods/chapters';
 import { Axios } from '../utils/axios';
 
-export const getPagesDataFx = createEffect(
-  async (): Promise<Chapter[]> => {
-    const chapters = await getChapters();
-    return chapters;
+const initialPages = [
+  {
+    alias: 'characters',
+    name: 'Персонаж',
   },
-);
+  {
+    alias: 'adventures',
+    name: 'Приключения',
+  },
+];
 
-export const $pages = createStore<any[]>([]).on(
-  getPagesDataFx.doneData,
-  (_, pagesData) => pagesData,
-);
+type PagesType = {
+  alias: string,
+  name: string
+};
+
+export const $pages = createStore<PagesType[]>(initialPages);

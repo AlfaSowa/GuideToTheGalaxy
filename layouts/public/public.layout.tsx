@@ -1,17 +1,14 @@
+import clsx from 'clsx';
 import { useStore } from 'effector-react';
-import { useRouter } from 'next/router';
 import {
-  memo,
   ReactNode,
-  useEffect,
-  useState,
 } from 'react';
 import Header from '../../components/header/header.component';
 import Container from '../../components/lib/container/container.component';
 import Sidebar from '../../components/sidebar/sidebar.component';
 import UserNavigation from '../../components/sidebar/user/navigation.component';
 import Typography from '../../components/ui/typography/typography.component';
-import { $pages } from '../../models/pages';
+import { $sidebarAction } from '../../models/actions';
 import styles from './public.module.scss';
 
 interface PublicLayoutProps {
@@ -20,21 +17,22 @@ interface PublicLayoutProps {
 }
 
 const PublicLayout = ({ children, title }: PublicLayoutProps): JSX.Element => {
+  const sidebarAction = useStore($sidebarAction);
+
   return (
     <>
       <Header />
 
-      <Container>
-        <Sidebar>
-          <UserNavigation />
-        </Sidebar>
+      <Sidebar>
+        <UserNavigation />
+      </Sidebar>
 
-        <div className={styles.content}>
+      <main className={clsx(styles.content, { [styles.collapse]: sidebarAction })}>
+        <div className={styles.inner}>
           {title && <Typography component='h1'>{title}</Typography>}
-
-          <main>{children}</main>
+          {children}
         </div>
-      </Container>
+      </main>
     </>
   );
 };

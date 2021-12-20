@@ -22,18 +22,16 @@ const Sidebar = ({ children }:SidebarProps): JSX.Element => {
         [styles.sidebar_active]: !sidebarAction,
       })}
     >
-      <div className={clsx(styles.sidebar__header, { [styles.sidebar__header__exp]: !sidebarAction })}>
-        <button
-          className={styles.sidebar__btn}
-          onClick={() => toogleSidebarActionFx(!sidebarAction)}
-          type='button'
-        >
-          {sidebarAction && <MenuOpenIcon />}
-          {!sidebarAction && <MenuIcon />}
-        </button>
-      </div>
+      <button
+        className={styles.btn}
+        onClick={() => toogleSidebarActionFx(!sidebarAction)}
+        type='button'
+      >
+        {sidebarAction && <MenuOpenIcon />}
+        {!sidebarAction && <MenuIcon />}
+      </button>
 
-      <div className={styles.sidebar__content}>
+      <div className={styles.inner}>
         {children}
       </div>
     </div>

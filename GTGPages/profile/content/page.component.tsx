@@ -12,11 +12,11 @@ const ProfileContentPage = (): JSX.Element => {
         <>
           <div>{page.name}</div>
 
-          {page?.chapters.map((chapter) => (
+          {/* {page?.chapters.map((chapter) => (
             <div className={styles.list}>
               <div>{chapter.name}</div>
             </div>
-          ))}
+          ))} */}
         </>
       ))}
     </div>

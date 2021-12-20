@@ -10,7 +10,7 @@ const PartPage = (): JSX.Element => {
 
   return (
     <div>
-      <ContentLinks links={pages.find((page) => page.alias === router.query.part)?.chapters} />
+      {/* <ContentLinks links={pages.find((page) => page.alias === router.query.part)?.chapters} /> */}
     </div>
   );
 };

@@ -1,9 +1,11 @@
 .header {
   background: var(--color-primary);
-  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+  background: linear-gradient(90deg, var(--color-secondary) 0%, var(--color-primary) 100%);
   display: flex;
   align-items: center;
-  height: 32px;
+  height: 50px;
+  position: fixed;
+  width: 100%;
 
   &__content {
     flex: 1;

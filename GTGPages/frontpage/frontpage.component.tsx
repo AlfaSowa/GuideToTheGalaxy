@@ -1,55 +1,101 @@
 import {
-	Table,
-	Caption,
-	TableBody,
-	TableHead,
-	TableRow,
-	TableСell,
+  Table,
+  Caption,
+  TableBody,
+  TableHead,
+  TableRow,
+  TableСell,
 } from '../../components/lib/table/table.component';
 import style from './frontpage.module.scss';
 
 const FrontPage = (): JSX.Element => {
-	return (
-		<div>
-			<Table>
-				<Caption>ПЛУТ</Caption>
-
-				<TableHead>
-					<TableRow>
-						<TableСell>Уровень</TableСell>
-						<TableСell>Бонус мастерства</TableСell>
-						<TableСell>Скрытая атака</TableСell>
-						<TableСell>Умения</TableСell>
-					</TableRow>
-				</TableHead>
-
-				<TableBody>
-					<TableRow>
-						<TableСell>1</TableСell>
-						<TableСell>+2</TableСell>
-						<TableСell>1к6</TableСell>
-						<TableСell>
-							Компетентность, Скрытая атака, Воровской жаргон
-						</TableСell>
-					</TableRow>
-
-					<TableRow>
-						<TableСell>2</TableСell>
-						<TableСell>+2</TableСell>
-						<TableСell>1к6</TableСell>
-						<TableСell>Хитрое действие</TableСell>
-					</TableRow>
-
-					<TableRow>
-						<TableСell>3</TableСell>
-						<TableСell>+2</TableСell>
-						<TableСell>2к6</TableСell>
-						<TableСell>Архетип плута</TableСell>
-					</TableRow>
-				</TableBody>
-			</Table>
-		</div>
-	);
+  return (
+    <div>
+      <div>111111111111111111111111</div>
+      <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero rem sint distinctio error expedita, eos beatae aperiam laboriosam, corporis iusto minima facere earum et nulla amet ullam culpa molestias! Eveniet, tempore labore iste quae qui doloremque. Omnis, fugit ea autem est quisquam iusto explicabo, reprehenderit itaque molestias maiores numquam sint. Rerum beatae aliquam, atque iste, saepe, dignissimos facilis iure fuga alias ducimus eos cum dicta? Ex consectetur totam hic impedit ut eum explicabo dicta, amet laudantium nostrum sed neque numquam ad aperiam quam quidem, illo optio repudiandae. Animi minus enim, libero sint architecto corporis? Praesentium quasi explicabo iste dolorum ex nulla sint minima a at voluptate. Aperiam tempore, sint sequi velit corporis placeat quaerat soluta minus nostrum consequatur sapiente unde id. Architecto, perferendis facere laudantium consequuntur dolore soluta ea dolorum. Quod quia labore recusandae, quibusdam vero doloremque assumenda iste exercitationem tempora provident quo quasi unde et, omnis ab? Maxime fugiat nesciunt ratione quidem, inventore mollitia illo eum praesentium perspiciatis voluptates amet, impedit dolor recusandae voluptate unde temporibus sed, atque adipisci laborum? Tenetur esse aliquid error aliquam laboriosam necessitatibus labore consequatur, eveniet nam inventore quo laudantium excepturi. Excepturi cum earum dolorum itaque architecto possimus cumque incidunt nam debitis et voluptas quasi, suscipit consequatur, aspernatur ipsam aliquam reprehenderit modi at voluptatibus maxime nulla dolore saepe consequuntur! Quaerat rerum sint, officia id iusto assumenda suscipit fugit sapiente quia inventore incidunt aspernatur molestias dolor cumque harum. Itaque nulla atque minima ipsum ex laboriosam repellendus obcaecati at tempora maiores assumenda nostrum, in fuga non reprehenderit ullam, sequi quis odit. Obcaecati possimus distinctio officia commodi exercitationem minima assumenda enim debitis similique, hic velit nisi, qui ut nam ipsum, quod vel quibusdam omnis sunt molestias quidem in. Culpa reprehenderit iure a obcaecati itaque delectus nostrum quisquam adipisci? Veniam itaque veritatis impedit cum? Iste sit dolores debitis adipisci.</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+    </div>
+  );
 };
 
 export default FrontPage;

@@ -1,39 +1,33 @@
 .sidebar {
-	height: calc(100vh - 32px);
-	max-height: calc(100vh - 32px);
+	position: fixed;
+	top: 50px;
+	bottom: 0;
 	background: var(--color-bg);
 	flex-direction: column;
-	flex: 0 0 50px;
+	width: 40px;
+	padding: 40px 0 0 0;
 	display: none;
 	z-index: 10;
 
 	@media (min-width: $breakpoints-mobile) {
 		display: flex;
-		flex: 0 0 250px;
+		width: 250px;
 	}
 
 	&_active {
-		flex: 0 0 50px;
+		width: 40px;
 	}
 
-	&__header {
-		display: flex;
-		justify-content: flex-end;
-		&__exp {
-			justify-content: center;
-		}
-	}
-
-	&__content {
+	.inner {
 		padding: 8px 0;
-		flex: 1;
 	}
 
-	&__btn {
-		display: none;
+	.btn {
+		position: absolute;
+		right: 0;
+		top: 0;
 		color: var(--color-primary);
-		@media (min-width: $breakpoints-mobile) {
-			display: block;
-		}
+		height: 40px;
+		width: 40px;
 	}
 }

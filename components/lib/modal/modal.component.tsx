@@ -55,31 +55,23 @@ const Modal = ({
     };
   }, [open]);
 
-  return (
-    <>
-      {open && (
-        <>
-          {createPortal(
-            <div className={styles.modal} onClick={onOverlayClick}>
-              <div className={styles.modal__inner}>
-                <div className={styles.modal__header}>
-                  <span>{textHeader}</span>
+  return open && createPortal(
+    <div className={styles.root} onClick={onOverlayClick}>
+      <div className={styles.inner}>
+        <div className={styles.header}>
+          <div>{textHeader}</div>
 
-                  <button
-                    className={styles.btn}
-                    onClick={() => onClose(false)}
-                  >
-                    <CloseIcon />
-                  </button>
-                </div>
+          <button
+            className={styles.btn}
+            onClick={() => onClose(false)}
+          >
+            <CloseIcon />
+          </button>
+        </div>
 
-                <div>{children}</div>
-              </div>
-            </div>, document.body,
-          )}
-        </>
-      )}
-    </>
+        <div className={styles.content}>{children}</div>
+      </div>
+    </div>, document.body,
   );
 };
 

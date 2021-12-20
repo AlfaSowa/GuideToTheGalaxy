@@ -18,28 +18,28 @@ import {
   Tabs,
   TabsPanel,
 } from '../lib/tabs/tabs.component';
+import Button from '../ui/button/button.component';
 import MiniProfileDropdown from './dropdown/dropdown.component';
 import styles from './mini-profile.module.scss';
 
+type TypeModalForm = {
+  value: 'login' | 'registration',
+};
+
 const MiniProfile = (): JSX.Element => {
   const account = useStore($account);
-  const [open, setOpen] = useState(false);
-  const [show, setShow] = useState(false);
-  const [value, setValue] = useState('login');
-
-  const handleChange = (val) => {
-    setValue(val);
-  };
+  const [openModal, setOpenModal] = useState<TypeModalForm>(null);
 
   return (
-    <>
+    <div className={styles.root}>
       {!account && (
-        <button className={styles.btn} onClick={() => setShow(true)} type='button'>
-          Вход
-        </button>
+        <div className={styles.actions}>
+          <Button onClick={() => setOpenModal({ value: 'login' })}>Вход</Button>
+          <Button variant='secondary' onClick={() => setOpenModal({ value: 'registration' })}>Регистрация</Button>
+        </div>
       )}
 
-      {account && (
+      {/* {account && (
         <div className={styles.containe}>
           <div
             className={styles.avatar}
@@ -56,24 +56,26 @@ const MiniProfile = (): JSX.Element => {
             </div>
           </div>
         </div>
+      )} */}
+
+      {!account && (
+        <Modal textHeader='Вход' open={!!openModal} onClose={() => setOpenModal(null)}>
+          <CustomTabs>
+            <Tabs value={openModal?.value} onChange={(value) => setOpenModal({ value })}>
+              <Tab value='login'>Войти</Tab>
+              <Tab value='registration'>Зарегистрироваться</Tab>
+            </Tabs>
+
+            <TabsPanel value={openModal?.value} index='login'>
+              <FormLogin />
+            </TabsPanel>
+            <TabsPanel value={openModal?.value} index='registration'>
+              <FormRegistration />
+            </TabsPanel>
+          </CustomTabs>
+        </Modal>
       )}
-
-      <Modal textHeader='Вход' open={show} onClose={setShow}>
-        <CustomTabs>
-          <Tabs value={value} onChange={handleChange}>
-            <Tab value='login'>Войти</Tab>
-            <Tab value='registration'>Зарегистрироваться</Tab>
-          </Tabs>
-
-          <TabsPanel value={value} index='login'>
-            <FormLogin />
-          </TabsPanel>
-          <TabsPanel value={value} index='registration'>
-            <FormRegistration />
-          </TabsPanel>
-        </CustomTabs>
-      </Modal>
-    </>
+    </div>
   );
 };
 

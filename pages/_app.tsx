@@ -1,34 +1,43 @@
 /* eslint-disable no-useless-escape */
 import '../styles/globals.scss';
-import { AppProps } from 'next/app';
-import { useStore } from 'effector-react';
-import { useEffect } from 'react';
+import App, { AppProps } from 'next/app';
 import {
-  $pages,
-  getPagesDataFx,
-} from '../models/pages';
+  useEffect,
+} from 'react';
 import { getAccountFx } from '../models/account';
+import MobileNavigation from '../components/mobile-navigation/navigation.component';
 
 const WrappedApp = ({ Component, pageProps }: AppProps): JSX.Element => {
-  const pages = useStore($pages);
+  // useEffect(() => {
+  //   const reg = /(?:(?:^|.*;\s*)token\s*\=\s*([^;]*).*$)|^.*$/;
+  //   const token = document.cookie ? document.cookie.replace(reg, '$1') : '';
 
-  useEffect(() => {
-    if (!pages.length) {
-      getPagesDataFx();
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  //   if (token) {
+  //     getAccountFx({ token });
+  //   }
+  // }, []);
 
-  useEffect(() => {
-    const reg = /(?:(?:^|.*;\s*)token\s*\=\s*([^;]*).*$)|^.*$/;
-    const token = document.cookie ? document.cookie.replace(reg, '$1') : '';
+  return (
+    <>
+      <Component {...pageProps} />
+      {pageProps?.isMobile && <MobileNavigation />}
+    </>
+  );
+};
 
-    if (token) {
-      getAccountFx({ token });
-    }
-  }, []);
+WrappedApp.getInitialProps = async (appContext) => {
+  const userAgent = appContext?.ctx?.req?.headers['user-agent'];
+  const reqMobile = /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i;
 
-  return <Component {...pageProps} />;
+  const appProps = await App.getInitialProps(appContext);
+
+  return {
+    ...appProps,
+    pageProps: {
+      ...appProps.pageProps,
+      isMobile: !!reqMobile.exec(userAgent),
+    },
+  };
 };
 
 export default WrappedApp;
