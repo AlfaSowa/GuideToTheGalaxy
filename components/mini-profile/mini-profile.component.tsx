@@ -8,7 +8,10 @@ import {
   useRef,
   useState,
 } from 'react';
-import { $account } from '../../models/account';
+import {
+  $account,
+  fetchAccountDataFx,
+} from '../../models/account';
 import FormLogin from '../forms/form-login/form-login.component';
 import FormRegistration from '../forms/form-registration/form-registration.component';
 import Modal from '../lib/modal/modal.component';
@@ -28,53 +31,49 @@ type TypeModalForm = {
 
 const MiniProfile = (): JSX.Element => {
   const account = useStore($account);
+  const loadingAccountData = useStore(fetchAccountDataFx.pending);
   const [openModal, setOpenModal] = useState<TypeModalForm>(null);
 
   return (
     <div className={styles.root}>
-      {!account && (
-        <div className={styles.actions}>
-          <Button onClick={() => setOpenModal({ value: 'login' })}>Вход</Button>
-          <Button variant='secondary' onClick={() => setOpenModal({ value: 'registration' })}>Регистрация</Button>
-        </div>
-      )}
+      {!loadingAccountData && (
+        <>
+          {!account && (
+            <div className={styles.actions}>
+              <Button onClick={() => setOpenModal({ value: 'login' })}>Вход</Button>
+              <Button variant='secondary' onClick={() => setOpenModal({ value: 'registration' })}>Регистрация</Button>
+            </div>
+          )}
 
-      {/* {account && (
-        <div className={styles.containe}>
-          <div
-            className={styles.avatar}
-            onClick={() => setOpen(!open)}
-            role='button'
-          >
-            {account?.image?.url && (
-              <img src={account.image.url} alt='' />
-            )}
-            <div className={styles.name}>
+          {account && (
+            <div className={styles.containe}>
               <Link href='/profile'>
                 <a>{account.username}</a>
               </Link>
             </div>
-          </div>
-        </div>
-      )} */}
+          )}
 
-      {!account && (
-        <Modal textHeader='Вход' open={!!openModal} onClose={() => setOpenModal(null)}>
-          <CustomTabs>
-            <Tabs value={openModal?.value} onChange={(value) => setOpenModal({ value })}>
-              <Tab value='login'>Войти</Tab>
-              <Tab value='registration'>Зарегистрироваться</Tab>
-            </Tabs>
+          {!account && (
+            <Modal textHeader='Вход' open={!!openModal} onClose={() => setOpenModal(null)}>
+              <CustomTabs>
+                <Tabs value={openModal?.value} onChange={(value) => setOpenModal({ value })}>
+                  <Tab value='login'>Войти</Tab>
+                  <Tab value='registration'>Зарегистрироваться</Tab>
+                </Tabs>
 
-            <TabsPanel value={openModal?.value} index='login'>
-              <FormLogin />
-            </TabsPanel>
-            <TabsPanel value={openModal?.value} index='registration'>
-              <FormRegistration />
-            </TabsPanel>
-          </CustomTabs>
-        </Modal>
+                <TabsPanel value={openModal?.value} index='login'>
+                  <FormLogin />
+                </TabsPanel>
+                <TabsPanel value={openModal?.value} index='registration'>
+                  <FormRegistration />
+                </TabsPanel>
+              </CustomTabs>
+            </Modal>
+          )}
+        </>
       )}
+
+      {loadingAccountData && <div>12312313123123123</div>}
     </div>
   );
 };

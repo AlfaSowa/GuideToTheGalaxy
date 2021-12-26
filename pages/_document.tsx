@@ -5,8 +5,11 @@ import Document, {
   Main,
   NextScript,
 } from 'next/document';
+import { withFork } from 'effector-next';
 
-export default class MyDocument extends Document {
+const enhance = withFork({ debug: false });
+
+class MyDocument extends Document {
   render() {
     return (
       <Html lang='ru'>
@@ -44,3 +47,5 @@ MyDocument.getInitialProps = async (ctx) => {
     ],
   };
 };
+
+export default enhance(MyDocument);

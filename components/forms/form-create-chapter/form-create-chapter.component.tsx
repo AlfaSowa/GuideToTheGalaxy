@@ -14,7 +14,7 @@ import {
 } from '../../ui/form/form.component';
 import Button from '../../ui/button/button.component';
 import AddNewPart from './add-new-part.component';
-import { Axios } from '../../../utils/axios';
+import { Axios } from '../../../service/axios';
 
 const createChapterSchema = yup.object().shape({
   name: yup.string().required('Обязательное поле'),

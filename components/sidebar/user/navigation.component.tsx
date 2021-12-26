@@ -5,31 +5,29 @@ import Link from 'next/link';
 import PublicIcon from '@mui/icons-material/Public';
 import ExploreIcon from '@mui/icons-material/Explore';
 import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
-import { $pages } from '../../../models/pages';
 import styles from './user.module.scss';
-import { $sidebarAction } from '../../../models/actions';
 import Typography from '../../ui/typography/typography.component';
 
 const UserNavigation = (): JSX.Element => {
-  const pages = useStore($pages);
-  const sidebarAction = useStore($sidebarAction);
+  // const pages = useStore($pages);
+  // const sidebarAction = useStore($sidebarAction);
 
-  const getIcon = (alias) => {
-    switch (alias) {
-      case 'world':
-        return <PublicIcon />;
-      case 'adventures':
-        return <ExploreIcon />;
-      case 'game':
-        return <VideogameAssetIcon />;
-      default:
-        return <AcUnitIcon />;
-    }
-  };
+  // const getIcon = (alias) => {
+  //   switch (alias) {
+  //     case 'world':
+  //       return <PublicIcon />;
+  //     case 'adventures':
+  //       return <ExploreIcon />;
+  //     case 'game':
+  //       return <VideogameAssetIcon />;
+  //     default:
+  //       return <AcUnitIcon />;
+  //   }
+  // };
 
   return (
     <nav className={styles.nav}>
-      {pages.map((page) => (
+      {/* {pages.map((page) => (
         <Link href={`/${page.alias}`}>
           <a className={styles.link}>
             <div className={styles.icon}>{getIcon(page.alias)}</div>
@@ -39,7 +37,7 @@ const UserNavigation = (): JSX.Element => {
             </Typography>
           </a>
         </Link>
-      ))}
+      ))} */}
     </nav>
   );
 };

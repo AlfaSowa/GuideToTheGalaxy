@@ -3,10 +3,6 @@ import {
   Formik,
   validateYupSchema,
 } from 'formik';
-import router from 'next/router';
-import { useState } from 'react';
-import { getAccountFx } from '../../../models/account';
-import { Axios } from '../../../utils/axios';
 import Button from '../../ui/button/button.component';
 import TextField from '../../ui/form-fields/textfield';
 import {

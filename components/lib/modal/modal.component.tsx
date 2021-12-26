@@ -57,19 +57,21 @@ const Modal = ({
 
   return open && createPortal(
     <div className={styles.root} onClick={onOverlayClick}>
-      <div className={styles.inner}>
-        <div className={styles.header}>
-          <div>{textHeader}</div>
+      <div className={styles.container}>
+        <div className={styles.inner}>
+          <div className={styles.header}>
+            <div>{textHeader}</div>
 
-          <button
-            className={styles.btn}
-            onClick={() => onClose(false)}
-          >
-            <CloseIcon />
-          </button>
+            <button
+              className={styles.btn}
+              onClick={() => onClose(false)}
+            >
+              <CloseIcon />
+            </button>
+          </div>
+
+          <div className={styles.content}>{children}</div>
         </div>
-
-        <div className={styles.content}>{children}</div>
       </div>
     </div>, document.body,
   );

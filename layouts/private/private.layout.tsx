@@ -3,6 +3,7 @@ import Header from '../../components/header/header.component';
 import Container from '../../components/lib/container/container.component';
 import AdminContent from '../../components/sidebar/admin/content.component';
 import Sidebar from '../../components/sidebar/sidebar.component';
+import MainBlock from '../../components/ui/main/main.component';
 import styles from './private.module.scss';
 
 interface PrivateLayoutProps {
@@ -14,15 +15,13 @@ const PrivateLayout = ({ children }:PrivateLayoutProps): JSX.Element => {
     <>
       <Header />
 
-      <Container>
-        <Sidebar>
+      {/* <Sidebar>
           <AdminContent />
-        </Sidebar>
+        </Sidebar> */}
 
-        <div className={styles.content}>
-          <main>{children}</main>
-        </div>
-      </Container>
+      <MainBlock noPadding>
+        {children}
+      </MainBlock>
     </>
   );
 };

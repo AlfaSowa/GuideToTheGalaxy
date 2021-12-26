@@ -1,4 +1,8 @@
-module.exports = {
+const { withEffectorReactAliases } = require("effector-next/tools");
+
+const enhance = withEffectorReactAliases();
+
+module.exports = enhance({
   webpack: (config, options) => {
     config.module.rules.push(
       {
@@ -26,4 +30,4 @@ module.exports = {
     includePaths: ['./styles'],
     prependData: `@import "./variables.scss";`,
   },
-};
+});

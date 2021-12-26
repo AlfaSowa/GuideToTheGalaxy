@@ -1,21 +1,29 @@
 /* eslint-disable no-useless-escape */
 import '../styles/globals.scss';
 import App, { AppProps } from 'next/app';
-import {
-  useEffect,
-} from 'react';
-import { getAccountFx } from '../models/account';
+import { withHydrate } from 'effector-next';
+import { useStore } from 'effector-react';
+import { useEffect } from 'react';
 import MobileNavigation from '../components/mobile-navigation/navigation.component';
+import {
+  $account,
+  fetchAccountDataFx,
+} from '../models/account';
+
+const enhance = withHydrate();
 
 const WrappedApp = ({ Component, pageProps }: AppProps): JSX.Element => {
-  // useEffect(() => {
-  //   const reg = /(?:(?:^|.*;\s*)token\s*\=\s*([^;]*).*$)|^.*$/;
-  //   const token = document.cookie ? document.cookie.replace(reg, '$1') : '';
+  const account = useStore($account);
 
-  //   if (token) {
-  //     getAccountFx({ token });
-  //   }
-  // }, []);
+  useEffect(() => {
+    const reg = /(?:(?:^|.*;\s*)token\s*\=\s*([^;]*).*$)|^.*$/;
+    const token = document.cookie ? document.cookie.replace(reg, '$1') : '';
+
+    if (token && !account) {
+      fetchAccountDataFx({ token });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
@@ -40,4 +48,4 @@ WrappedApp.getInitialProps = async (appContext) => {
   };
 };
 
-export default WrappedApp;
+export default enhance(WrappedApp);

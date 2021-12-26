@@ -1,9 +1,20 @@
+import { useStore } from 'effector-react';
+import {
+  GetServerSideProps,
+  NextPage,
+} from 'next';
+import ProfilePage from '../../GTGPages/profile/profile.component';
 import PrivateLayout from '../../layouts/private/private.layout';
+import {
+  $account,
+  fetchAccountDataFx,
+} from '../../models/account';
 
-export const getServerSideProps = ({ req }) => {
+export const getServerSideProps: GetServerSideProps = async ({ query, res, req }): Promise<any> => {
   if (!req?.cookies?.token) {
     return {
       redirect: {
+        permanent: false,
         destination: '/',
       },
     };
@@ -14,10 +25,10 @@ export const getServerSideProps = ({ req }) => {
   };
 };
 
-const Profile = (): JSX.Element => {
+const Profile: NextPage = (): JSX.Element => {
   return (
     <PrivateLayout>
-      <div>Profile</div>
+      <ProfilePage />
     </PrivateLayout>
   );
 };

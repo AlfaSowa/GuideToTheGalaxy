@@ -1,20 +1,7 @@
 {
   "presets": ["next/babel"],
   "plugins": [
-    [
-      "styled-components",
-      {
-        "ssr": true,
-        "displayName": true,
-        "preprocess": false
-      }
-    ],
-    [
-      "effector/babel-plugin",
-      {
-        "addLoc": true
-        // "reactSsr": true
-      }
-    ]
+    ["styled-components",{"ssr": true,"displayName": true,"preprocess": false}],
+    ["effector/babel-plugin", { "importName": ["effector-next"] }]
   ]
 }
