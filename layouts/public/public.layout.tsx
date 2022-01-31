@@ -3,7 +3,7 @@ import { useStore } from "effector-react";
 import { ReactNode } from "react";
 import Header from "../../components/header/header.component";
 import Container from "../../components/lib/container/container.component";
-import SidebarMainNavigation from "../../components/sidebar/main/navigation.component";
+import SidebarMainNavigation from "../../components/sidebar/navigations/main/navigation.component";
 import Sidebar from "../../components/sidebar/sidebar.component";
 import MainBlock from "../../components/ui/main/main.component";
 import Typography from "../../components/ui/typography/typography.component";

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FC } from "react";
-import styles from "./sidebar-list.module.scss";
+import styles from "./styles.module.scss";
 
 interface ISidebarListElem {
   link: string;

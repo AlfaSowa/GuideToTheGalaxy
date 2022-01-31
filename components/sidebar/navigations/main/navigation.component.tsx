@@ -1,7 +1,7 @@
 import { useStore } from "effector-react";
-import { $account } from "../../../models/account";
-import SidebarList from "../sidebar-list/sidebar-list.component";
-import SidebarListElem from "../sidebar-list/sidebar-elem.component";
+import { $account } from "../../../../models/account";
+import SidebarListElem from "../../components/menu/sidebar-menu-item.component";
+import SidebarList from "../../components/menu/sidebar-menu.component";
 
 const SidebarMainNavigation = (): JSX.Element => {
   const account = useStore($account);
