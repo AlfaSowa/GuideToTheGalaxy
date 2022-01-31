@@ -1,20 +1,31 @@
-.header {
+.root {
   background: var(--color-primary);
   background: linear-gradient(90deg, var(--color-secondary) 0%, var(--color-primary) 100%);
   display: flex;
-  align-items: center;
+  align-items: stretch;
   height: 50px;
   position: fixed;
   width: 100%;
 
-  &__content {
+  .logo {
+    flex: 0 0 250px;
+    display: flex;
+    align-items: center;
+    color: var(--color-main);
+    font-size: 1.5rem;
+
+    .icon {
+      margin: 0 8px 0 0;
+      width: 32px;
+      height: 32px;
+    }
+  }
+  
+  .content {
+    align-self: stretch;
     flex: 1;
     display: flex;
     justify-content: flex-end;
   }
 }
 
-.logo {
-  flex: 0 0 250px;
-  color: var(--color-main);
-}

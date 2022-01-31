@@ -12,6 +12,12 @@ const FrontPage = (): JSX.Element => {
   return (
     <div>
       <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123</div>
+      <div>123qwe qwe qweqweqweqweqweqweq eqwe</div>
     </div>
   );
 };

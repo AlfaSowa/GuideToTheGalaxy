@@ -1,14 +1,21 @@
 .tabs {
 	display: flex;
-}
-
-.focused {
-	background: tomato;
+	color: var(--color-main-dark);
 }
 
 .tab {
+	padding: 4px;
+	font-size: 0.8rem;
 	cursor: pointer;
+
 	&:not(:last-child) {
 		margin: 0 15px 0 0;
 	}
+
+	&.focused {
+		color: var(--color-main);
+		background: var(--color-primary);
+	}
 }
+
+

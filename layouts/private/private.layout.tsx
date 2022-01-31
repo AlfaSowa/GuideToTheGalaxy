@@ -1,27 +1,19 @@
-import { ReactNode } from 'react';
-import Header from '../../components/header/header.component';
-import Container from '../../components/lib/container/container.component';
-import AdminContent from '../../components/sidebar/admin/content.component';
-import Sidebar from '../../components/sidebar/sidebar.component';
-import MainBlock from '../../components/ui/main/main.component';
-import styles from './private.module.scss';
+import { FC } from "react";
+import Header from "../../components/header/header.component";
+import SidebarProfileNavigation from "../../components/sidebar/profile/navigation.component";
+import Sidebar from "../../components/sidebar/sidebar.component";
+import MainBlock from "../../components/ui/main/main.component";
 
-interface PrivateLayoutProps {
-  children: ReactNode
-}
-
-const PrivateLayout = ({ children }:PrivateLayoutProps): JSX.Element => {
+const PrivateLayout: FC = ({ children }): JSX.Element => {
   return (
     <>
       <Header />
 
-      {/* <Sidebar>
-          <AdminContent />
-        </Sidebar> */}
+      <Sidebar>
+        <SidebarProfileNavigation />
+      </Sidebar>
 
-      <MainBlock noPadding>
-        {children}
-      </MainBlock>
+      <MainBlock noPadding>{children}</MainBlock>
     </>
   );
 };

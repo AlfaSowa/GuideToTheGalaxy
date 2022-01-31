@@ -1,33 +1,12 @@
 .sidebar {
-	position: fixed;
-	top: 50px;
-	bottom: 0;
-	background: var(--color-bg);
-	flex-direction: column;
-	width: 40px;
-	padding: 40px 0 0 0;
-	display: none;
-	z-index: 10;
+  position: fixed;
+  top: 50px;
+  bottom: 0;
+  background: var(--color-bg);
+  width: 250px;
+  padding: 12px 0;
 
-	@media (min-width: $breakpoints-mobile) {
-		display: flex;
-		width: 250px;
-	}
-
-	&_active {
-		width: 40px;
-	}
-
-	.inner {
-		padding: 8px 0;
-	}
-
-	.btn {
-		position: absolute;
-		right: 0;
-		top: 0;
-		color: var(--color-primary);
-		height: 40px;
-		width: 40px;
-	}
+  .inner {
+    padding: 8px 0;
+  }
 }

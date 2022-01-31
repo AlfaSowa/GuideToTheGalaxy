@@ -1,32 +1,20 @@
-import { ReactNode } from 'react';
+import clsx from "clsx";
+import { useStore } from "effector-react";
+import { ReactNode } from "react";
+import { $sidebarIsOpen, sidebarToggleFx } from "../../models/sidebar";
+import styles from "./sidebar.module.scss";
 
 interface SidebarProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
-const Sidebar = ({ children }:SidebarProps): JSX.Element => {
-  // const sidebarAction = useStore($sidebarAction);
+const Sidebar = ({ children }: SidebarProps): JSX.Element => {
+  const sidebarIsOpen = useStore($sidebarIsOpen);
 
   return (
-  // <div
-  //   className={clsx(styles.sidebar, {
-  //     [styles.sidebar_active]: !sidebarAction,
-  //   })}
-  // >
-  //   <button
-  //     className={styles.btn}
-  //     onClick={() => toogleSidebarActionFx(!sidebarAction)}
-  //     type='button'
-  //   >
-  //     {sidebarAction && <MenuOpenIcon />}
-  //     {!sidebarAction && <MenuIcon />}
-  //   </button>
-
-    //   <div className={styles.inner}>
-    //     {children}
-    //   </div>
-    // </div>
-    <div>123</div>
+    <div className={styles.sidebar}>
+      <div className={styles.inner}>{children}</div>
+    </div>
   );
 };
 

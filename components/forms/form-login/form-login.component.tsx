@@ -12,6 +12,7 @@ import {
   FormActions,
   FormItem,
   FormTitle,
+  FormRow,
 } from '../../ui/form/form.component';
 import style from './form-login.module.scss';
 
@@ -48,27 +49,31 @@ const FormLogin = (): JSX.Element => {
         {({ values, handleChange, errors }) => (
           <Form noValidate>
             <FormContent>
-              <FormItem>
-                <TextField
-                  placeholder='Имя:'
-                  type='text'
-                  name='username'
-                  value={values.username}
-                  onChange={handleChange}
-                  errors={errors}
-                />
-              </FormItem>
+              <FormRow>
+                <FormItem fullWidth>
+                  <TextField
+                    placeholder='Имя:'
+                    type='text'
+                    name='username'
+                    value={values.username}
+                    onChange={handleChange}
+                    errors={errors}
+                  />
+                </FormItem>
+              </FormRow>
 
-              <FormItem>
-                <TextField
-                  placeholder='Пароль:'
-                  type='password'
-                  name='password'
-                  value={values.password}
-                  onChange={handleChange}
-                  errors={errors}
-                />
-              </FormItem>
+              <FormRow>
+                <FormItem fullWidth>
+                  <TextField
+                    placeholder='Пароль:'
+                    type='password'
+                    name='password'
+                    value={values.password}
+                    onChange={handleChange}
+                    errors={errors}
+                  />
+                </FormItem>
+              </FormRow>
             </FormContent>
 
             <FormActions>

@@ -54,7 +54,7 @@ export const Tabs = ({ children, onChange, value }: TabsProps): JSX.Element => {
 
 export const Tab = ({ value, children, onChange, valueFocused }: TabProps): JSX.Element => {
   return (
-    <div className={clsx({ [styles.focused]: valueFocused === value })} onClick={() => onChange(value)}>{children}</div>
+    <div className={clsx(styles.tab, { [styles.focused]: valueFocused === value })} onClick={() => onChange(value)}>{children}</div>
   );
 };
 

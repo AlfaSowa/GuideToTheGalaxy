@@ -1,0 +1,9 @@
+.elem {
+  .link {
+    display: block;
+    padding: 8px 4px;
+    &:hover {
+      background: red;
+    }
+  }
+}
