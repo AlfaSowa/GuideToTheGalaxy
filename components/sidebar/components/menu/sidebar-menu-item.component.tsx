@@ -6,10 +6,7 @@ interface ISidebarListElem {
   link: string;
 }
 
-const SidebarListElem: FC<ISidebarListElem> = ({
-  children,
-  link,
-}): JSX.Element => {
+const SidebarListElem: FC<ISidebarListElem> = ({ children, link }) => {
   return (
     <li className={styles.elem}>
       <Link href={link}>

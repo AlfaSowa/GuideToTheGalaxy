@@ -1,14 +1,15 @@
-import Logo from '@mui/icons-material/LocalBarSharp';
-import Link from 'next/link';
-import Container from '../lib/container/container.component';
-import MiniProfile from '../mini-profile/mini-profile.component';
-import styles from './header.module.scss';
+import Logo from "@mui/icons-material/LocalBarSharp";
+import Link from "next/link";
+import { FC } from "react";
+import Container from "../lib/container/container.component";
+import UserMenu from "../user/menu/menu.component";
+import styles from "./styles.module.scss";
 
-const Header = (): JSX.Element => {
+const Header: FC = () => {
   return (
     <header className={styles.root}>
       <Container alignCenter padding>
-        <Link href='/'>
+        <Link href="/">
           <a className={styles.logo}>
             <div className={styles.icon}>
               <Logo />
@@ -17,8 +18,8 @@ const Header = (): JSX.Element => {
           </a>
         </Link>
 
-        <div className={styles.content}>
-          <MiniProfile />
+        <div className={styles.inner}>
+          <UserMenu />
         </div>
       </Container>
     </header>

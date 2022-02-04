@@ -4,7 +4,11 @@ import SidebarProfileNavigation from "../../components/sidebar/navigations/profi
 import Sidebar from "../../components/sidebar/sidebar.component";
 import MainBlock from "../../components/ui/main/main.component";
 
-const PrivateLayout: FC = ({ children }): JSX.Element => {
+interface PrivateLayoutProps {
+  title?: string;
+}
+
+const PrivateLayout: FC<PrivateLayoutProps> = ({ children, title }) => {
   return (
     <>
       <Header />
@@ -13,7 +17,9 @@ const PrivateLayout: FC = ({ children }): JSX.Element => {
         <SidebarProfileNavigation />
       </Sidebar>
 
-      <MainBlock noPadding>{children}</MainBlock>
+      <MainBlock title={title} noPadding>
+        {children}
+      </MainBlock>
     </>
   );
 };

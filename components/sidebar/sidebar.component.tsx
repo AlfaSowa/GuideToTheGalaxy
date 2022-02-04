@@ -1,16 +1,7 @@
-import clsx from "clsx";
-import { useStore } from "effector-react";
-import { ReactNode } from "react";
-import { $sidebarIsOpen, sidebarToggleFx } from "../../models/sidebar";
-import styles from "./sidebar.module.scss";
+import { FC } from "react";
+import styles from "./styles.module.scss";
 
-interface SidebarProps {
-  children: ReactNode;
-}
-
-const Sidebar = ({ children }: SidebarProps): JSX.Element => {
-  const sidebarIsOpen = useStore($sidebarIsOpen);
-
+const Sidebar: FC = ({ children }) => {
   return (
     <div className={styles.sidebar}>
       <div className={styles.inner}>{children}</div>

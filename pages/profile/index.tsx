@@ -1,21 +1,15 @@
-import { useStore } from 'effector-react';
-import {
-  GetServerSideProps,
-  NextPage,
-} from 'next';
-import ProfilePage from '../../GTGPages/profile/profile.component';
-import PrivateLayout from '../../layouts/private/private.layout';
-import {
-  $account,
-  fetchAccountDataFx,
-} from '../../models/account';
+import { GetServerSideProps, NextPage } from "next";
+import ProfilePage from "../../GTGPages/profile/profile.component";
+import PrivateLayout from "../../layouts/private/private.layout";
 
-export const getServerSideProps: GetServerSideProps = async ({ query, res, req }): Promise<any> => {
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+}): Promise<any> => {
   if (!req?.cookies?.token) {
     return {
       redirect: {
         permanent: false,
-        destination: '/',
+        destination: "/",
       },
     };
   }
@@ -25,7 +19,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query, res, req }
   };
 };
 
-const Profile: NextPage = (): JSX.Element => {
+const Profile: NextPage = () => {
   return (
     <PrivateLayout>
       <ProfilePage />

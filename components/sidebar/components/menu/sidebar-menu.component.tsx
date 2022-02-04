@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-const SidebarList: FC = ({ children }): JSX.Element => {
+const SidebarList: FC = ({ children }) => {
   return (
     <nav>
       <ul>{children}</ul>

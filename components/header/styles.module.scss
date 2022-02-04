@@ -1,6 +1,10 @@
 .root {
   background: var(--color-primary);
-  background: linear-gradient(90deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+  background: linear-gradient(
+    90deg,
+    var(--color-secondary) 0%,
+    var(--color-primary) 100%
+  );
   display: flex;
   align-items: stretch;
   height: 50px;
@@ -20,12 +24,12 @@
       height: 32px;
     }
   }
-  
-  .content {
-    align-self: stretch;
+
+  .inner {
     flex: 1;
     display: flex;
+    align-items: center;
     justify-content: flex-end;
+    gap: 16px;
   }
 }
-

@@ -1,9 +1,10 @@
 import { useStore } from "effector-react";
+import { FC } from "react";
 import { $account } from "../../../../models/account";
 import SidebarListElem from "../../components/menu/sidebar-menu-item.component";
 import SidebarList from "../../components/menu/sidebar-menu.component";
 
-const SidebarMainNavigation = (): JSX.Element => {
+const SidebarMainNavigation: FC = () => {
   const account = useStore($account);
 
   return (

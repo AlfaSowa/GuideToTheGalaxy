@@ -1,17 +1,11 @@
 .root {
-	min-height: 100vh;
-	background: var(--color-bg-add);
-	padding: 50px 0 0 0;
-	
-	@media(min-width: 768px) {
-		padding: 50px 0 0 40px;
-	
-		&.collapse {
-			padding: 50px 0 0 250px;
-		}
-	}
-	
-	.padding {
-		padding: 16px;
-	}
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow-y: auto;
+  background: var(--color-bg-add);
+  padding: 50px 0 0 250px;
+
+  .padding {
+    padding: 16px;
+  }
 }

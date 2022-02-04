@@ -9,12 +9,12 @@ interface IMenuItem {
 
 const MENU: IMenuItem[] = [
   {
-    text: "Классы",
-    path: "/profile/classes",
+    text: "Профиль",
+    path: "/profile",
   },
   {
-    text: "Оглавления",
-    path: "/profile/content",
+    text: "Классы",
+    path: "/profile/classes",
   },
 ];
 
