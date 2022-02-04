@@ -1,25 +1,23 @@
 import { FC } from "react";
 import Header from "../../components/header/header.component";
-import SidebarProfileNavigation from "../../components/sidebar/navigations/profile/navigation.component";
+import SidebarNavigationsProfile from "../../components/sidebar/navigations/profile/sidebar-navigations-profile.component";
 import Sidebar from "../../components/sidebar/sidebar.component";
 import MainBlock from "../../components/ui/main/main.component";
 
-interface PrivateLayoutProps {
+interface IPrivateLayout {
   title?: string;
 }
 
-const PrivateLayout: FC<PrivateLayoutProps> = ({ children, title }) => {
+const PrivateLayout: FC<IPrivateLayout> = ({ children, title }) => {
   return (
     <>
       <Header />
 
       <Sidebar>
-        <SidebarProfileNavigation />
+        <SidebarNavigationsProfile />
       </Sidebar>
 
-      <MainBlock title={title} noPadding>
-        {children}
-      </MainBlock>
+      <MainBlock title={title}>{children}</MainBlock>
     </>
   );
 };

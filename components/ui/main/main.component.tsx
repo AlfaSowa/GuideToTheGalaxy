@@ -3,14 +3,13 @@ import { useStore } from "effector-react";
 import { FC } from "react";
 import { $sidebarIsOpen } from "../../../models/sidebar";
 import Typography from "../typography/typography.component";
-import styles from "./main.module.scss";
+import styles from "./styles.module.scss";
 
 interface IMainBlock {
   title?: string;
-  noPadding?: boolean;
 }
 
-const MainBlock: FC<IMainBlock> = ({ children, title, noPadding }) => {
+const MainBlock: FC<IMainBlock> = ({ children, title }) => {
   const sidebarIsOpen = useStore($sidebarIsOpen);
 
   return (
@@ -23,7 +22,6 @@ const MainBlock: FC<IMainBlock> = ({ children, title, noPadding }) => {
 
 MainBlock.defaultProps = {
   title: null,
-  noPadding: false,
 };
 
 export default MainBlock;

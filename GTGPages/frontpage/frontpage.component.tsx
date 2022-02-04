@@ -1,14 +1,6 @@
-import {
-  Table,
-  Caption,
-  TableBody,
-  TableHead,
-  TableRow,
-  TableСell,
-} from '../../components/lib/table/table.component';
-import style from './frontpage.module.scss';
+import { FC } from "react";
 
-const FrontPage = (): JSX.Element => {
+const FrontPage: FC = () => {
   return (
     <div>
       <div>123</div>

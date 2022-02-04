@@ -4,7 +4,7 @@ import { $account } from "../../../../models/account";
 import SidebarListElem from "../../components/menu/sidebar-menu-item.component";
 import SidebarList from "../../components/menu/sidebar-menu.component";
 
-const SidebarMainNavigation: FC = () => {
+const SidebarNavigationsMain: FC = () => {
   const account = useStore($account);
 
   return (
@@ -15,4 +15,4 @@ const SidebarMainNavigation: FC = () => {
   );
 };
 
-export default SidebarMainNavigation;
+export default SidebarNavigationsMain;

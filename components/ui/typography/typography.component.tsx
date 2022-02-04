@@ -1,25 +1,21 @@
-import clsx from 'clsx';
-import {
-  createElement,
-  ReactNode,
-} from 'react';
-import styles from './typography.module.scss';
+import clsx from "clsx";
+import { createElement, FC, ReactNode } from "react";
+import styles from "./styles.module.scss";
 
-interface TypographyProps {
-  children: ReactNode;
-  component?: 'span' | 'p' | 'h1' | 'h5';
+interface ITypography {
+  component?: "span" | "p" | "h1" | "h5";
   className?: string;
-  variant?: 'text' | 'subtext';
+  variant?: "text" | "subtext";
   darkMode?: boolean;
 }
 
-const Typography = ({
+const Typography: FC<ITypography> = ({
   children,
   component,
   className,
   darkMode,
   variant,
-}: TypographyProps): JSX.Element => {
+}) => {
   return createElement(
     component,
     {
@@ -27,15 +23,15 @@ const Typography = ({
         styles.root,
         { [styles.root__dark]: darkMode },
         { [className]: className },
-        { [variant]: variant },
+        { [variant]: variant }
       ),
     },
-    children,
+    children
   );
 };
 
 Typography.defaultProps = {
-  component: 'span',
+  component: "span",
   className: null,
   variant: null,
   darkMode: false,

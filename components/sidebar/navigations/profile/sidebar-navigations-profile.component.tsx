@@ -18,7 +18,7 @@ const MENU: IMenuItem[] = [
   },
 ];
 
-const SidebarProfileNavigation: FC = () => {
+const SidebarNavigationsProfile: FC = () => {
   return (
     <SidebarList>
       {MENU.map((item) => (
@@ -28,4 +28,4 @@ const SidebarProfileNavigation: FC = () => {
   );
 };
 
-export default SidebarProfileNavigation;
+export default SidebarNavigationsProfile;

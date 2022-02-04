@@ -1,9 +1,10 @@
 import { useStore } from "effector-react";
+import { FC } from "react";
 import ProfileHeader from "../../components/profile/header/profile-header.component";
 import { $account, fetchAccountDataFx } from "../../models/account";
-import styles from "./profile.module.scss";
+import styles from "./styles.module.scss";
 
-const ProfilePage = (): JSX.Element => {
+const ProfilePage: FC = () => {
   return (
     <div className={styles.root}>
       <ProfileHeader />
