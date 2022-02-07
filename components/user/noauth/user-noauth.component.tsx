@@ -10,13 +10,23 @@ import {
 } from "../../lib/tabs/tabs.component";
 import FormLogin from "../../forms/form-login/form-login.component";
 import FormRegistration from "../../forms/form-registration/form-registration.component";
+import { useAccount } from "../../../hooks/account/useAccount";
 
 type TypeModalForm = {
   value: "login" | "registration";
 };
 
 const UserNoAuth: FC = () => {
+  const { fetchingAccount } = useAccount();
   const [openModal, setOpenModal] = useState<TypeModalForm>(null);
+
+  if (fetchingAccount) {
+    return (
+      <div>
+        <div>noauth</div>
+      </div>
+    );
+  }
 
   return (
     <>

@@ -1,43 +1,39 @@
-import {
-  Form,
-  Formik,
-} from 'formik';
-import { useRouter } from 'next/router';
-import * as yup from 'yup';
-import { getToken } from '../../../methods/account';
-import Button from '../../ui/button/button.component';
-import TextField from '../../ui/form-fields/textfield';
+import { Form, Formik } from "formik";
+import { useRouter } from "next/router";
+import * as yup from "yup";
+import { getToken } from "../../../methods/account";
+import Button from "../../ui/button/button.component";
+import TextField from "../../ui/form-fields/textfield";
 import {
   FormContent,
   FormActions,
   FormItem,
   FormTitle,
   FormRow,
-} from '../../ui/form/form.component';
-import style from './form-login.module.scss';
+} from "../../ui/form/form.component";
+import style from "./form-login.module.scss";
 
 const loginSchema = yup.object().shape({
-  username: yup.string().required('Обязательное поле'),
-  password: yup.string().required('Обязательное поле'),
+  username: yup.string().required("Обязательное поле"),
+  password: yup.string().required("Обязательное поле"),
 });
 
 const FormLogin = (): JSX.Element => {
   const router = useRouter();
 
   const onSubmit = async ({ username, password }) => {
-    const data = await getToken({
+    await getToken({
       username,
       password,
     });
-    console.log(data);
   };
 
   return (
     <div className={style.form}>
       <Formik
         initialValues={{
-          username: '',
-          password: '',
+          username: "",
+          password: "",
         }}
         validationSchema={loginSchema}
         onSubmit={(values) => {
@@ -52,9 +48,9 @@ const FormLogin = (): JSX.Element => {
               <FormRow>
                 <FormItem fullWidth>
                   <TextField
-                    placeholder='Имя:'
-                    type='text'
-                    name='username'
+                    placeholder="Имя:"
+                    type="text"
+                    name="username"
                     value={values.username}
                     onChange={handleChange}
                     errors={errors}
@@ -65,9 +61,9 @@ const FormLogin = (): JSX.Element => {
               <FormRow>
                 <FormItem fullWidth>
                   <TextField
-                    placeholder='Пароль:'
-                    type='password'
-                    name='password'
+                    placeholder="Пароль:"
+                    type="password"
+                    name="password"
                     value={values.password}
                     onChange={handleChange}
                     errors={errors}
@@ -77,10 +73,8 @@ const FormLogin = (): JSX.Element => {
             </FormContent>
 
             <FormActions>
-              <Button type='submit'>Войти</Button>
-              <Button onClick={() => router.push('/')}>
-                Отмена
-              </Button>
+              <Button type="submit">Войти</Button>
+              <Button onClick={() => router.push("/")}>Отмена</Button>
             </FormActions>
           </Form>
         )}

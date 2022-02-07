@@ -1,18 +1,21 @@
 import { FC } from "react";
-import SidebarListElem from "../../components/menu/sidebar-menu-item.component";
-import SidebarList from "../../components/menu/sidebar-menu.component";
+import SidebarMenuItem from "../../components/menu/sidebar-menu-item.component";
+import SidebarMenu from "../../components/menu/sidebar-menu.component";
 
 interface IMenuItem {
   text: string;
   path: string;
+  id: number;
 }
 
 const MENU: IMenuItem[] = [
   {
+    id: 1,
     text: "Профиль",
     path: "/profile",
   },
   {
+    id: 2,
     text: "Классы",
     path: "/profile/classes",
   },
@@ -20,11 +23,13 @@ const MENU: IMenuItem[] = [
 
 const SidebarNavigationsProfile: FC = () => {
   return (
-    <SidebarList>
+    <SidebarMenu>
       {MENU.map((item) => (
-        <SidebarListElem link={item.path}>{item.text}</SidebarListElem>
+        <SidebarMenuItem link={item.path} key={item.id}>
+          {item.text}
+        </SidebarMenuItem>
       ))}
-    </SidebarList>
+    </SidebarMenu>
   );
 };
 

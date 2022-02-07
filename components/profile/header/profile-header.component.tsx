@@ -1,17 +1,15 @@
-import { useStore } from "effector-react";
-import { $account, fetchAccountDataFx } from "../../../models/account";
+import { useAccount } from "../../../hooks/account/useAccount";
 import Avatar from "../../ui/avatar/avatar.component";
 import styles from "./profile-header.module.scss";
 
 const ProfileHeader = (): JSX.Element => {
-  const account = useStore($account);
-  const loadingAccountData = useStore(fetchAccountDataFx.pending);
+  const { account, fetchingAccount } = useAccount();
 
   return (
     <div className={styles.root}>
-      {loadingAccountData && <div className={styles.skeleton}>Loading...</div>}
+      {fetchingAccount && <div className={styles.skeleton}>Loading...</div>}
 
-      {!loadingAccountData && account && (
+      {!fetchingAccount && account && (
         <>
           <div className={styles.avatar}>
             <Avatar />

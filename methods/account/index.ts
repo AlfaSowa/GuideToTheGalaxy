@@ -1,11 +1,15 @@
-import { fetchAccountDataFx } from '../../models/account';
-import { Axios } from '../../service/axios';
-import { setCookie } from '../cookies';
-import { AuthType } from './interfaces';
+import { clearAccoutFx, fetchAccountDataFx } from "../../models/account";
+import { setTokenFx } from "../../models/account/token";
+import { Axios } from "../../service/axios";
+import { deleteCookie, setCookie } from "../cookies";
+import { AuthType } from "./interfaces";
 
-export const getToken = async ({ username, password }: AuthType): Promise<void> => {
+export const getToken = async ({
+  username,
+  password,
+}: AuthType): Promise<void> => {
   try {
-    const { data, status } = await Axios.post('auth/login', {
+    const { data, status } = await Axios.post("auth/login", {
       username,
       password,
     });
@@ -13,7 +17,7 @@ export const getToken = async ({ username, password }: AuthType): Promise<void> 
     if (status === 201) {
       fetchAccountDataFx(data);
       setCookie({
-        name: 'token',
+        name: "token",
         value: data?.token,
         days: 365,
       });
@@ -23,9 +27,12 @@ export const getToken = async ({ username, password }: AuthType): Promise<void> 
   }
 };
 
-export const createUser = async ({ username, password }: AuthType): Promise<void> => {
+export const createUser = async ({
+  username,
+  password,
+}: AuthType): Promise<void> => {
   try {
-    const { data, status } = await Axios.post('auth/registration', {
+    const { data, status } = await Axios.post("auth/registration", {
       username,
       password,
     });
@@ -39,4 +46,10 @@ export const createUser = async ({ username, password }: AuthType): Promise<void
   } catch (error) {
     console.log(error);
   }
+};
+
+export const logout = () => {
+  deleteCookie("token");
+  setTokenFx(null);
+  clearAccoutFx(null);
 };

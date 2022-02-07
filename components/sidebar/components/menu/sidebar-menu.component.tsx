@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-const SidebarList: FC = ({ children }) => {
+const SidebarMenu: FC = ({ children }) => {
   return (
     <nav>
       <ul>{children}</ul>
@@ -8,4 +8,4 @@ const SidebarList: FC = ({ children }) => {
   );
 };
 
-export default SidebarList;
+export default SidebarMenu;

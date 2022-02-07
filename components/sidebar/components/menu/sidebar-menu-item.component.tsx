@@ -2,11 +2,11 @@ import Link from "next/link";
 import { FC } from "react";
 import styles from "./styles.module.scss";
 
-interface ISidebarListElem {
+interface ISidebarMenuItem {
   link: string;
 }
 
-const SidebarListElem: FC<ISidebarListElem> = ({ children, link }) => {
+const SidebarMenuItem: FC<ISidebarMenuItem> = ({ children, link }) => {
   return (
     <li className={styles.elem}>
       <Link href={link}>
@@ -16,4 +16,4 @@ const SidebarListElem: FC<ISidebarListElem> = ({ children, link }) => {
   );
 };
 
-export default SidebarListElem;
+export default SidebarMenuItem;
