@@ -1,42 +1,43 @@
 .root {
-	position: fixed;
-	inset: 0;
-	z-index: 1000;
-	background: transparentize(#12181f, 0.6);
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: transparentize(#12181f, 0.6);
 
-	.container {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 100%;
-	}
-	
-	.inner {
-		background: #fff;
-		max-width: 420px;
-		margin: 16px;
-	}
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
 
-	.header {
-		font-size: 18px;
-		font-weight: 600;
-		padding: 8px 40px 8px 8px;
-		min-height: 40px;
-		position: relative;
-		display: flex;
-		align-items: center;
+  .inner {
+    background: #fff;
+    max-width: 420px;
+    margin: 16px;
+    width: 100%;
+  }
 
-		.btn {
-			position: absolute;
-			top: 4px;
-			right: 4px;
-			padding: 0;
-			width: 32px;
-			height: 32px;
-		}
-	}
+  .header {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 8px 40px 8px 8px;
+    min-height: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
 
-	.content {
-		padding: 8px;
-	}
+    .btn {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      padding: 0;
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .content {
+    padding: 8px;
+  }
 }

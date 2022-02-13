@@ -11,7 +11,6 @@ import {
   FormTitle,
   FormRow,
 } from "../../ui/form/form.component";
-import style from "./form-login.module.scss";
 
 const loginSchema = yup.object().shape({
   username: yup.string().required("Обязательное поле"),
@@ -29,7 +28,7 @@ const FormLogin = (): JSX.Element => {
   };
 
   return (
-    <div className={style.form}>
+    <div>
       <Formik
         initialValues={{
           username: "",

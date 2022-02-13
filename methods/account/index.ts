@@ -47,9 +47,3 @@ export const createUser = async ({
     console.log(error);
   }
 };
-
-export const logout = () => {
-  deleteCookie("token");
-  setTokenFx(null);
-  clearAccoutFx(null);
-};

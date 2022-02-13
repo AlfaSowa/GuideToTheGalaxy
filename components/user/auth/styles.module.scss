@@ -9,4 +9,12 @@
     padding: 0;
     color: var(--color-font);
   }
+
+  .drop {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--color-secondary-add);
+    padding: 4px 8px;
+  }
 }

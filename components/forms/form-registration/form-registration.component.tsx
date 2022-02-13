@@ -1,17 +1,13 @@
-import {
-  Form,
-  Formik,
-} from 'formik';
-import { createUser } from '../../../methods/account';
-import Button from '../../ui/button/button.component';
-import TextField from '../../ui/form-fields/textfield';
+import { Form, Formik } from "formik";
+import { createUser } from "../../../methods/account";
+import Button from "../../ui/button/button.component";
+import TextField from "../../ui/form-fields/textfield";
 import {
   FormActions,
   FormContent,
   FormItem,
   FormTitle,
-} from '../../ui/form/form.component';
-import style from './form-registration.module.scss';
+} from "../../ui/form/form.component";
 
 const FormRegistration = (): JSX.Element => {
   const onSubmit = async ({ username, password }) => {
@@ -22,11 +18,11 @@ const FormRegistration = (): JSX.Element => {
   };
 
   return (
-    <div className={style.form}>
+    <div>
       <Formik
         initialValues={{
-          username: '',
-          password: '',
+          username: "",
+          password: "",
         }}
         onSubmit={(values) => {
           onSubmit(values);
@@ -34,18 +30,14 @@ const FormRegistration = (): JSX.Element => {
         validateOnChange={false}
         validateOnBlur={false}
       >
-        {({
-          values,
-          errors,
-          handleChange,
-        }) => (
+        {({ values, errors, handleChange }) => (
           <Form noValidate>
             <FormContent>
               <FormItem>
                 <TextField
-                  placeholder='Имя'
-                  type='text'
-                  name='username'
+                  placeholder="Имя"
+                  type="text"
+                  name="username"
                   value={values.username}
                   onChange={handleChange}
                   errors={errors}
@@ -54,9 +46,9 @@ const FormRegistration = (): JSX.Element => {
 
               <FormItem>
                 <TextField
-                  placeholder='Пароль'
-                  type='password'
-                  name='password'
+                  placeholder="Пароль"
+                  type="password"
+                  name="password"
                   value={values.password}
                   onChange={handleChange}
                   errors={errors}
@@ -65,7 +57,7 @@ const FormRegistration = (): JSX.Element => {
             </FormContent>
 
             <FormActions>
-              <Button type='submit'>Зарегистрироваться</Button>
+              <Button type="submit">Зарегистрироваться</Button>
             </FormActions>
           </Form>
         )}
