@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 import { FC } from "react";
 import styles from "./styles.module.scss";
 
@@ -7,7 +6,7 @@ interface IUserListButton {
 }
 
 const UserListButton: FC<IUserListButton> = ({ children, onClick }) => (
-  <button onClick={onClick} className={styles.button}>
+  <button onClick={onClick} className={styles.button} type="button">
     {children}
   </button>
 );
