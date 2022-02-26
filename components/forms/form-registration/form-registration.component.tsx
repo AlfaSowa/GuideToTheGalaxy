@@ -6,12 +6,17 @@ import {
   FormActions,
   FormContent,
   FormItem,
-  FormTitle,
 } from "../../ui/form/form.component";
 
-const FormRegistration = (): JSX.Element => {
-  const onSubmit = async ({ username, password }) => {
-    createUser({
+function FormRegistration(): JSX.Element {
+  const onSubmit = async ({
+    username,
+    password,
+  }: {
+    username: string;
+    password: string;
+  }) => {
+    await createUser({
       username,
       password,
     });
@@ -64,6 +69,6 @@ const FormRegistration = (): JSX.Element => {
       </Formik>
     </div>
   );
-};
+}
 
 export default FormRegistration;

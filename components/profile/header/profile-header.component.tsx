@@ -2,7 +2,7 @@ import { useAccount } from "../../../hooks/account/useAccount";
 import Avatar from "../../ui/avatar/avatar.component";
 import styles from "./profile-header.module.scss";
 
-const ProfileHeader = (): JSX.Element => {
+function ProfileHeader(): JSX.Element {
   const { account, fetchingAccount } = useAccount();
 
   return (
@@ -20,6 +20,6 @@ const ProfileHeader = (): JSX.Element => {
       )}
     </div>
   );
-};
+}
 
 export default ProfileHeader;

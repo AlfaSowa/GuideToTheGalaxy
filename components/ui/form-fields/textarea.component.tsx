@@ -1,26 +1,36 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-import clsx from 'clsx';
-import { ChangeEvent } from 'react';
-import styles from './fields.module.scss';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import clsx from "clsx";
+import { ChangeEvent } from "react";
+import styles from "./fields.module.scss";
 
 interface TextAreaProps {
   name: string;
   value: any;
   placeholder: string;
   onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
-  errors: any
+  errors: any;
 }
 
-const TextArea = ({
+function TextArea({
   name,
   value,
   placeholder,
   onChange,
   errors,
-}: TextAreaProps): JSX.Element => {
+}: TextAreaProps): JSX.Element {
   return (
-    <label className={clsx(styles.root, { [styles.error]: errors && errors[name] })}>
-      <span className={clsx(styles.root__title, { [styles.root__title__active]: value })}>{placeholder}</span>
+    <label
+      className={clsx(styles.root, { [styles.error]: errors && errors[name] })}
+    >
+      <span
+        className={clsx(styles.root__title, {
+          [styles.root__title__active]: value,
+        })}
+      >
+        {placeholder}
+      </span>
 
       <textarea
         className={styles.root__textarea}
@@ -31,6 +41,6 @@ const TextArea = ({
       />
     </label>
   );
-};
+}
 
 export default TextArea;

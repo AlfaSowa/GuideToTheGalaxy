@@ -8,19 +8,17 @@ interface IPublicLayout {
   title?: string;
 }
 
-const PublicLayout: FC<IPublicLayout> = ({ children, title }) => {
-  return (
-    <>
-      <Header />
+const PublicLayout: FC<IPublicLayout> = ({ children, title }) => (
+  <>
+    <Header />
 
-      <Sidebar>
-        <SidebarNavigationsMain />
-      </Sidebar>
+    <Sidebar>
+      <SidebarNavigationsMain />
+    </Sidebar>
 
-      <MainBlock title={title}>{children}</MainBlock>
-    </>
-  );
-};
+    <MainBlock title={title}>{children}</MainBlock>
+  </>
+);
 
 PublicLayout.defaultProps = {
   title: null,

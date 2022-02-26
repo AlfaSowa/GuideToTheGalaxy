@@ -8,18 +8,20 @@ interface IPrivateLayout {
   title?: string;
 }
 
-const PrivateLayout: FC<IPrivateLayout> = ({ children, title }) => {
-  return (
-    <>
-      <Header />
+const PrivateLayout: FC<IPrivateLayout> = ({ children, title }) => (
+  <>
+    <Header />
 
-      <Sidebar>
-        <SidebarNavigationsProfile />
-      </Sidebar>
+    <Sidebar>
+      <SidebarNavigationsProfile />
+    </Sidebar>
 
-      <MainBlock title={title}>{children}</MainBlock>
-    </>
-  );
+    <MainBlock title={title}>{children}</MainBlock>
+  </>
+);
+
+PrivateLayout.defaultProps = {
+  title: null,
 };
 
 export default PrivateLayout;

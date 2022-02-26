@@ -7,27 +7,27 @@ module.exports = enhance({
     config.module.rules.push(
       {
         test: /\.svg$/,
-        loader: '@svgr/webpack',
+        loader: "@svgr/webpack",
       },
       {
         test: /\.(png|jpg)$/i,
 
         use: [
           {
-            loader: 'url-loader',
+            loader: "url-loader",
             options: {
-              mimetype: 'image/png',
-              encoding: 'base64',
+              mimetype: "image/png",
+              encoding: "base64",
             },
           },
         ],
-      },
+      }
     );
 
     return config;
   },
   sassOptions: {
-    includePaths: ['./styles'],
-    prependData: `@import "./variables.scss";`,
+    includePaths: ["./styles"],
+    prependData: '@import "./variables.scss";',
   },
 });

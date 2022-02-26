@@ -1,4 +1,4 @@
-import { FC, memo } from "react";
+import { FC } from "react";
 import UserListItem from "../../list/user-list-item.component";
 import UserList from "../../list/user-list.component";
 
@@ -35,16 +35,14 @@ const USER_MENU = [
   },
 ];
 
-const UserNavigationsMain: FC = () => {
-  return (
-    <UserList>
-      {USER_MENU.map((i) => (
-        <UserListItem link={i.link} key={i.id}>
-          {i.name}
-        </UserListItem>
-      ))}
-    </UserList>
-  );
-};
+const UserNavigationsMain: FC = () => (
+  <UserList>
+    {USER_MENU.map((i) => (
+      <UserListItem link={i.link} key={i.id}>
+        {i.name}
+      </UserListItem>
+    ))}
+  </UserList>
+);
 
 export default UserNavigationsMain;

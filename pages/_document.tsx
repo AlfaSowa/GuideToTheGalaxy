@@ -1,24 +1,21 @@
-import React from 'react';
+import React from "react";
 import Document, {
-  Head,
-  Html,
-  Main,
-  NextScript,
-} from 'next/document';
-import { withFork } from 'effector-next';
+  Head, Html, Main, NextScript,
+} from "next/document";
+import { withFork } from "effector-next";
 
 const enhance = withFork({ debug: false });
 
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang='ru'>
+      <Html lang="ru">
         <Head>
-          <link rel='preconnect' href='https://fonts.googleapis.com' />
-          <link rel='preconnect' href='https://fonts.gstatic.com' />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
-            href='https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap'
-            rel='stylesheet'
+            href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap"
+            rel="stylesheet"
           />
         </Head>
 
@@ -42,9 +39,7 @@ MyDocument.getInitialProps = async (ctx) => {
 
   return {
     ...initialProps,
-    styles: [
-      ...React.Children.toArray(initialProps.styles),
-    ],
+    styles: [...React.Children.toArray(initialProps.styles)],
   };
 };
 

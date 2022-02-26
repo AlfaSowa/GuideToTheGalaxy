@@ -1,4 +1,4 @@
-import { FC, memo, useEffect } from "react";
+import { FC, memo } from "react";
 import { useAccount } from "../../../hooks/account/useAccount";
 import UserAuth from "../auth/user-auth.component";
 import UserNoAuth from "../noauth/user-noauth.component";

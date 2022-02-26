@@ -1,28 +1,37 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-import clsx from 'clsx';
-import { ChangeEvent } from 'react';
-import styles from './fields.module.scss';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import clsx from "clsx";
+import { FormikErrors } from "formik";
+import { ChangeEvent } from "react";
+import styles from "./fields.module.scss";
 
 interface TextFieldProps {
   name: string;
-  type?: 'text' | 'password';
-  value: any;
+  type?: "text" | "password";
+  value: string;
   placeholder: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  errors: any
+  errors: FormikErrors<any>;
 }
 
-const TextField = ({
+function TextField({
   name,
   type,
   value,
   placeholder,
   onChange,
   errors,
-}: TextFieldProps): JSX.Element => {
+}: TextFieldProps): JSX.Element {
   return (
-    <label className={clsx(styles.root, { [styles.error]: errors && errors[name] })}>
-      <span className={clsx(styles.root__title, { [styles.root__title__active]: value })}>{placeholder}</span>
+    <label
+      className={clsx(styles.root, { [styles.error]: errors && errors[name] })}
+    >
+      <span
+        className={clsx(styles.root__title, {
+          [styles.root__title__active]: value,
+        })}
+      >
+        {placeholder}
+      </span>
 
       <input
         className={styles.root__input}
@@ -33,10 +42,10 @@ const TextField = ({
       />
     </label>
   );
-};
+}
 
 TextField.defaultProps = {
-  type: 'text',
+  type: "text",
 };
 
 export default TextField;

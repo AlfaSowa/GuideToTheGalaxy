@@ -1,27 +1,24 @@
-/* eslint-disable no-useless-escape */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import "../styles/globals.scss";
-import App, { AppProps } from "next/app";
+import App, { AppContext, AppProps } from "next/app";
 import { withHydrate } from "effector-next";
 import { useEffect } from "react";
-import { fetchAccountDataFx } from "../models/account";
 import MobileNavigationBottom from "../components/mobile/navigation/bottom/mobile-navigation-bottom.component";
 import { getCookie } from "../methods/cookies";
 import { useAccount } from "../hooks/account/useAccount";
-import { $token, setTokenFx } from "../models/account/token";
-import { useStore } from "effector-react";
+import { setTokenFx } from "../models/account/token";
 
 const enhance = withHydrate();
 
-const WrappedApp = ({ Component, pageProps }: AppProps): JSX.Element => {
-  const { account, token } = useAccount();
+function WrappedApp({ Component, pageProps }: AppProps) {
+  const { account, token, fetchAccountData } = useAccount();
 
-  console.log("token", token);
   useEffect(() => {
     if (token && !account) {
-      fetchAccountDataFx({ token });
+      fetchAccountData(token);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [account, fetchAccountData, token]);
 
   return (
     <>
@@ -29,10 +26,11 @@ const WrappedApp = ({ Component, pageProps }: AppProps): JSX.Element => {
       {pageProps?.isMobile && <MobileNavigationBottom />}
     </>
   );
-};
+}
 
-WrappedApp.getInitialProps = async (appContext) => {
+WrappedApp.getInitialProps = async (appContext: AppContext) => {
   const userAgent = appContext?.ctx?.req?.headers["user-agent"];
+
   const reqMobile =
     /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i;
 
@@ -48,6 +46,7 @@ WrappedApp.getInitialProps = async (appContext) => {
 
   return {
     ...appProps,
+
     pageProps: {
       ...appProps.pageProps,
       isMobile: !!reqMobile.exec(userAgent),

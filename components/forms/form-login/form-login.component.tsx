@@ -8,7 +8,6 @@ import {
   FormContent,
   FormActions,
   FormItem,
-  FormTitle,
   FormRow,
 } from "../../ui/form/form.component";
 
@@ -17,10 +16,16 @@ const loginSchema = yup.object().shape({
   password: yup.string().required("Обязательное поле"),
 });
 
-const FormLogin = (): JSX.Element => {
+function FormLogin(): JSX.Element {
   const router = useRouter();
 
-  const onSubmit = async ({ username, password }) => {
+  const onSubmit = async ({
+    username,
+    password,
+  }: {
+    username: string;
+    password: string;
+  }) => {
     await getToken({
       username,
       password,
@@ -80,6 +85,6 @@ const FormLogin = (): JSX.Element => {
       </Formik>
     </div>
   );
-};
+}
 
 export default FormLogin;

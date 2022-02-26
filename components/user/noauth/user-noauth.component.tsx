@@ -12,13 +12,14 @@ import FormLogin from "../../forms/form-login/form-login.component";
 import FormRegistration from "../../forms/form-registration/form-registration.component";
 import { useAccount } from "../../../hooks/account/useAccount";
 
-type TypeModalForm = {
-  value: "login" | "registration";
-};
+enum FormType {
+  LOGIN = "login",
+  REGISTR = "registration",
+}
 
 const UserNoAuth: FC = () => {
   const { fetchingAccount } = useAccount();
-  const [openModal, setOpenModal] = useState<TypeModalForm>(null);
+  const [openModal, setOpenModal] = useState<{ value: FormType }>(null);
 
   if (fetchingAccount) {
     return (
@@ -31,10 +32,12 @@ const UserNoAuth: FC = () => {
   return (
     <>
       <div className={styles.root}>
-        <Button onClick={() => setOpenModal({ value: "login" })}>Вход</Button>
+        <Button onClick={() => setOpenModal({ value: FormType.LOGIN })}>
+          Вход
+        </Button>
         <Button
           variant="secondary"
-          onClick={() => setOpenModal({ value: "registration" })}
+          onClick={() => setOpenModal({ value: FormType.REGISTR })}
         >
           Регистрация
         </Button>
@@ -48,7 +51,7 @@ const UserNoAuth: FC = () => {
         <CustomTabs>
           <Tabs
             value={openModal?.value}
-            onChange={(value) => setOpenModal({ value })}
+            onChange={(value: FormType) => setOpenModal({ value })}
           >
             <Tab value="login">Войти</Tab>
             <Tab value="registration">Зарегистрироваться</Tab>

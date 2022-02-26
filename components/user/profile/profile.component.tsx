@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { useAccount } from "../../../hooks/account/useAccount";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { useAccount } from "../../../hooks/account/useAccount";
 import styles from "./styles.module.scss";
 
 const UserProfile: FC = () => {

@@ -21,16 +21,14 @@ const MENU: IMenuItem[] = [
   },
 ];
 
-const SidebarNavigationsProfile: FC = () => {
-  return (
-    <SidebarMenu>
-      {MENU.map((item) => (
-        <SidebarMenuItem link={item.path} key={item.id}>
-          {item.text}
-        </SidebarMenuItem>
-      ))}
-    </SidebarMenu>
-  );
-};
+const SidebarNavigationsProfile: FC = () => (
+  <SidebarMenu>
+    {MENU.map((item) => (
+      <SidebarMenuItem link={item.path} key={item.id}>
+        {item.text}
+      </SidebarMenuItem>
+    ))}
+  </SidebarMenu>
+);
 
 export default SidebarNavigationsProfile;

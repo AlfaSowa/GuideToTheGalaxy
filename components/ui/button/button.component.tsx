@@ -12,26 +12,28 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
-const Button = ({
+function Button({
   type,
   children,
   variant,
   disabled,
   fullWidth,
   onClick,
-}: ButtonProps): JSX.Element => (
-  <button
-    className={clsx(style.btn, style[`btn__${variant}`], {
-      [style.btn__disabled]: disabled,
-      [style.btn__fullwidth]: fullWidth,
-    })}
-    disabled={disabled}
-    type={type}
-    onClick={onClick}
-  >
-    {children}
-  </button>
-);
+}: ButtonProps): JSX.Element {
+  return (
+    <button
+      className={clsx(style.btn, style[`btn__${variant}`], {
+        [style.btn__disabled]: disabled,
+        [style.btn__fullwidth]: fullWidth,
+      })}
+      disabled={disabled}
+      type={type}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
+}
 
 Button.defaultProps = {
   type: "button",

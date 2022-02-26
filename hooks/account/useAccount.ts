@@ -1,4 +1,5 @@
 import { useStore } from "effector-react";
+import { useCallback } from "react";
 import { deleteCookie } from "../../methods/cookies";
 import {
   $account,
@@ -12,6 +13,10 @@ export const useAccount = () => {
   const token = useStore($token);
   const fetchingAccount = useStore(fetchAccountDataFx.pending);
 
+  const fetchAccountData = useCallback((tokenString: string): void => {
+    fetchAccountDataFx({ token: tokenString });
+  }, []);
+
   const logout = () => {
     deleteCookie("token");
     setTokenFx(null);
@@ -21,6 +26,7 @@ export const useAccount = () => {
   return {
     account,
     fetchingAccount,
+    fetchAccountData,
     token,
     logout,
   };

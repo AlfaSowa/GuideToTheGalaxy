@@ -1,4 +1,4 @@
-import style from './card-base.module.scss';
+import style from "./card-base.module.scss";
 
 type TypeCard = {
   description: string;
@@ -9,14 +9,14 @@ interface CardProps {
   item: TypeCard;
 }
 
-const Card = ({ item }: CardProps): JSX.Element => {
+function Card({ item }: CardProps): JSX.Element {
   const { description, title } = item;
 
   return (
     <div className={style.card}>
       <div className={style.content}>
         <div className={style.img}>
-          <img src='https://via.placeholder.com/150x150' alt='123' />
+          <img src="https://via.placeholder.com/150x150" alt="123" />
         </div>
 
         <div className={style.text}>
@@ -28,6 +28,6 @@ const Card = ({ item }: CardProps): JSX.Element => {
       </div>
     </div>
   );
-};
+}
 
 export default Card;

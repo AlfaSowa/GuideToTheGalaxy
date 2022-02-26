@@ -1,7 +1,7 @@
-import { clearAccoutFx, fetchAccountDataFx } from "../../models/account";
-import { setTokenFx } from "../../models/account/token";
+import { AxiosResponse } from "axios";
+import { fetchAccountDataFx } from "../../models/account";
 import { Axios } from "../../service/axios";
-import { deleteCookie, setCookie } from "../cookies";
+import { setCookie } from "../cookies";
 import { AuthType } from "./interfaces";
 
 export const getToken = async ({
@@ -9,10 +9,13 @@ export const getToken = async ({
   password,
 }: AuthType): Promise<void> => {
   try {
-    const { data, status } = await Axios.post("auth/login", {
-      username,
-      password,
-    });
+    const { data, status }: AxiosResponse<{ token: string }> = await Axios.post(
+      "auth/login",
+      {
+        username,
+        password,
+      }
+    );
 
     if (status === 201) {
       fetchAccountDataFx(data);
@@ -32,10 +35,11 @@ export const createUser = async ({
   password,
 }: AuthType): Promise<void> => {
   try {
-    const { data, status } = await Axios.post("auth/registration", {
-      username,
-      password,
-    });
+    const { data, status }: AxiosResponse<{ username: string }> =
+      await Axios.post("auth/registration", {
+        username,
+        password,
+      });
 
     if (status === 201) {
       getToken({

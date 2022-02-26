@@ -7,12 +7,12 @@ export type Navigation = {
 export const navigation: Navigation[] = [
   {
     id: 1,
-    name: 'главная',
-    route: '/',
+    name: "главная",
+    route: "/",
   },
   {
     id: 2,
-    name: 'места',
-    route: '/places',
+    name: "места",
+    route: "/places",
   },
 ];

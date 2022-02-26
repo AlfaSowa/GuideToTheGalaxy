@@ -6,14 +6,12 @@ interface ISidebarMenuItem {
   link: string;
 }
 
-const SidebarMenuItem: FC<ISidebarMenuItem> = ({ children, link }) => {
-  return (
-    <li className={styles.elem}>
-      <Link href={link}>
-        <a className={styles.link}>{children}</a>
-      </Link>
-    </li>
-  );
-};
+const SidebarMenuItem: FC<ISidebarMenuItem> = ({ children, link }) => (
+  <li className={styles.elem}>
+    <Link href={link}>
+      <a className={styles.link}>{children}</a>
+    </Link>
+  </li>
+);
 
 export default SidebarMenuItem;

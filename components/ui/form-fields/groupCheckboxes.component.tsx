@@ -1,14 +1,11 @@
-import { ReactNode } from 'react';
-import styles from './fields.module.scss';
+import { ReactNode } from "react";
 
 interface CroupCheckboxesProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
-const CroupCheckboxes = ({ children }: CroupCheckboxesProps): JSX.Element => {
-  return (
-    <div>{children}</div>
-  );
-};
+function CroupCheckboxes({ children }: CroupCheckboxesProps): JSX.Element {
+  return <div>{children}</div>;
+}
 
 export default CroupCheckboxes;

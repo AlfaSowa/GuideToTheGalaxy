@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { AxiosResponse } from "axios";
 import { createEvent } from "effector";
 import { createEffect, createStore } from "effector-next";
 import { Account } from "../../interfaces/account";
@@ -11,11 +13,14 @@ export const fetchAccountDataFx = createEffect(
   async ({ token }: FetchAccountDataType): Promise<Account> => {
     if (token) {
       try {
-        const { data, status } = await Axios.get("auth/token", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const { data, status }: AxiosResponse<Account> = await Axios.get(
+          "auth/token",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
         if (status === 200) {
           setTokenFx(token);

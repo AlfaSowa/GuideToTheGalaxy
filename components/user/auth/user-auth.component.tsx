@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { FC, useCallback, useEffect, useRef, useState } from "react";
-import styles from "./styles.module.scss";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import styles from "./styles.module.scss";
 import { useAccount } from "../../../hooks/account/useAccount";
 import UserNavigationsMain from "../navigations/main/user-navigations-main.component";
 import UserSettingsMain from "../navigations/settings/user-navigations-settings.component";
@@ -9,7 +12,7 @@ import UserProfile from "../profile/profile.component";
 const UserAuth: FC = () => {
   const { fetchingAccount } = useAccount();
   const [showDropdown, setShowDropdown] = useState(false);
-  const dropRef = useRef(null);
+  const dropRef = useRef<any>(null);
 
   const handleClick = () => {
     setShowDropdown(!showDropdown);
@@ -21,7 +24,7 @@ const UserAuth: FC = () => {
       if (
         showDropdown &&
         dropRef?.current &&
-        !dropRef.current.contains(e.target)
+        !dropRef?.current?.contains(e.target)
       ) {
         setShowDropdown(false);
       }
@@ -35,12 +38,12 @@ const UserAuth: FC = () => {
     return () => {
       document.removeEventListener("click", handleEventListenerClick);
     };
-  }, [showDropdown]);
+  }, [handleEventListenerClick]);
 
   return (
     <div className={styles.root}>
       {!fetchingAccount && (
-        <button className={styles.avatar} onClick={handleClick}>
+        <button className={styles.avatar} onClick={handleClick} type="button">
           <AccountCircleIcon />
         </button>
       )}

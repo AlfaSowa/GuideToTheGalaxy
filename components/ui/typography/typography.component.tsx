@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { createElement, FC, ReactNode } from "react";
+import { createElement, FC } from "react";
 import styles from "./styles.module.scss";
 
 interface ITypography {
@@ -15,8 +15,8 @@ const Typography: FC<ITypography> = ({
   className,
   darkMode,
   variant,
-}) => {
-  return createElement(
+}) =>
+  createElement(
     component,
     {
       className: clsx(
@@ -28,7 +28,6 @@ const Typography: FC<ITypography> = ({
     },
     children
   );
-};
 
 Typography.defaultProps = {
   component: "span",

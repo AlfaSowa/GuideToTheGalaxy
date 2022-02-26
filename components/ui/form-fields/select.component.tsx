@@ -1,15 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import clsx from "clsx";
-import {
-  ChangeEvent,
-  ReactElement,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { ReactElement, useCallback, useEffect, useRef, useState } from "react";
 import styles from "./fields.module.scss";
 
 interface SelectProps {
@@ -21,14 +18,14 @@ interface SelectProps {
   children: ReactElement[];
 }
 
-export const Select = ({
+export function Select({
   name,
   value,
   placeholder,
   onChange,
   errors,
   children,
-}: SelectProps) => {
+}: SelectProps) {
   const [isFocused, setIsFocused] = useState(false);
   const ulRef = useRef(null);
 
@@ -48,7 +45,6 @@ export const Select = ({
     }
 
     return () => window.removeEventListener("mousedown", handleClickOutside);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isFocused]);
 
   return (
@@ -87,15 +83,15 @@ export const Select = ({
       </ul>
     </div>
   );
-};
+}
 
-export const SelectItem = ({
+export function SelectItem({
   children,
   onChange,
   value,
   name,
   setIsFocused,
-}: any) => {
+}: any) {
   const handleClick = () => {
     onChange(name, value);
     setIsFocused(false);
@@ -105,6 +101,6 @@ export const SelectItem = ({
       {children}
     </li>
   );
-};
+}
 
 export default Select;
