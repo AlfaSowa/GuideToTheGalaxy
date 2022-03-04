@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import clsx from "clsx";
-import { ChangeEvent } from "react";
+import { ChangeEvent, FC } from "react";
 import styles from "./fields.module.scss";
 
 interface TextAreaProps {
@@ -13,34 +13,32 @@ interface TextAreaProps {
   errors: any;
 }
 
-function TextArea({
+const TextArea: FC<TextAreaProps> = ({
   name,
   value,
   placeholder,
   onChange,
   errors,
-}: TextAreaProps): JSX.Element {
-  return (
-    <label
-      className={clsx(styles.root, { [styles.error]: errors && errors[name] })}
+}) => (
+  <label
+    className={clsx(styles.root, { [styles.error]: errors && errors[name] })}
+  >
+    <span
+      className={clsx(styles.root__title, {
+        [styles.root__title__active]: value,
+      })}
     >
-      <span
-        className={clsx(styles.root__title, {
-          [styles.root__title__active]: value,
-        })}
-      >
-        {placeholder}
-      </span>
+      {placeholder}
+    </span>
 
-      <textarea
-        className={styles.root__textarea}
-        name={name}
-        value={value}
-        onChange={onChange}
-        rows={5}
-      />
-    </label>
-  );
-}
+    <textarea
+      className={styles.root__textarea}
+      name={name}
+      value={value}
+      onChange={onChange}
+      rows={5}
+    />
+  </label>
+);
 
 export default TextArea;

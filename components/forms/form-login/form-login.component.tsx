@@ -2,6 +2,7 @@ import { Form, Formik } from "formik";
 import { useRouter } from "next/router";
 import * as yup from "yup";
 import { getToken } from "../../../methods/account";
+import { AuthType } from "../../../methods/account/interfaces";
 import Button from "../../ui/button/button.component";
 import TextField from "../../ui/form-fields/textfield";
 import {
@@ -16,20 +17,18 @@ const loginSchema = yup.object().shape({
   password: yup.string().required("Обязательное поле"),
 });
 
-function FormLogin(): JSX.Element {
+const FormLogin = () => {
   const router = useRouter();
 
-  const onSubmit = async ({
-    username,
-    password,
-  }: {
-    username: string;
-    password: string;
-  }) => {
+  const onSubmit = async ({ username, password }: AuthType) => {
     await getToken({
       username,
       password,
     });
+  };
+
+  const handleClick = () => {
+    router.push("/");
   };
 
   return (
@@ -78,13 +77,13 @@ function FormLogin(): JSX.Element {
 
             <FormActions>
               <Button type="submit">Войти</Button>
-              <Button onClick={() => router.push("/")}>Отмена</Button>
+              <Button onClick={handleClick}>Отмена</Button>
             </FormActions>
           </Form>
         )}
       </Formik>
     </div>
   );
-}
+};
 
 export default FormLogin;

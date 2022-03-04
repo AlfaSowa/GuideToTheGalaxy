@@ -4,6 +4,7 @@ export type Navigation = {
   name: string;
   route: string;
 };
+
 export const navigation: Navigation[] = [
   {
     id: 1,

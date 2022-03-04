@@ -6,7 +6,14 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import clsx from "clsx";
-import { ReactElement, useCallback, useEffect, useRef, useState } from "react";
+import {
+  FC,
+  ReactElement,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import styles from "./fields.module.scss";
 
 interface SelectProps {
@@ -18,14 +25,14 @@ interface SelectProps {
   children: ReactElement[];
 }
 
-export function Select({
+const Select: FC<SelectProps> = ({
   name,
   value,
   placeholder,
   onChange,
   errors,
   children,
-}: SelectProps) {
+}) => {
   const [isFocused, setIsFocused] = useState(false);
   const ulRef = useRef(null);
 
@@ -83,7 +90,7 @@ export function Select({
       </ul>
     </div>
   );
-}
+};
 
 export function SelectItem({
   children,

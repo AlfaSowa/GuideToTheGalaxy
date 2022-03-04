@@ -1,9 +1,9 @@
 /* eslint-disable react/button-has-type */
 import clsx from "clsx";
-import { ReactNode } from "react";
-import style from "./button.module.scss";
+import { FC, ReactNode } from "react";
+import style from "./styles.module.scss";
 
-interface ButtonProps {
+interface IButton {
   type?: JSX.IntrinsicElements["button"]["type"];
   variant?: "primary" | "secondary";
   disabled?: boolean;
@@ -12,28 +12,26 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
-function Button({
+const Button: FC<IButton> = ({
   type,
   children,
   variant,
   disabled,
   fullWidth,
   onClick,
-}: ButtonProps): JSX.Element {
-  return (
-    <button
-      className={clsx(style.btn, style[`btn__${variant}`], {
-        [style.btn__disabled]: disabled,
-        [style.btn__fullwidth]: fullWidth,
-      })}
-      disabled={disabled}
-      type={type}
-      onClick={onClick}
-    >
-      {children}
-    </button>
-  );
-}
+}) => (
+  <button
+    className={clsx(style.btn, style[`btn__${variant}`], {
+      [style.btn__disabled]: disabled,
+      [style.btn__fullwidth]: fullWidth,
+    })}
+    disabled={disabled}
+    type={type}
+    onClick={onClick}
+  >
+    {children}
+  </button>
+);
 
 Button.defaultProps = {
   type: "button",

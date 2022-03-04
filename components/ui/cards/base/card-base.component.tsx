@@ -1,4 +1,5 @@
-import style from "./card-base.module.scss";
+import { FC } from "react";
+import style from "./styles.module.scss";
 
 type TypeCard = {
   description: string;
@@ -9,7 +10,7 @@ interface CardProps {
   item: TypeCard;
 }
 
-function Card({ item }: CardProps): JSX.Element {
+const Card: FC<CardProps> = ({ item }) => {
   const { description, title } = item;
 
   return (
@@ -21,13 +22,11 @@ function Card({ item }: CardProps): JSX.Element {
 
         <div className={style.text}>
           <span className={style.text__title}>{title}</span>
-          <span className={style.text__description}>
-            {description}
-          </span>
+          <span className={style.text__description}>{description}</span>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Card;

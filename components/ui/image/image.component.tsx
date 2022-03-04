@@ -1,12 +1,13 @@
-import style from "./image.module.scss";
+import { FC } from "react";
+import style from "./styles.module.scss";
 
-interface ImageProps {
+interface IImage {
   data: string;
   alt: string;
 }
 
-function Image({ data, alt }: ImageProps): JSX.Element {
-  return <img className={style.img} src={data} alt={alt} />;
-}
+const Image: FC<IImage> = ({ data, alt }) => (
+  <img className={style.img} src={data} alt={alt} />
+);
 
 export default Image;

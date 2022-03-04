@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import clsx from "clsx";
 import { FormikErrors } from "formik";
-import { ChangeEvent } from "react";
+import { ChangeEvent, FC } from "react";
 import styles from "./fields.module.scss";
 
 interface TextFieldProps {
@@ -13,36 +13,34 @@ interface TextFieldProps {
   errors: FormikErrors<any>;
 }
 
-function TextField({
+const TextField: FC<TextFieldProps> = ({
   name,
   type,
   value,
   placeholder,
   onChange,
   errors,
-}: TextFieldProps): JSX.Element {
-  return (
-    <label
-      className={clsx(styles.root, { [styles.error]: errors && errors[name] })}
+}) => (
+  <label
+    className={clsx(styles.root, { [styles.error]: errors && errors[name] })}
+  >
+    <span
+      className={clsx(styles.root__title, {
+        [styles.root__title__active]: value,
+      })}
     >
-      <span
-        className={clsx(styles.root__title, {
-          [styles.root__title__active]: value,
-        })}
-      >
-        {placeholder}
-      </span>
+      {placeholder}
+    </span>
 
-      <input
-        className={styles.root__input}
-        name={name}
-        type={type}
-        value={value}
-        onChange={onChange}
-      />
-    </label>
-  );
-}
+    <input
+      className={styles.root__input}
+      name={name}
+      type={type}
+      value={value}
+      onChange={onChange}
+    />
+  </label>
+);
 
 TextField.defaultProps = {
   type: "text",

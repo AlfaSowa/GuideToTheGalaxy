@@ -34,12 +34,14 @@ WrappedApp.getInitialProps = async (appContext: AppContext) => {
   const reqMobile =
     /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i;
 
-  const cookies = appContext?.ctx?.req?.headers?.cookie || null;
+  if (typeof window === "undefined") {
+    const cookies = appContext?.ctx?.req?.headers?.cookie || null;
 
-  if (cookies && getCookie("token", cookies)) {
-    setTokenFx(getCookie("token", cookies));
-  } else {
-    setTokenFx(null);
+    if (cookies && getCookie("token", cookies)) {
+      setTokenFx(getCookie("token", cookies));
+    } else {
+      setTokenFx(null);
+    }
   }
 
   const appProps = await App.getInitialProps(appContext);
