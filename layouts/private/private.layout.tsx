@@ -3,12 +3,11 @@ import Header from "../../components/header/header.component";
 import SidebarNavigationsProfile from "../../components/sidebar/navigations/profile/sidebar-navigations-profile.component";
 import Sidebar from "../../components/sidebar/sidebar.component";
 import MainBlock from "../../components/ui/main/main.component";
+import { ILayout } from "../../interfaces/layouts";
 
-interface IPrivateLayout {
-  title?: string;
-}
+type IPrivateLayout = ILayout;
 
-const PrivateLayout: FC<IPrivateLayout> = ({ children, title }) => (
+const PrivateLayout: FC<IPrivateLayout> = ({ children, title, padding }) => (
   <>
     <Header />
 
@@ -16,12 +15,10 @@ const PrivateLayout: FC<IPrivateLayout> = ({ children, title }) => (
       <SidebarNavigationsProfile />
     </Sidebar>
 
-    <MainBlock title={title}>{children}</MainBlock>
+    <MainBlock title={title} padding={padding}>
+      {children}
+    </MainBlock>
   </>
 );
-
-PrivateLayout.defaultProps = {
-  title: null,
-};
 
 export default PrivateLayout;

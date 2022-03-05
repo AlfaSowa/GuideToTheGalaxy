@@ -3,7 +3,7 @@ import Frontpage from "../GTGPages/frontpage/frontpage.component";
 import PublicLayout from "../layouts/public/public.layout";
 
 const Home: NextPage = (): JSX.Element => (
-  <PublicLayout>
+  <PublicLayout padding title="Главная">
     <Frontpage />
   </PublicLayout>
 );

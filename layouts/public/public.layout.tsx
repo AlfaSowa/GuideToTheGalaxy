@@ -3,12 +3,11 @@ import Header from "../../components/header/header.component";
 import SidebarNavigationsMain from "../../components/sidebar/navigations/main/sidebar-navigations-main.component";
 import Sidebar from "../../components/sidebar/sidebar.component";
 import MainBlock from "../../components/ui/main/main.component";
+import { ILayout } from "../../interfaces/layouts";
 
-interface IPublicLayout {
-  title?: string;
-}
+type IPublicLayout = ILayout;
 
-const PublicLayout: FC<IPublicLayout> = ({ children, title }) => (
+const PublicLayout: FC<IPublicLayout> = ({ children, title, padding }) => (
   <>
     <Header />
 
@@ -16,12 +15,10 @@ const PublicLayout: FC<IPublicLayout> = ({ children, title }) => (
       <SidebarNavigationsMain />
     </Sidebar>
 
-    <MainBlock title={title}>{children}</MainBlock>
+    <MainBlock title={title} padding={padding}>
+      {children}
+    </MainBlock>
   </>
 );
-
-PublicLayout.defaultProps = {
-  title: null,
-};
 
 export default PublicLayout;

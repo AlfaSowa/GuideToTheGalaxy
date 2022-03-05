@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 
 const Header: FC = () => (
   <header className={styles.root}>
-    <Container alignCenter padding>
+    <Container alignCenter padding flex>
       <Logo />
 
       <div className={styles.inner}>

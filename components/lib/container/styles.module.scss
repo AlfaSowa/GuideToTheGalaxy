@@ -1,0 +1,12 @@
+.root {
+  width: 100%;
+  &__flex {
+    display: flex;
+  }
+  &__aligncenter {
+    align-items: center;
+  }
+  &__padding {
+    padding: 16px;
+  }
+}

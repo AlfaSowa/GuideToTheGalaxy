@@ -1,28 +1,24 @@
 /* eslint-disable @typescript-eslint/require-await */
-import { GetServerSideProps, NextPage } from "next";
+import { NextPage } from "next";
+import { useEffect } from "react";
+import ProfileClassesPage from "../../../GTGPages/profile/classes/classes.component";
+import { useClasses } from "../../../hooks/classes/useClasses";
 import PrivateLayout from "../../../layouts/private/private.layout";
 
-export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-  if (!req?.cookies?.token) {
-    return {
-      redirect: {
-        permanent: false,
-        destination: "/",
-      },
-    };
-  }
+const ProfileClasses: NextPage = () => {
+  const { classesIsLoad, fetchClasses } = useClasses();
 
-  return {
-    props: {},
-  };
+  useEffect(() => {
+    if (!classesIsLoad) {
+      fetchClasses();
+    }
+  }, [classesIsLoad, fetchClasses]);
+
+  return (
+    <PrivateLayout padding title="Классы">
+      <ProfileClassesPage />
+    </PrivateLayout>
+  );
 };
-
-const ProfileClasses: NextPage = () => (
-  <PrivateLayout title="Классы">
-    <div>
-      <div>Классы</div>
-    </div>
-  </PrivateLayout>
-);
 
 export default ProfileClasses;
