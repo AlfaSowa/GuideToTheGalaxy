@@ -11,6 +11,7 @@ import {
 const FormRegistrationApplicant = (): JSX.Element => {
   const onSubmit = (values) => {
     console.log("onSubmit", values);
+    console.log("test");
   };
 
   return (
