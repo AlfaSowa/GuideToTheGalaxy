@@ -1,11 +1,11 @@
 import { NextPage } from "next";
 import ApplicantPage from "../../GTGPages/applicant/applicant.component";
-import PublicLayout from "../../layouts/public/public.layout";
+import MinimalLayout from "../../layouts/minimal/minimal.layout";
 
 const Applicant: NextPage = (): JSX.Element => (
-  <PublicLayout>
+  <MinimalLayout>
     <ApplicantPage />
-  </PublicLayout>
+  </MinimalLayout>
 );
 
 export default Applicant;

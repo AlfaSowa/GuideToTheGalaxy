@@ -1,5 +1,4 @@
 import { Form, Formik } from "formik";
-import { createUser } from "../../../methods/account";
 import Button from "../../ui/button/button.component";
 import TextField from "../../ui/form-fields/textfield";
 import {
@@ -24,7 +23,7 @@ const FormRegistrationApplicant = (): JSX.Element => {
         validateOnChange={false}
         validateOnBlur={false}
       >
-        {({ values, errors, handleChange }) => (
+        {({ errors, handleChange }) => (
           <Form noValidate>
             <FormContent>
               <FormItem>
