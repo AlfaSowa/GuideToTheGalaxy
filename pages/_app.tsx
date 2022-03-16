@@ -12,7 +12,7 @@ import { setTokenFx } from "../models/account/token";
 const enhance = withHydrate();
 
 function WrappedApp({ Component, pageProps }: AppProps) {
-  const { account, token, fetchAccountData } = useAccount();
+  const { account, token, fetchAccountData, logout } = useAccount();
 
   useEffect(() => {
     if (token && !account) {

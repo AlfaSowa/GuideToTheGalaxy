@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --fix --cache --ignore-path .gitignore --ext ts,tsx"
+    "lint": "next lint --fix --cache --ignore-path .gitignore --ext ts,tsx",
+    "pre-commit": "next build lint --cache --max-warnings=0 --ignore-path .gitignore --ext ts,tsx"
   },
   "dependencies": {
     "@emotion/react": "^11.8.1",
@@ -50,6 +51,9 @@
     "pre-commit": "^1.2.2",
     "prettier": "2.5.1"
   },
+  "pre-commit": [
+    "pre-commit"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
