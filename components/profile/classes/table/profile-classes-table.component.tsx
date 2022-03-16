@@ -1,45 +1,76 @@
-import { useRouter } from "next/router";
-import { FC } from "react";
+import { MouseEvent, FC, useState } from "react";
 import { useClasses } from "../../../../hooks/classes/useClasses";
+import { IClass } from "../../../../interfaces/classes";
 import {
   Table,
   TableBody,
+  TableEnhancedToolbar,
   TableHead,
   TableRow,
   TableСell,
-} from "../../../lib/table/table.component";
-import Button from "../../../ui/button/button.component";
+} from "../../../lib/table";
+import Checkbox from "../../../ui/form-fields/checkbox.component";
+
+const CHECKBOX_NAME = "checkbox-aria";
 
 const ProfileClassesTable: FC = () => {
-  const router = useRouter();
-  const { classes } = useClasses();
+  const { classes, setShortClassDetails } = useClasses();
+  const [selected, setSelected] = useState<string[]>([]);
 
-  const addNewClass = () => {
-    router.push("/profile/classes/new");
+  const rowHandleClick = (e: MouseEvent<HTMLTableRowElement>, row: IClass) => {
+    if ((e.target as HTMLTableRowElement)?.dataset?.name === CHECKBOX_NAME) {
+      const selectedIndex = selected.find((i) => i === row.name);
+      if (selectedIndex) {
+        setSelected((prev) => prev.filter((i) => i !== row.name));
+      } else {
+        setSelected((prev) => [...prev, row.name]);
+      }
+    } else {
+      setShortClassDetails(row);
+    }
   };
 
-  console.log("classes", classes);
+  const isSelected = (name: string) => selected.indexOf(name) !== -1;
 
   return (
     <div>
-      <div>
-        <Button onClick={addNewClass}>Добавить новый класс</Button>
-      </div>
+      <TableEnhancedToolbar numSelected={selected.length} />
 
       <Table>
         <TableHead>
           <TableRow>
-            <TableСell>Название</TableСell>
-            <TableСell>Кость Хитов</TableСell>
-            <TableСell>Хиты на 1 уровне</TableСell>
-            <TableСell>Хиты на следующих уровнях</TableСell>
+            <TableСell component="th" scope="col">
+              1
+            </TableСell>
+            <TableСell component="th" scope="col">
+              Название
+            </TableСell>
+            <TableСell component="th" scope="col">
+              Кость Хитов
+            </TableСell>
+            <TableСell component="th" scope="col">
+              Хиты на 1 уровне
+            </TableСell>
+            <TableСell component="th" scope="col">
+              Хиты на следующих уровнях
+            </TableСell>
           </TableRow>
         </TableHead>
 
         <TableBody>
           {classes.map((item) => (
-            <TableRow key={item._id}>
-              <TableСell>{item.name}</TableСell>
+            <TableRow
+              onClick={(e) => rowHandleClick(e, item)}
+              hover
+              key={item._id}
+            >
+              <TableСell component="th">
+                <Checkbox
+                  checked={isSelected(item.name)}
+                  name={CHECKBOX_NAME}
+                />
+              </TableСell>
+              <TableСell component="th">{item.name}</TableСell>
               <TableСell>{item.hits}</TableСell>
               <TableСell>{item.hitsOnFirstLvl}</TableСell>
               <TableСell>{item.hitsOnNextLvl}</TableСell>

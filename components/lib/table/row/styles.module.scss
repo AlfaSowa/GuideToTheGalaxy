@@ -1,0 +1,10 @@
+.root {
+  height: 40px;
+}
+
+.hover {
+  cursor: pointer;
+  &:hover {
+    background: var(--color-primary-hover-add);
+  }
+}
