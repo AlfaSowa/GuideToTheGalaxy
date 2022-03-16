@@ -9,16 +9,16 @@
     font-size: 0.875rem;
     top: 9px;
     transform: translate(8px, 0) scale(1);
-    transition: transform .2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
     pointer-events: none;
     display: block;
     transform-origin: left top;
-    
+
     &__active {
       transform: translate(10px, -20px) scale(0.8);
     }
   }
-  
+
   &__input {
     flex: 1;
     height: 32px;
@@ -72,5 +72,27 @@
   .root__input {
     border-color: var(--color-error);
     background: var(--color-error-add);
+  }
+}
+
+.root {
+  padding: 8px;
+  display: inline-flex;
+  position: relative;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+
+  .input {
+    cursor: inherit;
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
   }
 }
