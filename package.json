@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --fix --cache --ignore-path .gitignore --ext ts,tsx",
-    "pre-commit": "next build lint --cache --max-warnings=0 --ignore-path .gitignore --ext ts,tsx"
+    "lint": "next lint --fix --cache --ignore-path .gitignore",
+    "pre-commit": "next lint --fix --cache --max-warnings=0 --ignore-path .gitignore"
   },
   "dependencies": {
     "@emotion/react": "^11.8.1",

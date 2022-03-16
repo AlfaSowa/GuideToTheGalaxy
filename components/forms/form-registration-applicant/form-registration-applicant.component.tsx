@@ -7,7 +7,7 @@ import {
   FormItem,
 } from "../../ui/form/form.component";
 
-const FormRegistrationApplicant = (): JSX.Element => {
+function FormRegistrationApplicant(): JSX.Element {
   const onSubmit = (values) => {
     console.log("onSubmit", values);
     console.log("test");
@@ -93,6 +93,6 @@ const FormRegistrationApplicant = (): JSX.Element => {
       </Formik>
     </div>
   );
-};
+}
 
 export default FormRegistrationApplicant;
