@@ -7,7 +7,7 @@ import styles from "./fields.module.scss";
 interface TextFieldProps {
   name: string;
   type?: "text" | "password";
-  value: string;
+  value?: string;
   placeholder: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   errors: FormikErrors<any>;
@@ -44,6 +44,7 @@ const TextField: FC<TextFieldProps> = ({
 
 TextField.defaultProps = {
   type: "text",
+  value: null,
 };
 
 export default TextField;

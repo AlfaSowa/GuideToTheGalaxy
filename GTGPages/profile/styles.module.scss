@@ -3,4 +3,24 @@
   height: 100%;
   .inner {
   }
+
+  .info {
+    &__item {
+      margin: 0 0 16px 0;
+    }
+  }
+
+  .item {
+    &__label {
+      font-size: 0.85rem;
+      margin: 0 0 4px 0;
+      color: var(--color-primary);
+    }
+
+    &__name {
+      color: var(--color-secondary);
+      font-size: 1.5rem;
+      padding: 0 0 0 16px;
+    }
+  }
 }

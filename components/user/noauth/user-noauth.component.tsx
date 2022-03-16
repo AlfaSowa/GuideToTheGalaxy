@@ -9,7 +9,7 @@ import {
   TabsPanel,
 } from "../../lib/tabs/tabs.component";
 import FormLogin from "../../forms/form-login/form-login.component";
-import FormRegistration from "../../forms/form-registration/form-registration.component";
+import FormRegistration from "../../forms/form-registration-applicant/form-registration-applicant.component";
 import { useAccount } from "../../../hooks/account/useAccount";
 
 enum FormType {
