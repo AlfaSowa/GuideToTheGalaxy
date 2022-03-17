@@ -1,4 +1,6 @@
 import { Form, Formik } from "formik";
+import { createApplicant } from "../../../methods/auth/registration/applicant";
+import { ICreateApplicant } from "../../../methods/auth/registration/interfaces";
 import Button from "../../ui/button/button.component";
 import TextField from "../../ui/form-fields/textfield";
 import {
@@ -8,16 +10,22 @@ import {
 } from "../../ui/form/form.component";
 
 function FormRegistrationApplicant(): JSX.Element {
-  const onSubmit = (values) => {
-    console.log("onSubmit", values);
-    console.log("test");
+  const onSubmit = (values: ICreateApplicant) => {
+    createApplicant(values);
   };
 
   return (
     <div>
       <Formik
-        initialValues={{}}
-        onSubmit={(values) => {
+        initialValues={{
+          lastName: "",
+          firstName: "",
+          phone: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+        }}
+        onSubmit={(values: ICreateApplicant) => {
           onSubmit(values);
         }}
         validateOnChange={false}
@@ -26,7 +34,7 @@ function FormRegistrationApplicant(): JSX.Element {
         {({ errors, handleChange }) => (
           <Form noValidate>
             <FormContent>
-              <FormItem>
+              <FormItem fullWidth>
                 <TextField
                   placeholder="Фамилия"
                   type="text"
@@ -36,7 +44,7 @@ function FormRegistrationApplicant(): JSX.Element {
                 />
               </FormItem>
 
-              <FormItem>
+              <FormItem fullWidth>
                 <TextField
                   placeholder="Имя"
                   type="text"
@@ -46,7 +54,7 @@ function FormRegistrationApplicant(): JSX.Element {
                 />
               </FormItem>
 
-              <FormItem>
+              <FormItem fullWidth>
                 <TextField
                   placeholder="Телефон"
                   type="text"
@@ -55,7 +63,8 @@ function FormRegistrationApplicant(): JSX.Element {
                   errors={errors}
                 />
               </FormItem>
-              <FormItem>
+
+              <FormItem fullWidth>
                 <TextField
                   placeholder="Почта"
                   type="text"
@@ -65,7 +74,7 @@ function FormRegistrationApplicant(): JSX.Element {
                 />
               </FormItem>
 
-              <FormItem>
+              <FormItem fullWidth>
                 <TextField
                   placeholder="Пароль"
                   type="password"
@@ -74,7 +83,8 @@ function FormRegistrationApplicant(): JSX.Element {
                   errors={errors}
                 />
               </FormItem>
-              <FormItem>
+
+              <FormItem fullWidth>
                 <TextField
                   placeholder="Подтверждение пароля"
                   type="password"
