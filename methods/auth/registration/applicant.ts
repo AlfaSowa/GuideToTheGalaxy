@@ -20,11 +20,13 @@ export const createApplicant = async ({
   };
 
   try {
-    const { data, status }: AxiosResponse<{ username: string }> =
-      await Axios.post("auth/registration", model);
+    const { status }: AxiosResponse<{ username: string }> = await Axios.post(
+      "auth/registration",
+      model
+    );
 
     if (status === 201) {
-      console.log("регистрация Соискателя прошла успешно", data);
+      return;
     }
   } catch (error) {
     console.log(error);

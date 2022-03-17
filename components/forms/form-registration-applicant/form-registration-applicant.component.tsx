@@ -11,7 +11,6 @@ import {
 
 function FormRegistrationApplicant(): JSX.Element {
   const onSubmit = (values: ICreateApplicant) => {
-    console.log("onSubmit", values);
     createApplicant(values);
   };
 
