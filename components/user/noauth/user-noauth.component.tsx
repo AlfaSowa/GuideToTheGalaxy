@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { useRouter } from "next/router";
 import Button from "../../ui/button/button.component";
 import styles from "./styles.module.scss";
 import Modal from "../../lib/modal/modal.component";
@@ -21,6 +22,8 @@ const UserNoAuth: FC = () => {
   const { fetchingAccount } = useAccount();
   const [openModal, setOpenModal] = useState<{ value: FormType }>(null);
 
+  const router = useRouter();
+
   if (fetchingAccount) {
     return (
       <div>
@@ -35,9 +38,10 @@ const UserNoAuth: FC = () => {
         <Button onClick={() => setOpenModal({ value: FormType.LOGIN })}>
           Вход
         </Button>
+
         <Button
           variant="secondary"
-          onClick={() => setOpenModal({ value: FormType.REGISTR })}
+          onClick={() => router.push("/auth/applicant")}
         >
           Регистрация
         </Button>
