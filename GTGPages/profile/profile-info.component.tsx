@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import ProfileInfoItem from "./profile-info-item.component";
 import styles from "./styles.module.scss";
 

@@ -2,12 +2,12 @@ import { Form, Formik } from "formik";
 import { createApplicant } from "../../../methods/auth/registration/applicant";
 import { ICreateApplicant } from "../../../methods/auth/registration/interfaces";
 import Button from "../../ui/button/button.component";
-import TextField from "../../ui/form-fields/textfield";
 import {
   FormActions,
   FormContent,
   FormItem,
-} from "../../ui/form/form.component";
+} from "../../lib/form/form-components";
+import { TextField } from "../../lib/form/form-fields";
 
 function FormRegistrationApplicant(): JSX.Element {
   const onSubmit = (values: ICreateApplicant) => {
@@ -31,66 +31,60 @@ function FormRegistrationApplicant(): JSX.Element {
         validateOnChange={false}
         validateOnBlur={false}
       >
-        {({ errors, handleChange }) => (
+        {({ values, handleChange }) => (
           <Form noValidate>
             <FormContent>
-              <FormItem fullWidth>
+              <FormItem>
                 <TextField
-                  placeholder="Фамилия"
-                  type="text"
+                  value={values.lastName}
                   name="lastName"
+                  placeholder="Фамилия"
                   onChange={handleChange}
-                  errors={errors}
                 />
               </FormItem>
 
-              <FormItem fullWidth>
+              <FormItem>
                 <TextField
-                  placeholder="Имя"
-                  type="text"
+                  value={values.firstName}
                   name="firstName"
+                  placeholder="Имя"
                   onChange={handleChange}
-                  errors={errors}
                 />
               </FormItem>
 
-              <FormItem fullWidth>
+              <FormItem>
                 <TextField
-                  placeholder="Телефон"
-                  type="text"
+                  value={values.phone}
                   name="phone"
+                  placeholder="Телефон"
                   onChange={handleChange}
-                  errors={errors}
                 />
               </FormItem>
 
-              <FormItem fullWidth>
+              <FormItem>
                 <TextField
-                  placeholder="Почта"
-                  type="text"
+                  value={values.email}
                   name="email"
+                  placeholder="Почта"
                   onChange={handleChange}
-                  errors={errors}
                 />
               </FormItem>
 
-              <FormItem fullWidth>
+              <FormItem>
                 <TextField
-                  placeholder="Пароль"
-                  type="password"
+                  value={values.password}
                   name="password"
+                  placeholder="Пароль"
                   onChange={handleChange}
-                  errors={errors}
                 />
               </FormItem>
 
-              <FormItem fullWidth>
+              <FormItem>
                 <TextField
-                  placeholder="Подтверждение пароля"
-                  type="password"
+                  value={values.confirmPassword}
                   name="confirmPassword"
+                  placeholder="Подтверждение пароля"
                   onChange={handleChange}
-                  errors={errors}
                 />
               </FormItem>
             </FormContent>

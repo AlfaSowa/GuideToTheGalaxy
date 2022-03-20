@@ -1,6 +1,7 @@
 import { MouseEvent, FC, useState } from "react";
 import { useClasses } from "../../../../hooks/classes/useClasses";
 import { IClass } from "../../../../interfaces/classes";
+import { Checkbox } from "../../../lib/form/form-fields";
 import {
   Table,
   TableBody,
@@ -9,7 +10,6 @@ import {
   TableRow,
   TableСell,
 } from "../../../lib/table";
-import Checkbox from "../../../ui/form-fields/checkbox.component";
 
 const CHECKBOX_NAME = "checkbox-aria";
 
