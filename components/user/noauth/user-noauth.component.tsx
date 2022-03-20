@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useCallback, useState } from "react";
 import { useRouter } from "next/router";
 import Button from "../../ui/button/button.component";
 import styles from "./styles.module.scss";
@@ -24,6 +24,10 @@ const UserNoAuth: FC = () => {
 
   const router = useRouter();
 
+  const handleClickRegistration = useCallback(() => {
+    router.push("/auth/applicant");
+  }, [router]);
+
   if (fetchingAccount) {
     return (
       <div>
@@ -39,10 +43,7 @@ const UserNoAuth: FC = () => {
           Вход
         </Button>
 
-        <Button
-          variant="secondary"
-          onClick={() => router.push("/auth/applicant")}
-        >
+        <Button variant="secondary" onClick={handleClickRegistration}>
           Регистрация
         </Button>
       </div>
