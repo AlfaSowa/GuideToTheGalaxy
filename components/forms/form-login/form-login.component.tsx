@@ -17,7 +17,7 @@ const loginSchema = yup.object().shape({
   password: yup.string().required("Обязательное поле"),
 });
 
-const FormLogin = () => {
+function FormLogin() {
   const router = useRouter();
 
   const onSubmit = async ({ username, password }: AuthType) => {
@@ -81,6 +81,6 @@ const FormLogin = () => {
       </Formik>
     </div>
   );
-};
+}
 
 export default FormLogin;

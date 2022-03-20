@@ -1,16 +1,17 @@
 import { Form, Formik } from "formik";
+import { createApplicant } from "../../../methods/auth/registration/applicant";
+import { ICreateApplicant } from "../../../methods/auth/registration/interfaces";
+import Button from "../../ui/button/button.component";
 import {
   FormActions,
   FormContent,
   FormItem,
 } from "../../lib/form/form-components";
 import { TextField } from "../../lib/form/form-fields";
-import Button from "../../ui/button/button.component";
 
-const FormRegistrationApplicant = (): JSX.Element => {
-  const onSubmit = (values) => {
-    console.log("onSubmit", values);
-    console.log("test");
+function FormRegistrationApplicant(): JSX.Element {
+  const onSubmit = (values: ICreateApplicant) => {
+    createApplicant(values);
   };
 
   return (
@@ -24,7 +25,7 @@ const FormRegistrationApplicant = (): JSX.Element => {
           password: "",
           confirmPassword: "",
         }}
-        onSubmit={(values) => {
+        onSubmit={(values: ICreateApplicant) => {
           onSubmit(values);
         }}
         validateOnChange={false}
@@ -59,6 +60,7 @@ const FormRegistrationApplicant = (): JSX.Element => {
                   onChange={handleChange}
                 />
               </FormItem>
+
               <FormItem>
                 <TextField
                   value={values.email}
@@ -76,6 +78,7 @@ const FormRegistrationApplicant = (): JSX.Element => {
                   onChange={handleChange}
                 />
               </FormItem>
+
               <FormItem>
                 <TextField
                   value={values.confirmPassword}
@@ -94,6 +97,6 @@ const FormRegistrationApplicant = (): JSX.Element => {
       </Formik>
     </div>
   );
-};
+}
 
 export default FormRegistrationApplicant;
