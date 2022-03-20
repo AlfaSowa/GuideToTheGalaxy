@@ -1,11 +1,11 @@
 import { FC } from "react";
-import FormRegistrationApplicant from "../../components/forms/form-registration-applicant/form-registration-applicant.component";
+import ApplicantRegistrationForm from "../../components/forms/applicant/registration/applicant-registration.component";
 import styles from "./styles.module.scss";
 
 const ApplicantPage: FC = () => (
   <div className={styles.root}>
     <div className={styles.content}>
-      <FormRegistrationApplicant />
+      <ApplicantRegistrationForm />
     </div>
   </div>
 );

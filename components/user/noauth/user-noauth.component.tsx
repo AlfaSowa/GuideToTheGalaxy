@@ -9,9 +9,9 @@ import {
   Tabs,
   TabsPanel,
 } from "../../lib/tabs/tabs.component";
-import FormLogin from "../../forms/form-login/form-login.component";
-import FormRegistration from "../../forms/form-registration-applicant/form-registration-applicant.component";
 import { useAccount } from "../../../hooks/account/useAccount";
+import ApplicantLoginForm from "../../forms/applicant/login/applicant-login.component";
+import ApplicantRegistrationForm from "../../forms/applicant/registration/applicant-registration.component";
 
 enum FormType {
   LOGIN = "login",
@@ -63,10 +63,11 @@ const UserNoAuth: FC = () => {
           </Tabs>
 
           <TabsPanel value={openModal?.value} index="login">
-            <FormLogin />
+            <ApplicantLoginForm />
           </TabsPanel>
+
           <TabsPanel value={openModal?.value} index="registration">
-            <FormRegistration />
+            <ApplicantRegistrationForm />
           </TabsPanel>
         </CustomTabs>
       </Modal>
