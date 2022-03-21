@@ -1,10 +1,10 @@
 import { NextPage } from "next";
-import ApplicantPage from "../../GTGPages/applicant/applicant.component";
+import ApplicantRegistrationPage from "../../GTGPages/applicant/registration/applicant-registration.component";
 import MinimalLayout from "../../layouts/minimal/minimal.layout";
 
 const Applicant: NextPage = (): JSX.Element => (
   <MinimalLayout>
-    <ApplicantPage />
+    <ApplicantRegistrationPage />
   </MinimalLayout>
 );
 
