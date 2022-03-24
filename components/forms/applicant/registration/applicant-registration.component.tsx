@@ -1,5 +1,6 @@
 import { Form, Formik } from "formik";
 import { FC } from "react";
+import * as yup from "yup";
 import { createApplicant } from "../../../../methods/auth/registration/applicant";
 import { ICreateApplicant } from "../../../../methods/auth/registration/interfaces";
 import {
@@ -9,6 +10,15 @@ import {
 } from "../../../lib/form/form-components";
 import { TextField } from "../../../lib/form/form-fields";
 import Button from "../../../ui/button/button.component";
+
+const registrationSchema = yup.object().shape({
+  lastName: yup.string().required("Обязательное поле"),
+  firstName: yup.string().required("Обязательное поле"),
+  phone: yup.string().required("Обязательное поле"),
+  email: yup.string().required("Обязательное поле"),
+  password: yup.string().required("Обязательное поле"),
+  confirmPassword: yup.string().required("Обязательное поле"),
+});
 
 const ApplicantRegistrationForm: FC = () => {
   const onSubmit = (values: ICreateApplicant) => {
@@ -28,6 +38,7 @@ const ApplicantRegistrationForm: FC = () => {
       onSubmit={(values: ICreateApplicant) => {
         onSubmit(values);
       }}
+      validationSchema={registrationSchema}
       validateOnChange={false}
       validateOnBlur={false}
     >
