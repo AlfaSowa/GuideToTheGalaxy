@@ -1,5 +1,6 @@
 import { Form, Formik } from "formik";
-import { FC } from "react";
+import { useRouter } from "next/router";
+import { FC, useCallback } from "react";
 import * as yup from "yup";
 import { createApplicant } from "../../../../methods/auth/registration/applicant";
 import { ICreateApplicant } from "../../../../methods/auth/registration/interfaces";
@@ -21,9 +22,18 @@ const registrationSchema = yup.object().shape({
 });
 
 const ApplicantRegistrationForm: FC = () => {
+  const router = useRouter();
   const onSubmit = (values: ICreateApplicant) => {
     createApplicant(values);
   };
+
+  const handleClick = () => {
+    router.push("/");
+  };
+
+  const handleClickLogin = useCallback(() => {
+    router.push("/account/applicant");
+  }, [router]);
 
   return (
     <Formik
@@ -98,11 +108,16 @@ const ApplicantRegistrationForm: FC = () => {
                 onChange={handleChange}
               />
             </FormItem>
+
+            <Button onClick={handleClick}>На главную</Button>
           </FormContent>
 
           <FormActions>
-            <Button type="submit">Зарегистрироваться</Button>
-            <Button>Отмена</Button>
+            <Button onClick={handleClickLogin}>Войти</Button>
+
+            <Button variant="secondary" type="submit">
+              Зарегистрироваться
+            </Button>
           </FormActions>
         </Form>
       )}

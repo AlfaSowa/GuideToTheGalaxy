@@ -1,6 +1,6 @@
 import { Form, Formik } from "formik";
 import { useRouter } from "next/router";
-import { FC } from "react";
+import { FC, useCallback } from "react";
 import * as yup from "yup";
 import { getToken } from "../../../../methods/account";
 import { AuthType } from "../../../../methods/account/interfaces";
@@ -31,6 +31,10 @@ const ApplicantLoginForm: FC = () => {
   const handleClick = () => {
     router.push("/");
   };
+
+  const handleClickRegistration = useCallback(() => {
+    router.push("/auth/applicant");
+  }, [router]);
 
   return (
     <Formik
@@ -67,11 +71,18 @@ const ApplicantLoginForm: FC = () => {
                 />
               </FormItem>
             </FormRow>
+
+            <Button onClick={handleClick}>На главную</Button>
           </FormContent>
 
           <FormActions>
-            <Button type="submit">Войти</Button>
-            <Button onClick={handleClick}>Отмена</Button>
+            <Button onClick={handleClickRegistration}>
+              Зарегистрироваться
+            </Button>
+
+            <Button variant="secondary" type="submit">
+              Войти
+            </Button>
           </FormActions>
         </Form>
       )}
