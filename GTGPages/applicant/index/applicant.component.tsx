@@ -1,9 +1,10 @@
 import { FC } from "react";
+import PrivateLayout from "../../../layouts/private/private.layout";
 
 const ApplicantPage: FC = () => (
-  <div>
+  <PrivateLayout>
     <div>ApplicantPage</div>
-  </div>
+  </PrivateLayout>
 );
 
 export default ApplicantPage;

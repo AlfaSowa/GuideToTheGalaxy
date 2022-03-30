@@ -17,7 +17,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   };
 };
 
-const Applicant: NextPage = (): JSX.Element => (
+const Applicant: NextPage = () => (
   <div>
     <ApplicantPage />
   </div>

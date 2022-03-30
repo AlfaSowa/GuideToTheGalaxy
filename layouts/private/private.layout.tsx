@@ -9,13 +9,11 @@ type IPrivateLayout = ILayout;
 
 const PrivateLayout: FC<IPrivateLayout> = ({ children, title, padding }) => (
   <>
-    <Header />
-
-    <Sidebar>
+    <Sidebar privateMode>
       <SidebarNavigationsProfile />
     </Sidebar>
 
-    <MainBlock title={title} padding={padding}>
+    <MainBlock title={title} padding={padding} privateMode>
       {children}
     </MainBlock>
   </>

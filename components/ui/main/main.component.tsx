@@ -9,13 +9,25 @@ import styles from "./styles.module.scss";
 interface IMainBlock {
   title?: string;
   padding?: boolean;
+  privateMode?: boolean;
 }
 
-const MainBlock: FC<IMainBlock> = ({ children, title, padding }) => {
+const MainBlock: FC<IMainBlock> = ({
+  children,
+  title,
+  padding,
+  privateMode,
+}) => {
   const sidebarIsOpen = useStore($sidebarIsOpen);
 
   return (
-    <main className={clsx(styles.root, { [styles.collapse]: sidebarIsOpen })}>
+    <main
+      className={clsx(
+        styles.root,
+        { [styles.collapse]: sidebarIsOpen },
+        { [styles.public]: !privateMode }
+      )}
+    >
       <Container padding={padding}>
         {title && <Typography component="h1">{title}</Typography>}
         {children}
@@ -27,6 +39,7 @@ const MainBlock: FC<IMainBlock> = ({ children, title, padding }) => {
 MainBlock.defaultProps = {
   title: null,
   padding: false,
+  privateMode: false,
 };
 
 export default MainBlock;
