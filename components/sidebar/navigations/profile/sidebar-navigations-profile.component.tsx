@@ -12,12 +12,7 @@ const MENU: IMenuItem[] = [
   {
     id: 1,
     text: "Профиль",
-    path: "/profile",
-  },
-  {
-    id: 2,
-    text: "Классы",
-    path: "/profile/classes",
+    path: "/applicant",
   },
 ];
 

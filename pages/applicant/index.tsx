@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/require-await */
 import { GetServerSideProps, NextPage } from "next";
-import ProfilePage from "../../GTGPages/profile/profile.component";
-import PrivateLayout from "../../layouts/private/private.layout";
+import ApplicantPage from "../../GTGPages/applicant/index/applicant.component";
 
+// eslint-disable-next-line @typescript-eslint/require-await
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   if (!req?.cookies?.token) {
     return {
@@ -18,10 +17,10 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   };
 };
 
-const Profile: NextPage = () => (
-  <PrivateLayout>
-    <ProfilePage />
-  </PrivateLayout>
+const Applicant: NextPage = (): JSX.Element => (
+  <div>
+    <ApplicantPage />
+  </div>
 );
 
-export default Profile;
+export default Applicant;
