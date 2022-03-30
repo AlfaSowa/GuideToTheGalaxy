@@ -57,9 +57,7 @@ const ApplicantLoginForm: FC = () => {
                   onChange={handleChange}
                 />
               </FormItem>
-            </FormRow>
 
-            <FormRow>
               <FormItem>
                 <TextField
                   name="password"

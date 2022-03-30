@@ -1,4 +1,5 @@
 import { ChangeEvent, FC } from "react";
+import styles from "./styles.module.scss";
 
 interface ITextField {
   value: string;
@@ -13,9 +14,17 @@ export const TextField: FC<ITextField> = ({
   onChange,
   name,
 }) => (
-  <label>
-    <span>{placeholder}</span>
+  <div className={styles.root}>
+    <label className={styles.label} htmlFor={name}>
+      {placeholder}
+    </label>
 
-    <input value={value} name={name} onChange={onChange} />
-  </label>
+    <input
+      className={styles.input}
+      value={value}
+      name={name}
+      id={name}
+      onChange={onChange}
+    />
+  </div>
 );

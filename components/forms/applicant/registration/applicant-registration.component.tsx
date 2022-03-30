@@ -102,6 +102,7 @@ const ApplicantRegistrationForm: FC = () => {
 
           <FormActions>
             <Button type="submit">Зарегистрироваться</Button>
+            <Button>Отмена</Button>
           </FormActions>
         </Form>
       )}
