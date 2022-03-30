@@ -8,7 +8,7 @@ const SETTINGS_MENU = [
   {
     id: 1,
     name: "Профиль",
-    link: "profile",
+    link: "applicant",
   },
 ];
 
