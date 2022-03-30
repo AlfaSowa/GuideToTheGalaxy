@@ -1,0 +1,17 @@
+.root {
+  position: relative;
+  display: block;
+
+  .label {
+    font-size: 0.8rem;
+    margin: 0 0 4px 0;
+    display: block;
+  }
+
+  .input {
+    border: 1px solid var(--color-primary);
+    width: 100%;
+    padding: 8px;
+    display: block;
+  }
+}
