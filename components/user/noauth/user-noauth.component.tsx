@@ -14,7 +14,7 @@ const UserNoAuth: FC = () => {
   }, [router]);
 
   const handleClickLogin = useCallback(() => {
-    router.push("/account/applicant");
+    router.push("/login/applicant");
   }, [router]);
 
   if (fetchingAccount) {

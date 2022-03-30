@@ -10,9 +10,19 @@ interface IMenuItem {
 
 const MENU: IMenuItem[] = [
   {
+    id: 0,
+    text: "Главная",
+    path: "/",
+  },
+  {
     id: 1,
     text: "Профиль",
     path: "/applicant",
+  },
+  {
+    id: 2,
+    text: "Резюме",
+    path: "/applicant/resumes",
   },
 ];
 

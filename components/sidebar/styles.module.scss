@@ -1,6 +1,6 @@
 .sidebar {
   position: fixed;
-  top: 50px;
+  top: 0;
   bottom: 0;
   background: var(--color-bg);
   width: 250px;
@@ -8,5 +8,9 @@
 
   .inner {
     padding: 8px 0;
+  }
+
+  &.public {
+    top: 50px;
   }
 }
