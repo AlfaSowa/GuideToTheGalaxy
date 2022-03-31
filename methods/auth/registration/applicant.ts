@@ -3,20 +3,12 @@ import { Axios } from "../../../service/axios";
 import { ICreateApplicant } from "./interfaces";
 
 export const createApplicant = async ({
-  lastName,
-  firstName,
-  phone,
-  email,
+  username,
   password,
-  confirmPassword,
 }: ICreateApplicant): Promise<void> => {
   const model = {
-    lastName,
-    firstName,
-    phone,
-    email,
+    username,
     password,
-    confirmPassword,
   };
 
   try {

@@ -1,10 +1,5 @@
 import React from "react";
-import Document, {
-  Head, Html, Main, NextScript,
-} from "next/document";
-import { withFork } from "effector-next";
-
-const enhance = withFork({ debug: false });
+import Document, { Head, Html, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
   render() {
@@ -31,9 +26,10 @@ class MyDocument extends Document {
 MyDocument.getInitialProps = async (ctx) => {
   const originalRenderPage = ctx.renderPage;
 
-  ctx.renderPage = () => originalRenderPage({
-    enhanceApp: (App) => App,
-  });
+  ctx.renderPage = () =>
+    originalRenderPage({
+      enhanceApp: (App) => App,
+    });
 
   const initialProps = await Document.getInitialProps(ctx);
 
@@ -43,4 +39,4 @@ MyDocument.getInitialProps = async (ctx) => {
   };
 };
 
-export default enhance(MyDocument);
+export default MyDocument;

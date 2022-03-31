@@ -2,24 +2,10 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import "../styles/globals.scss";
 import App, { AppContext, AppProps } from "next/app";
-import { withHydrate } from "effector-next";
-import { useEffect } from "react";
 import MobileNavigationBottom from "../components/mobile/navigation/bottom/mobile-navigation-bottom.component";
 import { getCookie } from "../methods/cookies";
-import { useAccount } from "../hooks/account/useAccount";
-import { setTokenFx } from "../models/account/token";
-
-const enhance = withHydrate();
 
 function WrappedApp({ Component, pageProps }: AppProps) {
-  const { account, token, fetchAccountData } = useAccount();
-
-  useEffect(() => {
-    if (token && !account) {
-      fetchAccountData(token);
-    }
-  }, [account, fetchAccountData, token]);
-
   return (
     <>
       <Component {...pageProps} />
@@ -38,9 +24,9 @@ WrappedApp.getInitialProps = async (appContext: AppContext) => {
     const cookies = appContext?.ctx?.req?.headers?.cookie || null;
 
     if (cookies && getCookie("token", cookies)) {
-      setTokenFx(getCookie("token", cookies));
+      // записать токен из кук
     } else {
-      setTokenFx(null);
+      // токен null
     }
   }
 
@@ -56,4 +42,4 @@ WrappedApp.getInitialProps = async (appContext: AppContext) => {
   };
 };
 
-export default enhance(WrappedApp);
+export default WrappedApp;
