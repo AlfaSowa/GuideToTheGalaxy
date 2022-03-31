@@ -1,5 +1,4 @@
 import { AxiosResponse } from "axios";
-import { fetchAccountDataFx } from "../../models/account";
 import { Axios } from "../../service/axios";
 import { setCookie } from "../cookies";
 import { AuthType } from "./interfaces";
@@ -18,7 +17,6 @@ export const getToken = async ({
     );
 
     if (status === 201) {
-      fetchAccountDataFx(data);
       setCookie({
         name: "token",
         value: data?.token,

@@ -1,8 +1,4 @@
 export interface ICreateApplicant {
-  lastName: string;
-  firstName: string;
-  phone: string;
-  email: string;
+  username: string;
   password: string;
-  confirmPassword: string;
 }
