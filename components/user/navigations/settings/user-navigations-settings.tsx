@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { useAccount } from "../../../../hooks/account/useAccount";
-import UserListButton from "../../list/user-list-button.component";
-import UserListItem from "../../list/user-list-item.component";
-import UserList from "../../list/user-list.component";
+import UserListButton from "../../list/user-list-button";
+import UserListItem from "../../list/user-list-item";
+import UserList from "../../list/user-list";
 
 const SETTINGS_MENU = [
   {

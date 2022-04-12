@@ -1,7 +1,7 @@
 import { FC, useCallback, useEffect, useRef } from "react";
-import UserNavigationsMain from "../navigations/main/user-navigations-main.component";
-import UserSettingsMain from "../navigations/settings/user-navigations-settings.component";
-import UserProfile from "../profile/profile.component";
+import UserNavigationsMain from "../navigations/main/user-navigations-main";
+import UserSettingsMain from "../navigations/settings/user-navigations-settings";
+import UserProfile from "../profile/profile";
 import styles from "./styles.module.scss";
 
 interface IUserDropdown {

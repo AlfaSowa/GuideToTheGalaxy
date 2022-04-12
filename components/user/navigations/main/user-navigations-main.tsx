@@ -1,6 +1,6 @@
 import { FC } from "react";
-import UserListItem from "../../list/user-list-item.component";
-import UserList from "../../list/user-list.component";
+import UserListItem from "../../list/user-list-item";
+import UserList from "../../list/user-list";
 
 const USER_MENU = [
   {

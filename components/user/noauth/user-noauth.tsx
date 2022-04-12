@@ -1,6 +1,6 @@
 import { FC, useCallback } from "react";
 import { useRouter } from "next/router";
-import Button from "../../ui/button/button.component";
+import Button from "../../ui/button/button";
 import styles from "./styles.module.scss";
 
 const UserNoAuth: FC = () => {

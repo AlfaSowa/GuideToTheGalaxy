@@ -1,5 +1,5 @@
 import { FC } from "react";
-import ApplicantLoginForm from "../../../components/forms/applicant/login/applicant-login.component";
+import ApplicantLoginForm from "../../../components/forms/applicant/login/applicant-login";
 import styles from "./styles.module.scss";
 
 const ApplicantLoginPage: FC = () => (

@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import styles from "./styles.module.scss";
-import UserDropdown from "../dropdown/user-dropdown.components";
+import UserDropdown from "../dropdown/user-dropdown";
 
 const UserAuth: FC = () => {
   const [showDropdown, setShowDropdown] = useState<boolean>(false);

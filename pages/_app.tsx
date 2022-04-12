@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import "../styles/globals.scss";
 import App, { AppContext, AppProps } from "next/app";
-import MobileNavigationBottom from "../components/mobile/navigation/bottom/mobile-navigation-bottom.component";
+import MobileNavigationBottom from "../components/mobile/navigation/bottom/mobile-navigation-bottom";
 import { getCookie } from "../methods/cookies";
 
 function WrappedApp({ Component, pageProps }: AppProps) {

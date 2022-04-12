@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { FC } from "react";
-import Container from "../../lib/container/container.component";
-import Typography from "../typography/typography.component";
+import Container from "../../lib/container/container";
+import Typography from "../typography/typography";
 import styles from "./styles.module.scss";
 
 interface IMainBlock {

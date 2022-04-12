@@ -1,7 +1,7 @@
 import { FC } from "react";
-import Container from "../lib/container/container.component";
-import Logo from "../lib/logo/logo.component";
-import UserMenu from "../user/menu/user-menu.component";
+import Container from "../lib/container/container";
+import Logo from "../lib/logo/logo";
+import UserMenu from "../user/menu/user-menu";
 import styles from "./styles.module.scss";
 
 const Header: FC = () => (

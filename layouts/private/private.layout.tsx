@@ -1,8 +1,8 @@
 import { FC } from "react";
-import Header from "../../components/header/header.component";
-import SidebarNavigationsProfile from "../../components/sidebar/navigations/profile/sidebar-navigations-profile.component";
-import Sidebar from "../../components/sidebar/sidebar.component";
-import MainBlock from "../../components/ui/main/main.component";
+import Header from "../../components/header/header";
+import SidebarNavigationsProfile from "../../components/sidebar/navigations/profile/sidebar-navigations-profile";
+import Sidebar from "../../components/sidebar/sidebar";
+import MainBlock from "../../components/ui/main/main";
 import { ILayout } from "../../interfaces/layouts";
 
 type IPrivateLayout = ILayout;

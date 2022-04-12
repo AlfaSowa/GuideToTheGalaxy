@@ -11,7 +11,7 @@ import {
   FormRow,
 } from "../../../lib/form/form-components";
 import { TextField } from "../../../lib/form/form-fields";
-import Button from "../../../ui/button/button.component";
+import Button from "../../../ui/button/button";
 
 const loginSchema = yup.object().shape({
   username: yup.string().required("Обязательное поле"),

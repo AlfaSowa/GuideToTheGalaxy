@@ -1,8 +1,8 @@
 import { FC } from "react";
-import AccordionItem from "../../../ui/accordion/accordion-item.component";
-import Accordion from "../../../ui/accordion/accordion.component";
-import SidebarMenuItem from "../../components/menu/sidebar-menu-item.component";
-import SidebarMenu from "../../components/menu/sidebar-menu.component";
+import AccordionItem from "../../../ui/accordion/accordion-item";
+import Accordion from "../../../ui/accordion/accordion";
+import SidebarMenuItem from "../../components/menu/sidebar-menu-item";
+import SidebarMenu from "../../components/menu/sidebar-menu";
 
 const SidebarNavigationsMain: FC = () => (
   <SidebarMenu>

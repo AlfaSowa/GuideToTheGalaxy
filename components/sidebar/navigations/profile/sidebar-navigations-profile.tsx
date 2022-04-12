@@ -1,6 +1,6 @@
 import { FC } from "react";
-import SidebarMenuItem from "../../components/menu/sidebar-menu-item.component";
-import SidebarMenu from "../../components/menu/sidebar-menu.component";
+import SidebarMenuItem from "../../components/menu/sidebar-menu-item";
+import SidebarMenu from "../../components/menu/sidebar-menu";
 
 interface IMenuItem {
   text: string;

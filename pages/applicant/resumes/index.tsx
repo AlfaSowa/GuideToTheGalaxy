@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/require-await */
 import { GetServerSideProps } from "next";
-import ApplicantResumesPage from "../../../GTGPages/applicant/resumes/applicant-resumes.component";
+import ApplicantResumesPage from "../../../GTGPages/applicant/resumes/applicant-resumes";
 import { Resumes } from "../../../interfaces/resumes";
 import PrivateLayout from "../../../layouts/private/private.layout";
 
